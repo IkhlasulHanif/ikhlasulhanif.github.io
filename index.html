@@ -27,7 +27,7 @@
             perspective: 1000px; /* For 3D space */
         }
 
-        /* --- BACKGROUND ANIMATION (The "Moving Around" Vibe) --- */
+        /* --- BACKGROUND ANIMATION --- */
         .background-shapes {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -102,13 +102,12 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
 
-        /* This class is added via JS for the hover effect */
         .card-hover {
             z-index: 10;
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
-        /* --- FILTER BUTTONS --- */
+        /* --- FILTER BUTTONS (CHECKLIST STYLE) --- */
         .filter-container {
             margin-bottom: 20px;
             display: flex;
@@ -126,25 +125,36 @@
             transition: all 0.3s ease;
             font-weight: 600;
             color: var(--text-muted);
+            opacity: 0.7; /* Dimmed when inactive */
         }
 
-        .filter-btn:hover, .filter-btn.active {
+        /* State: Active (Selected) */
+        .filter-btn.active {
             background: var(--accent);
             color: white;
             border-color: var(--accent);
+            opacity: 1;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(9, 132, 227, 0.2);
+        }
+        
+        .filter-btn:hover {
             transform: translateY(-2px);
+            opacity: 1;
         }
 
         /* --- PUBLICATIONS SPECIFIC --- */
         .paper-card {
-            /* For filtering transition */
-            transition: all 0.5s ease, opacity 0.3s ease; 
+            transition: all 0.4s ease; 
         }
+        
+        /* Hidden State for Filtering */
         .paper-card.hidden {
             display: none;
             opacity: 0;
             transform: scale(0.9);
         }
+
         .paper-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
         .paper-authors { font-size: 0.95rem; color: var(--text-main); margin-bottom: 8px; }
         .paper-venue { font-size: 0.9rem; font-weight: bold; color: var(--accent); font-style: italic; }
@@ -181,7 +191,6 @@
 </head>
 <body>
 
-    <!-- Background Animation Layers -->
     <div class="background-shapes">
         <div class="shape"></div>
         <div class="shape"></div>
@@ -205,14 +214,12 @@
 
         <section>
             <h2>Selected Publications</h2>
-            <!-- Filters -->
             <div class="filter-container" id="pub-filters">
-                <button class="filter-btn active" onclick="filterPapers('all')">All</button>
-                <button class="filter-btn" onclick="filterPapers('astar')">A* Conference</button>
-                <button class="filter-btn" onclick="filterPapers('journal')">Journal</button>
-                <button class="filter-btn" onclick="filterPapers('workshop')">Workshop</button>
-                <button class="filter-btn" onclick="filterPapers('preprint')">Preprint</button>
-                <button class="filter-btn" onclick="filterPapers('others')">Others</button>
+                <button class="filter-btn active" onclick="toggleFilter(this)" data-val="astar">A* Conference</button>
+                <button class="filter-btn active" onclick="toggleFilter(this)" data-val="journal">Journal</button>
+                <button class="filter-btn active" onclick="toggleFilter(this)" data-val="workshop">Workshop</button>
+                <button class="filter-btn active" onclick="toggleFilter(this)" data-val="preprint">Preprint</button>
+                <button class="filter-btn active" onclick="toggleFilter(this)" data-val="others">Others</button>
             </div>
             <div id="publications-list"></div>
         </section>
@@ -239,9 +246,6 @@
         </footer>
     </div>
 
-    <!-- ================================================================= -->
-    <!--                       CONFIGURATION AREA                          -->
-    <!-- ================================================================= -->
     <script>
         const config = {
             profile: {
@@ -300,7 +304,7 @@
                     title: "UNVEILING: What Makes Linguistics Olympiad Puzzles Tricky for LLMs?",
                     authors: "M. Choudhary... I.A. Hanif... M. Choudhury",
                     venue: "COLM 2025",
-                    category: "astar", /* Assuming COLM is high tier/conference */
+                    category: "astar",
                     link: "#"
                 }
             ],
@@ -447,17 +451,23 @@
             });
         }
 
-        // --- FILTERING LOGIC ---
-        function filterPapers(category) {
-            // Update Buttons
-            const buttons = document.querySelectorAll('.filter-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+        // --- FILTERING LOGIC (CHECKLIST) ---
+        function toggleFilter(btn) {
+            // 1. Toggle visual state of clicked button
+            btn.classList.toggle('active');
 
-            // Filter Cards
+            // 2. Get list of all currently active categories
+            const activeButtons = document.querySelectorAll('.filter-btn.active');
+            const activeCategories = Array.from(activeButtons).map(b => b.getAttribute('data-val'));
+
+            // 3. Loop through cards and show/hide
             const cards = document.querySelectorAll('.paper-card');
+            
             cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
+                const cardCategory = card.getAttribute('data-category');
+                
+                // Logic: If category is in our "active list", show it.
+                if (activeCategories.includes(cardCategory)) {
                     card.classList.remove('hidden');
                 } else {
                     card.classList.add('hidden');
