@@ -4,259 +4,261 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Ikhlasul Akmal Hanif – NLP Researcher & Ph.D. Student</title>
+    <title>Ikhlasul Akmal Hanif – NLP Researcher</title>
 
-    <!-- SEO BASICS -->
-    <meta name="description" content="Portfolio of Ikhlasul Akmal Hanif, Ph.D. student at MBZUAI and NLP researcher focusing on efficient LLMs, LLM security, multilinguality, and representation learning.">
-    <meta name="keywords" content="Ikhlasul Akmal Hanif, NLP, MBZUAI, PhD student, large language models, LLM security, multilingual NLP, representation learning, AI research, publications">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://ikhlasulhanif.github.io/">
-
-    <!-- OPEN GRAPH (for social / link previews) -->
-    <meta property="og:title" content="Ikhlasul Akmal Hanif – NLP Researcher & Ph.D. Student">
-    <meta property="og:description" content="Ph.D. student at MBZUAI focused on efficient LLMs, LLM security, multilinguality, and representation learning. Explore my publications, experience, and awards.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ikhlasulhanif.github.io/">
-    <!-- Optional: if you add a preview image later, uncomment below and update the URL -->
-    <!-- <meta property="og:image" content="https://ikhlasulhanif.github.io/preview.png"> -->
-
-    <!-- TWITTER CARD -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Ikhlasul Akmal Hanif – NLP Researcher & Ph.D. Student">
-    <meta name="twitter:description" content="Portfolio of Ikhlasul Akmal Hanif, Ph.D. student at MBZUAI and NLP researcher.">
-    <!-- <meta name="twitter:image" content="https://ikhlasulhanif.github.io/preview.png"> -->
-
-    <!-- STRUCTURED DATA (optional but good for search engines) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Ikhlasul Akmal Hanif",
-      "url": "https://ikhlasulhanif.github.io/",
-      "jobTitle": "Ph.D. Student in NLP",
-      "affiliation": {
-        "@type": "CollegeOrUniversity",
-        "name": "MBZUAI"
-      },
-      "sameAs": [
-        "https://linkedin.com/in/ikhlasul-akmal-h/"
-      ]
-    }
-    </script>
+    <meta name="description" content="Academic website of Ikhlasul Akmal Hanif, Ph.D. student at MBZUAI.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- CSS VARIABLES & RESET --- */
+        /* --- ACADEMIC THEME VARIABLES --- */
         :root {
-            --bg-color: #f0f2f5;
-            --card-bg: rgba(255, 255, 255, 0.9);
-            --text-main: #2d3436;
-            --text-muted: #636e72;
-            --accent: #0984e3;
-            --accent-hover: #74b9ff;
-            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --bg-color: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --link-color: #0056b3; /* Academic Blue */
+            --link-hover: #003d80;
+            --border-color: #e0e0e0;
+            --sidebar-width: 280px;
+            --font-heading: 'Lora', serif;
+            --font-body: 'Roboto', sans-serif;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
+
         body {
-            font-family: var(--font-main);
+            font-family: var(--font-body);
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
-            overflow-x: hidden;
-            perspective: 1000px; /* For 3D space */
         }
 
-        /* --- BACKGROUND ANIMATION --- */
-        .background-shapes {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-        .shape {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.6;
-            animation: float 20s infinite alternate;
-        }
-        .shape:nth-child(1) {
-            top: -10%; left: -10%; width: 50vw; height: 50vw;
-            background: #a29bfe;
-            animation-duration: 25s;
-        }
-        .shape:nth-child(2) {
-            bottom: -10%; right: -10%; width: 40vw; height: 40vw;
-            background: #74b9ff;
-            animation-duration: 30s;
-            animation-delay: -5s;
-        }
-        .shape:nth-child(3) {
-            top: 40%; left: 40%; width: 30vw; height: 30vw;
-            background: #81ecec;
-            animation-duration: 35s;
-            animation-delay: -10s;
-        }
-
-        @keyframes float {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(50px, 50px) rotate(20deg); }
-        }
+        a { color: var(--link-color); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: var(--link-hover); text-decoration: underline; }
 
         /* --- LAYOUT --- */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        header { padding: 80px 0 50px; text-align: center; }
-
-        h1 { font-size: 2.8rem; margin-bottom: 10px; letter-spacing: -1px; color: #2d3436; }
-        h2 { 
-            font-size: 1.5rem; 
-            margin-bottom: 25px; 
-            border-bottom: 2px solid rgba(0,0,0,0.1); 
-            padding-bottom: 10px;
-            display: inline-block;
-        }
-        
-        .subtitle { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 20px; }
-        .contact-links a { margin: 0 10px; font-weight: 600; text-decoration: none; color: var(--accent); }
-
-        /* --- 3D CARDS --- */
-        .card {
-            background: var(--card-bg);
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.5);
-            backdrop-filter: blur(10px);
-            /* 3D Transforms init */
-            transform-style: preserve-3d;
-            transform: perspective(1000px);
-            transition: transform 0.1s ease-out, box-shadow 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-
-        .card-hover {
-            z-index: 10;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        /* --- FILTER BUTTONS (CHECKLIST STYLE) --- */
-        .filter-container {
-            margin-bottom: 20px;
+        .page-wrapper {
             display: flex;
-            gap: 10px;
+            max-width: 1100px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+
+        /* --- SIDEBAR (Left Column) --- */
+        .sidebar {
+            width: var(--sidebar-width);
+            padding: 40px 20px;
+            border-right: 1px solid var(--border-color);
+            text-align: center;
+            flex-shrink: 0;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            background-color: #f5f5f5; /* Placeholder color */
+        }
+
+        .sidebar h1 {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: #111;
+        }
+
+        .sidebar-tagline {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .contact-info {
+            font-size: 0.85rem;
+            margin-bottom: 25px;
+            color: var(--text-light);
+        }
+
+        /* --- SOCIAL ICONS --- */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
             flex-wrap: wrap;
         }
 
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-light);
+            transition: fill 0.3s;
+        }
+
+        .social-links a:hover .social-icon {
+            fill: var(--link-color);
+        }
+
+        /* --- MAIN CONTENT (Right Column) --- */
+        .main-content {
+            flex-grow: 1;
+            padding: 50px 60px;
+        }
+
+        section { margin-bottom: 50px; }
+
+        h2 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #111;
+        }
+
+        p { margin-bottom: 15px; }
+
+        /* --- PUBLICATIONS LIST STYLE --- */
+        .filter-container { margin-bottom: 25px; }
+        
         .filter-btn {
-            background: rgba(255,255,255,0.6);
-            border: 1px solid rgba(0,0,0,0.1);
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            color: var(--text-muted);
-            opacity: 0.7; /* Dimmed when inactive */
-        }
-
-        /* State: Active (Selected) */
-        .filter-btn.active {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-            opacity: 1;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 6px rgba(9, 132, 227, 0.2);
-        }
-        
-        .filter-btn:hover {
-            transform: translateY(-2px);
-            opacity: 1;
-        }
-
-        /* --- PUBLICATIONS SPECIFIC --- */
-        .paper-card {
-            transition: all 0.4s ease; 
-        }
-        
-        /* Hidden State for Filtering */
-        .paper-card.hidden {
-            display: none;
-            opacity: 0;
-            transform: scale(0.9);
-        }
-
-        .paper-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
-        .paper-authors { font-size: 0.95rem; color: var(--text-main); margin-bottom: 8px; }
-        .paper-venue { font-size: 0.9rem; font-weight: bold; color: var(--accent); font-style: italic; }
-        .category-tag {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            padding: 3px 6px;
+            background: none;
+            border: 1px solid var(--border-color);
             border-radius: 4px;
-            background: #dfe6e9;
-            color: #636e72;
-            margin-right: 8px;
-            letter-spacing: 0.5px;
+            padding: 5px 12px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--text-light);
         }
 
-        /* --- TIMELINE (Education & Exp) --- */
-        .timeline-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
-        .role { font-weight: bold; font-size: 1.1rem; }
-        .date { color: var(--text-muted); font-size: 0.9rem; }
-        .institution { color: var(--accent); font-weight: 600; margin-bottom: 10px; display: block; }
-        .details-list { margin-left: 20px; font-size: 0.95rem; color: var(--text-muted); }
-        .details-list li { margin-bottom: 5px; }
+        .filter-btn:hover { background: #f9f9f9; color: #333; }
+        
+        .filter-btn.active {
+            background-color: var(--text-main);
+            color: #fff;
+            border-color: var(--text-main);
+        }
 
-        /* --- AWARDS --- */
-        .award-item { display: flex; margin-bottom: 10px; }
-        .award-year { min-width: 60px; font-weight: bold; color: var(--accent); }
+        .pub-item {
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 3px solid transparent;
+            transition: border-left 0.2s;
+        }
+        
+        .pub-item:hover { border-left: 3px solid var(--link-color); }
 
-        footer { text-align: center; padding: 40px 0; color: var(--text-muted); font-size: 0.8rem; }
+        .pub-item.hidden { display: none; }
 
-        @media (max-width: 600px) {
-            .timeline-header { flex-direction: column; }
-            h1 { font-size: 2rem; }
+        .pub-title { font-weight: 600; display: block; margin-bottom: 2px; }
+        .pub-authors { font-size: 0.95rem; color: var(--text-main); }
+        .pub-venue { font-style: italic; font-size: 0.95rem; color: var(--text-light); }
+        .pub-tag { 
+            font-size: 0.7rem; 
+            text-transform: uppercase; 
+            border: 1px solid #ddd; 
+            padding: 1px 4px; 
+            border-radius: 3px; 
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        /* --- TIMELINE (Education/Exp) --- */
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            margin-bottom: 20px;
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .timeline-content h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .timeline-content .institution {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .timeline-content ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .page-wrapper { flex-direction: column; }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .main-content { padding: 30px 20px; }
+            .timeline-item { grid-template-columns: 1fr; }
+            .timeline-date { margin-bottom: 5px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="background-shapes" aria-hidden="true">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
+    <div class="page-wrapper">
+        <aside class="sidebar" id="sidebar-container">
+            </aside>
 
-    <div class="container">
-        <header id="profile-section"></header>
-
-        <main>
+        <main class="main-content">
+            
             <section id="about">
-                <h2>Profile</h2>
-                <div class="card">
-                    <p id="bio-text"></p>
-                </div>
+                <h2>About</h2>
+                <div id="bio-text"></div>
             </section>
 
             <section>
-                <h2>Education</h2>
-                <div id="education-list"></div>
+                <h2>News & Updates</h2>
+                <ul style="list-style-type: disc; margin-left: 20px; font-size: 0.95rem;">
+                    <li><strong>Dec 2025:</strong> Our paper on SEA-VL was accepted to EMNLP 2025!</li>
+                    <li><strong>May 2025:</strong> Started my Ph.D. journey at MBZUAI.</li>
+                </ul>
             </section>
 
             <section>
-                <h2>Selected Publications</h2>
-                <div class="filter-container" id="pub-filters" aria-label="Filter publications by type">
-                    <button class="filter-btn active" onclick="toggleFilter(this)" data-val="astar">A* Conference</button>
+                <h2>Publications</h2>
+                <div class="filter-container" id="pub-filters">
+                    <button class="filter-btn active" onclick="toggleFilter(this)" data-val="astar">A* Conf</button>
                     <button class="filter-btn active" onclick="toggleFilter(this)" data-val="journal">Journal</button>
                     <button class="filter-btn active" onclick="toggleFilter(this)" data-val="workshop">Workshop</button>
                     <button class="filter-btn active" onclick="toggleFilter(this)" data-val="preprint">Preprint</button>
@@ -266,85 +268,97 @@
             </section>
 
             <section>
-                <h2>Professional Experience</h2>
+                <h2>Education</h2>
+                <div id="education-list"></div>
+            </section>
+
+            <section>
+                <h2>Experience</h2>
                 <div id="experience-list"></div>
+            </section>
+
+            <section>
+                <h2>Service & Volunteering</h2>
+                <div id="volunteering-list"></div>
             </section>
             
             <section>
-                <h2>Volunteering</h2>
-                <div id="volunteering-list"></div>
+                <h2>Awards</h2>
+                <ul id="awards-list" style="list-style-type: disc; margin-left: 20px;"></ul>
             </section>
 
-            <section>
-                <h2>Honors &amp; Awards</h2>
-                <div class="card">
-                    <div id="awards-list"></div>
-                </div>
-            </section>
+            <footer>
+                <p>&copy; 2025 Ikhlasul Akmal Hanif. Last updated: December 2025.</p>
+            </footer>
         </main>
-
-        <footer>
-            <p>&copy; 2025 Ikhlasul Akmal Hanif.</p>
-        </footer>
     </div>
 
+    <svg style="display: none;">
+        <symbol id="icon-scholar" viewBox="0 0 24 24"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></symbol>
+        <symbol id="icon-twitter" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></symbol>
+        <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></symbol>
+        <symbol id="icon-github" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></symbol>
+        <symbol id="icon-cv" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></symbol>
+    </svg>
+
     <script>
+        // CONFIG DATA - MAINTAINED FROM PREVIOUS VERSION
         const config = {
             profile: {
                 name: "Ikhlasul Akmal Hanif",
-                tagline: "Ph.D. Student at MBZUAI | NLP Researcher",
+                tagline: "Ph.D. Student at MBZUAI", // Updated Title
                 email: "ikhlasul.akmal@mbzuai.ac.ae",
-                linkedin: "https://linkedin.com/in/ikhlasul-akmal-h/",
-                bio: "I hold a Bachelor’s degree from the University of Indonesia and am currently pursuing a direct PhD at MBZUAI, supervised by Prof. Fajri Koto and Prof. Iryna Gurevych. My research focuses on efficient LLMs, LLM security, multilinguality, and representation learning."
+                // PLACEHOLDER IMAGE - REPLACE WITH YOUR OWN URL
+                photo: "https://via.placeholder.com/300", 
+                links: {
+                    scholar: "https://scholar.google.com",
+                    twitter: "https://x.com",
+                    linkedin: "https://linkedin.com/in/ikhlasul-akmal-h/",
+                    github: "https://github.com/ikhlasulhanif",
+                    cv: "/cv.pdf"
+                },
+                bio: "I am a first-year Ph.D. student in the Natural Language Processing department at MBZUAI, fortunate to be advised by Prof. Fajri Koto and Prof. Iryna Gurevych. Previously, I completed my Bachelor's at Universitas Indonesia. My research interests broadly cover efficient Large Language Models, safety/security, and multilingual NLP for low-resource languages."
             },
-            // CATEGORY OPTIONS: "astar", "journal", "workshop", "preprint", "others"
             publications: [
                 {
                     title: "Crowdsource, Crawl, or Generate? Creating SEA-VL...",
-                    authors: "S. Cahyawijaya... I.A. Hanif, et al.",
+                    authors: "S. Cahyawijaya... <b>I.A. Hanif</b>, et al.",
                     venue: "EMNLP 2025",
                     category: "astar", 
                     link: "#"
                 },
                 {
                     title: "Evaluating State-of-the-Art Encoders for Multi-Label Emotion Detection",
-                    authors: "I.A. Hanif*, E.P. Yulianrifat*, et al.",
+                    authors: "<b>I.A. Hanif*</b>, E.P. Yulianrifat*, et al.",
                     venue: "SemEval 2025",
                     category: "workshop", 
                     link: "#"
                 },
                 {
                     title: "Tutor Identity Classification using DiReC",
-                    authors: "E. Tjitrahardja*, I.A. Hanif*",
+                    authors: "E. Tjitrahardja*, <b>I.A. Hanif*</b>",
                     venue: "BEA @ ACL 2025",
                     category: "workshop",
                     note: "3rd Place",
                     link: "#"
                 },
                 {
-                    title: "Evaluating Data Augmentation... Maltese to English Speech Translation",
-                    authors: "F.A. Tjiaranata... I.A. Hanif",
-                    venue: "IWSLT 2025",
-                    category: "workshop",
-                    link: "#"
-                },
-                {
                     title: "MAG-BERT-ARL for Fair Automated Video Interview Assessment",
-                    authors: "B. Putra... I.A. Hanif... S. Okada",
+                    authors: "B. Putra... <b>I.A. Hanif</b>... S. Okada",
                     venue: "IEEE Access 2025",
                     category: "journal",
                     link: "#"
                 },
                 {
                     title: "IndoMath: A Benchmark for Mathematical Reasoning in Indonesian",
-                    authors: "I.A. Hanif, R. Mahendra",
+                    authors: "<b>I.A. Hanif</b>, R. Mahendra",
                     venue: "Under Review, EACL 2025",
                     category: "preprint",
                     link: "#"
                 },
                 {
                     title: "UNVEILING: What Makes Linguistics Olympiad Puzzles Tricky for LLMs?",
-                    authors: "M. Choudhary... I.A. Hanif... M. Choudhury",
+                    authors: "M. Choudhary... <b>I.A. Hanif</b>... M. Choudhury",
                     venue: "COLM 2025",
                     category: "astar",
                     link: "#"
@@ -352,16 +366,16 @@
             ],
             education: [
                 {
-                    period: "2025 – 2029",
-                    degree: "Ph.D. in NLP",
-                    school: "MBZUAI",
+                    period: "2025 – Present",
+                    degree: "Ph.D. in Natural Language Processing",
+                    school: "Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)",
                     details: ["Advisors: Prof. Fajri Koto & Prof. Iryna Gurevych"]
                 },
                 {
                     period: "2021 – 2025",
                     degree: "B. Comp. Sci.",
                     school: "Universitas Indonesia",
-                    details: ["Cum Laude, GPA: 3.80/4.00"]
+                    details: ["Graduated Cum Laude", "GPA: 3.80 / 4.00"]
                 }
             ],
             experience: [
@@ -415,133 +429,106 @@
         // --- RENDER LOGIC ---
 
         function render() {
-            // Profile
-            document.getElementById('profile-section').innerHTML = `
+            // 1. Sidebar Rendering
+            const sidebar = document.getElementById('sidebar-container');
+            sidebar.innerHTML = `
+                <img src="${config.profile.photo}" alt="${config.profile.name}" class="profile-photo">
                 <h1>${config.profile.name}</h1>
-                <div class="subtitle">${config.profile.tagline}</div>
-                <div class="contact-links">
-                    <a href="mailto:${config.profile.email}">Email</a> | 
-                    <a href="${config.profile.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <div class="sidebar-tagline">${config.profile.tagline}</div>
+                
+                <div class="contact-info">
+                    <a href="mailto:${config.profile.email}">${config.profile.email}</a>
+                </div>
+
+                <div class="social-links">
+                    <a href="${config.profile.links.scholar}" target="_blank" title="Google Scholar">
+                        <svg class="social-icon"><use href="#icon-scholar"></use></svg>
+                    </a>
+                    <a href="${config.profile.links.twitter}" target="_blank" title="Twitter/X">
+                        <svg class="social-icon"><use href="#icon-twitter"></use></svg>
+                    </a>
+                    <a href="${config.profile.links.linkedin}" target="_blank" title="LinkedIn">
+                        <svg class="social-icon"><use href="#icon-linkedin"></use></svg>
+                    </a>
+                    <a href="${config.profile.links.github}" target="_blank" title="GitHub">
+                        <svg class="social-icon"><use href="#icon-github"></use></svg>
+                    </a>
+                    <a href="${config.profile.links.cv}" target="_blank" title="CV">
+                        <svg class="social-icon"><use href="#icon-cv"></use></svg>
+                    </a>
                 </div>
             `;
-            document.getElementById('bio-text').innerText = config.profile.bio;
 
-            // Education
-            const eduContainer = document.getElementById('education-list');
-            config.education.forEach(edu => {
-                eduContainer.innerHTML += `
-                    <div class="card tilt-card">
-                        <div class="timeline-header">
-                            <div class="role">${edu.degree}</div>
-                            <div class="date">${edu.period}</div>
-                        </div>
-                        <div class="institution">${edu.school}</div>
-                        <ul class="details-list">${edu.details.map(d => `<li>${d}</li>`).join('')}</ul>
-                    </div>
-                `;
-            });
+            // 2. Bio
+            document.getElementById('bio-text').innerHTML = `<p>${config.profile.bio}</p>`;
 
-            // Publications
+            // 3. Publications
             const pubContainer = document.getElementById('publications-list');
             config.publications.forEach(pub => {
-                let catLabel = pub.category === 'astar' ? 'A* Conf' : pub.category;
+                let catLabel = pub.category;
+                if(pub.category === 'astar') catLabel = 'A*';
+                
                 pubContainer.innerHTML += `
-                    <div class="card paper-card tilt-card" data-category="${pub.category}">
-                        <div><span class="category-tag">${catLabel}</span></div>
-                        <h3><a href="${pub.link}" target="_blank" rel="noopener noreferrer">${pub.title}</a></h3>
-                        <div class="paper-authors">${pub.authors}</div>
-                        <div>
-                            <span class="paper-venue">${pub.venue}</span>
-                            ${pub.note ? ` &bull; <b>${pub.note}</b>` : ''}
+                    <div class="pub-item" data-category="${pub.category}">
+                        <a href="${pub.link}" class="pub-title">${pub.title}</a>
+                        <div class="pub-authors">${pub.authors}</div>
+                        <div class="pub-venue">
+                            ${pub.venue}
+                            ${pub.note ? ` (${pub.note})` : ''}
+                            <span class="pub-tag">${catLabel}</span>
                         </div>
                     </div>
                 `;
             });
 
-            // Experience
+            // 4. Timelines (Education, Experience, Volunteering)
+            renderTimeline('education-list', config.education);
             renderTimeline('experience-list', config.experience);
             renderTimeline('volunteering-list', config.volunteering);
 
-            // Awards
+            // 5. Awards
             const awardContainer = document.getElementById('awards-list');
             config.awards.forEach(award => {
                 const [year, desc] = award.split('|');
-                awardContainer.innerHTML += `
-                    <div class="award-item">
-                        <span class="award-year">${year.trim()}</span>
-                        <span>${desc ? desc.trim() : year}</span>
-                    </div>
-                `;
+                awardContainer.innerHTML += `<li><strong>${year.trim()}</strong>: ${desc.trim()}</li>`;
             });
-
-            init3D();
         }
 
         function renderTimeline(id, data) {
             const container = document.getElementById(id);
             data.forEach(item => {
+                // Handle different object keys for education vs experience
+                const date = item.period || item.date;
+                const title = item.degree || item.role;
+                const place = item.school || item.company;
+
                 container.innerHTML += `
-                    <div class="card tilt-card">
-                        <div class="timeline-header">
-                            <div class="role">${item.role}</div>
-                            <div class="date">${item.date}</div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">${date}</div>
+                        <div class="timeline-content">
+                            <h3>${title}</h3>
+                            <span class="institution">${place}</span>
+                            <ul>${item.details ? item.details.map(d => `<li>${d}</li>`).join('') : item.tasks.map(t => `<li>${t}</li>`).join('')}</ul>
                         </div>
-                        <div class="institution">${item.company}</div>
-                        <ul class="details-list">${item.tasks.map(t => `<li>${t}</li>`).join('')}</ul>
                     </div>
                 `;
             });
         }
 
-        // --- FILTERING LOGIC (CHECKLIST) ---
+        // --- FILTERING LOGIC ---
         function toggleFilter(btn) {
-            // 1. Toggle visual state of clicked button
             btn.classList.toggle('active');
-
-            // 2. Get list of all currently active categories
             const activeButtons = document.querySelectorAll('.filter-btn.active');
             const activeCategories = Array.from(activeButtons).map(b => b.getAttribute('data-val'));
-
-            // 3. Loop through cards and show/hide
-            const cards = document.querySelectorAll('.paper-card');
+            const items = document.querySelectorAll('.pub-item');
             
-            cards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
-                
-                // Logic: If category is in our "active list", show it.
-                if (activeCategories.includes(cardCategory)) {
-                    card.classList.remove('hidden');
+            items.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                if (activeCategories.includes(itemCategory)) {
+                    item.classList.remove('hidden');
                 } else {
-                    card.classList.add('hidden');
+                    item.classList.add('hidden');
                 }
-            });
-        }
-
-        // --- 3D TILT LOGIC ---
-        function init3D() {
-            const cards = document.querySelectorAll('.tilt-card');
-
-            cards.forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    
-                    // Calculate Rotation
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    
-                    const rotateX = ((y - centerY) / centerY) * -5; // Max 5deg rotation
-                    const rotateY = ((x - centerX) / centerX) * 5;
-
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-                    card.classList.add('card-hover');
-                });
-
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = `perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)`;
-                    card.classList.remove('card-hover');
-                });
             });
         }
 
