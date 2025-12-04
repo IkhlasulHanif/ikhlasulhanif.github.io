@@ -103,7 +103,6 @@
             transition: opacity 0.3s;
         }
         .map-container:hover { opacity: 1; }
-        /* Fix for ClustrMaps max-width */
         .map-container img { max-width: 100% !important; height: auto !important; }
 
         /* --- MAIN CONTENT --- */
@@ -136,32 +135,19 @@
             transition: all 0.3s ease;
         }
         .pub-item:hover { transform: translateX(5px); }
-        
-        /* Classes for Show More logic */
-        .pub-item.hidden { display: none; }
-        .pub-item.initially-hidden { display: none; }
+        .pub-item.hidden, .pub-item.initially-hidden { display: none; }
 
         .pub-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 600; color: #1e293b; margin-bottom: 6px; }
         .pub-meta { font-size: 0.9rem; color: var(--text-muted); }
         .pub-venue { display: inline-block; background: #f1f5f9; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; color: #475569; margin-top: 8px; text-transform: uppercase;}
 
-        /* Show More Button */
         #show-more-btn {
-            display: block;
-            margin: 20px auto 0 0;
-            background: transparent;
-            color: var(--accent-color);
-            border: 1px solid var(--accent-color);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.2s;
+            display: block; margin: 20px auto 0 0; background: transparent;
+            color: var(--accent-color); border: 1px solid var(--accent-color);
+            padding: 8px 20px; border-radius: 20px; font-size: 0.85rem;
+            cursor: pointer; transition: all 0.2s;
         }
-        #show-more-btn:hover {
-            background: var(--accent-color);
-            color: white;
-        }
+        #show-more-btn:hover { background: var(--accent-color); color: white; }
 
         /* --- TIMELINE --- */
         .timeline-item { display: flex; margin-bottom: 35px; }
@@ -171,6 +157,63 @@
         .timeline-content .org { font-style: italic; font-size: 0.95rem; color: #64748b; display: block; margin-bottom: 8px; }
         .timeline-content li { list-style: none; font-size: 0.95rem; color: #475569; margin-bottom: 4px; }
         .timeline-content li::before { content: "›"; color: var(--accent-color); font-weight: bold; margin-right: 8px; }
+
+        /* --- DROPDOWNS (DETAILS/SUMMARY) --- */
+        details {
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+            background: #fff;
+            transition: all 0.2s;
+        }
+        details:hover { border-color: #cbd5e1; }
+        
+        summary {
+            padding: 12px 15px;
+            cursor: pointer;
+            font-weight: 500;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-main);
+            background: #fff;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::after {
+            content: '+';
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            font-weight: 300;
+        }
+        details[open] summary { background: #f8fafc; border-bottom: 1px solid var(--border-color); }
+        details[open] summary::after { content: '−'; }
+
+        .details-content {
+            padding: 20px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            background: #fff;
+        }
+
+        .award-img {
+            max-width: 100%;
+            margin-top: 15px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Simple Static Award Item (No Dropdown) */
+        .award-static {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-left: 3px solid var(--accent-color);
+            background: #f8fafc;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
 
         footer { margin-top: 80px; padding-top: 30px; border-top: 1px solid var(--border-color); font-size: 0.85rem; color: var(--text-muted); }
 
@@ -218,6 +261,8 @@
         <section id="about">
             <h2>About Me</h2>
             <div id="bio-text"></div>
+            <!-- Optional Hobbies Dropdown Container -->
+            <div id="about-extra" style="margin-top: 25px;"></div>
         </section>
 
         <section id="news">
@@ -244,7 +289,6 @@
                 <button class="filter-btn" onclick="toggleFilter(this)" data-val="preprint">Preprint</button>
             </div>
             <div id="publications-list"></div>
-            <!-- Button will be injected here via JS -->
         </section>
 
         <section id="education">
@@ -259,7 +303,8 @@
 
         <section id="awards">
             <h2>Honors & Awards</h2>
-            <ul id="awards-list" style="padding-left: 20px; line-height: 1.8; color: var(--text-main);"></ul>
+            <!-- Changed ul to div to support details/summary structure -->
+            <div id="awards-list"></div>
         </section>
 
         <footer>
@@ -281,14 +326,23 @@
 <script>
     const config = {
         profile: {
-            bio: "I am a first-year Ph.D. student in the Natural Language Processing department at MBZUAI, fortunate to be advised by Prof. Fajri Koto and Prof. Iryna Gurevych. My research interests broadly cover efficient Large Language Models, safety/security, and multilingual NLP for low-resource languages."
+            bio: "I am a first-year Ph.D. student in the Natural Language Processing department at MBZUAI, fortunate to be advised by Prof. Fajri Koto and Prof. Iryna Gurevych. My research interests broadly cover efficient Large Language Models, safety/security, and multilingual NLP for low-resource languages.",
+            // OPTIONAL SUBSECTION (e.g. Hobbies)
+            // Comment out 'hobbies' entirely to hide the section.
+            hobbies: {
+                title: "Hobbies & Interests",
+                items: [
+                    "📸 Photography (Street & Landscape)",
+                    "☕ Brewing Espresso",
+                    "🧗 Bouldering / Rock Climbing"
+                ]
+            }
         },
         publications: [
             { title: "Crowdsource, Crawl, or Generate? Creating SEA-VL...", authors: "S. Cahyawijaya... <b>I.A. Hanif</b>, et al.", venue: "EMNLP 2025", category: "astar", link: "#" },
             { title: "Evaluating State-of-the-Art Encoders for Emotion Detection", authors: "<b>I.A. Hanif*</b>, E.P. Yulianrifat*, et al.", venue: "SemEval 2025", category: "workshop", link: "#" },
             { title: "MAG-BERT-ARL for Fair Automated Video Interview Assessment", authors: "B. Putra... <b>I.A. Hanif</b>... S. Okada", venue: "IEEE Access", category: "journal", link: "#" },
             { title: "IndoMath: A Benchmark for Math Reasoning in Indonesian", authors: "<b>I.A. Hanif</b>, R. Mahendra", venue: "Under Review", category: "preprint", link: "#" },
-            // ADDED DUMMY PAPERS TO DEMONSTRATE "SHOW MORE" BUTTON (>4 Items)
             { title: "Multilingual Security Benchmarks for LLMs", authors: "<b>I.A. Hanif</b>, et al.", venue: "Arxiv 2025", category: "preprint", link: "#" },
             { title: "Efficient Fine-Tuning on Edge Devices", authors: "A. Researcher, <b>I.A. Hanif</b>", venue: "NeurIPS 2024 (Workshop)", category: "workshop", link: "#" }
         ],
@@ -300,24 +354,54 @@
             { date: "Feb 25 – Jul 25", role: "AI Coach", org: "Kokocoder Group", details: ["Teaching AI & CV to high school students."] },
             { date: "Sep 24 – Nov 24", role: "AI Engineer Intern", org: "Media Kernels Indonesia", details: ["Built RAG chatbots for social media analytics."] }
         ],
+        // UPDATED AWARDS STRUCTURE
+        // You can now use Objects { year, title, story?, image? }
+        // If story or image is present, it renders a clickable dropdown.
         awards: [
-            "2025 | OpenAI Microgrant (MBZUAI)",
-            "2025 | 3rd Place BEA Shared Task @ ACL",
-            "2024 | 1st Winner Data Mining Gemastik XVI"
+            { 
+                year: "2025", 
+                title: "OpenAI Microgrant (MBZUAI)", 
+                story: "Received a competitive microgrant to support research on LLM safety. This grant will fund the computational resources needed for our upcoming experiments on multilingual jailbreaking.",
+                image: "https://via.placeholder.com/600x300?text=Award+Ceremony+Photo" // Optional Photo
+            },
+            { 
+                year: "2025", 
+                title: "3rd Place BEA Shared Task @ ACL",
+                story: "Our team achieved 3rd place in the BEA Shared Task on Automated Essay Scoring. We utilized a novel ensemble technique combining regression and classification heads."
+                // No image here
+            },
+            { 
+                year: "2024", 
+                title: "1st Winner Data Mining Gemastik XVI"
+                // No story or image, renders as static item
+            }
         ]
     };
 
     function render() {
         document.getElementById('bio-text').innerHTML = `<p>${config.profile.bio}</p>`;
         
-        // --- PUBLICATIONS RENDER LOGIC WITH "SHOW MORE" ---
+        // --- RENDER OPTIONAL HOBBIES SECTION ---
+        if (config.profile.hobbies && config.profile.hobbies.items.length > 0) {
+            const h = config.profile.hobbies;
+            document.getElementById('about-extra').innerHTML = `
+                <details>
+                    <summary>${h.title}</summary>
+                    <div class="details-content">
+                        <ul style="padding-left: 20px; margin: 0;">
+                            ${h.items.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    </div>
+                </details>
+            `;
+        }
+
+        // --- PUBLICATIONS LOGIC ---
         const pubContainer = document.getElementById('publications-list');
         const showMoreLimit = 4;
         
         config.publications.forEach((pub, index) => {
-            // Check if index is greater than limit to hide initially
             const isHidden = index >= showMoreLimit ? 'initially-hidden' : '';
-            
             pubContainer.innerHTML += `
                 <div class="pub-item ${isHidden}" data-category="${pub.category}">
                     <a href="${pub.link}" class="pub-title">${pub.title}</a>
@@ -329,17 +413,12 @@
             `;
         });
 
-        // Add Show More Button if we have more than the limit
         if (config.publications.length > showMoreLimit) {
             const btn = document.createElement('button');
             btn.id = 'show-more-btn';
             btn.innerText = 'Show More';
             btn.onclick = function() {
-                // Reveal hidden items
-                document.querySelectorAll('.initially-hidden').forEach(el => {
-                    el.classList.remove('initially-hidden');
-                });
-                // Remove the button
+                document.querySelectorAll('.initially-hidden').forEach(el => el.classList.remove('initially-hidden'));
                 this.remove();
             };
             document.getElementById('publications').appendChild(btn);
@@ -347,8 +426,39 @@
 
         renderTimeline('education-list', config.education);
         renderTimeline('experience-list', config.experience);
+        
+        // --- RENDER AWARDS (NEW LOGIC) ---
         const awContainer = document.getElementById('awards-list');
-        config.awards.forEach(a => awContainer.innerHTML += `<li>${a}</li>`);
+        config.awards.forEach(item => {
+            // Check if user provided story OR image
+            const hasContent = item.story || item.image;
+
+            if (hasContent) {
+                // Render Clickable Dropdown
+                awContainer.innerHTML += `
+                    <details>
+                        <summary>
+                            <span style="font-weight:600; color: #334155;">
+                                <span style="color:var(--accent-color); margin-right:8px;">${item.year}</span> 
+                                ${item.title}
+                            </span>
+                        </summary>
+                        <div class="details-content">
+                            ${item.story ? `<p>${item.story}</p>` : ''}
+                            ${item.image ? `<img src="${item.image}" class="award-img" alt="${item.title}" loading="lazy">` : ''}
+                        </div>
+                    </details>
+                `;
+            } else {
+                // Render Simple Static Line
+                awContainer.innerHTML += `
+                    <div class="award-static">
+                        <span style="font-weight:600; color:var(--accent-color); margin-right:8px;">${item.year}</span> 
+                        ${item.title}
+                    </div>
+                `;
+            }
+        });
     }
 
     function renderTimeline(id, data) {
@@ -368,45 +478,23 @@
     }
 
     function toggleFilter(btn) {
-        // Update active button state
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        
         const type = btn.getAttribute('data-val');
         const showMoreBtn = document.getElementById('show-more-btn');
 
-        // Logic: When filtering, we usually want to see ALL results of that filter,
-        // so we can hide the "Show More" button if it exists.
         if(showMoreBtn) {
-            if(type === 'all') {
-                showMoreBtn.style.display = 'block'; 
-                // Note: To perfectly restore the "collapsed" state of 'all' is tricky 
-                // without re-rendering, but typically if user goes back to 'all', 
-                // they might expect the full list if they already expanded it.
-                // For simplicity here, we leave expanded items expanded if they were opened.
-            } else {
-                showMoreBtn.style.display = 'none';
-            }
+            if(type === 'all') showMoreBtn.style.display = 'block'; 
+            else showMoreBtn.style.display = 'none';
         }
 
         document.querySelectorAll('.pub-item').forEach(item => {
-            // Remove 'hidden' class used by filter
             item.classList.remove('hidden');
-
-            // Handle Filter Logic
             if (type === 'all') {
-                // If type is ALL, we respect the 'initially-hidden' class UNLESS it was already removed
-                // (This is handled automatically because we aren't adding 'initially-hidden' back)
-                // We just ensure the filter class 'hidden' is removed.
+                // Keep initially-hidden logic (handled by CSS if class still exists)
             } else {
-                // If specific category, check category match
-                if (item.getAttribute('data-category') !== type) {
-                    item.classList.add('hidden');
-                } else {
-                    // Important: If we are showing a specific category, 
-                    // we must force show it even if it was initially hidden by index
-                    item.classList.remove('initially-hidden');
-                }
+                if (item.getAttribute('data-category') !== type) item.classList.add('hidden');
+                else item.classList.remove('initially-hidden');
             }
         });
     }
