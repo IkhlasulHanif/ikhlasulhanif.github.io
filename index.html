@@ -140,6 +140,7 @@
         .pub-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 600; color: #1e293b; margin-bottom: 6px; }
         .pub-meta { font-size: 0.9rem; color: var(--text-muted); }
         .pub-venue { display: inline-block; background: #f1f5f9; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; color: #475569; margin-top: 8px; text-transform: uppercase;}
+        .pub-year { display: inline-block; background: var(--accent-color); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-top: 8px; margin-left: 6px; }
 
         #show-more-btn {
             display: block; margin: 20px auto 0 0; background: transparent;
@@ -339,20 +340,26 @@
             }
         },
         publications: [
-            { title: "Crowdsource, Crawl, or Generate? Creating SEA-VL...", authors: "S. Cahyawijaya... <b>I.A. Hanif</b>, et al.", venue: "EMNLP 2025", category: "astar", link: "#" },
-            { title: "Evaluating State-of-the-Art Encoders for Emotion Detection", authors: "<b>I.A. Hanif*</b>, E.P. Yulianrifat*, et al.", venue: "SemEval 2025", category: "workshop", link: "#" },
-            { title: "MAG-BERT-ARL for Fair Automated Video Interview Assessment", authors: "B. Putra... <b>I.A. Hanif</b>... S. Okada", venue: "IEEE Access", category: "journal", link: "#" },
-            { title: "IndoMath: A Benchmark for Math Reasoning in Indonesian", authors: "<b>I.A. Hanif</b>, R. Mahendra", venue: "Under Review", category: "preprint", link: "#" },
-            { title: "Multilingual Security Benchmarks for LLMs", authors: "<b>I.A. Hanif</b>, et al.", venue: "Arxiv 2025", category: "preprint", link: "#" },
-            { title: "Efficient Fine-Tuning on Edge Devices", authors: "A. Researcher, <b>I.A. Hanif</b>", venue: "NeurIPS 2024 (Workshop)", category: "workshop", link: "#" }
+            { title: "Vision Language Models are Confused Tourists", authors: "P.A. Irawan*, <b>I.A. Hanif*</b>, M.D.A. Kautsar, et al.", venue: "Arxiv", year: "2025", category: "preprint", link: "https://arxiv.org/abs/2511.17004" },
+            { title: "Crowdsource, Crawl, or Generate? Creating SEA-VL, a Multicultural Vision-Language Dataset for Southeast Asia", authors: "S. Cahyawijaya, H. Lovenia, J.R.A. Moniz, ..., <b>I.A. Hanif</b>, et al.", venue: "ACL 2025", year: "2025", category: "astar", link: "https://arxiv.org/abs/2503.07920" },
+            { title: "University of Indonesia at SemEval-2025 Task 11: Evaluating State-of-the-Art Encoders for Multi-Label Emotion Detection", authors: "<b>I.A. Hanif*</b>, E.P. Yulianrifat*, J.G. Ongris, et al.", venue: "SemEval @ ACL 2025", year: "2025", category: "workshop", link: "https://aclanthology.org/2025.semeval-1.279/" },
+            { title: "Global PIQA: Evaluating Physical Commonsense Reasoning Across 100+ Languages and Cultures", authors: "T.A. Chang, C. Arnett, A. Eldesokey, ..., <b>I.A. Hanif</b>, et al.", venue: "Arxiv", year: "2024", category: "preprint", link: "https://arxiv.org/abs/2510.24081" },
+            { title: "Two Outliers at BEA 2025 Shared Task: Tutor Identity Classification using DiReC, a Two-Stage Disentangled Contrastive Representation", authors: "E. Tjitrahardja*, <b>I.A. Hanif*</b>", venue: "BEA @ ACL 2025", year: "2025", category: "workshop", link: "https://aclanthology.org/2025.bea-1.97/" },
+            { title: "UNVEILING: What Makes Linguistics Olympiad Puzzles Tricky for LLMs?", authors: "M. Choudhary, K.V. Srivatsa, G. Aeron, A.R. Bhattacharya, D.K.D. Dinh, <b>I.A. Hanif</b>, D. Kotova, E. Kochmar, M. Choudhury", venue: "Arxiv", year: "2024", category: "preprint", link: "#" },
+            { title: "BUINUS at IWSLT: Evaluating the Impact of Data Augmentation and QLoRA-based Fine-Tuning for Maltese to English Speech Translation", authors: "F.A. Tjiaranata, V.A. Putra, E.P. Yulianrifat, <b>I.A. Hanif</b>", venue: "IWSLT 2025", year: "2025", category: "workshop", link: "#" },
+            { title: "MAG-BERT-ARL for Fair Automated Video Interview Assessment", authors: "B. Putra, K. Azizah, C.O. Mawalim, <b>I.A. Hanif</b>, ..., S. Okada", venue: "IEEE Access", year: "2024", category: "journal", link: "https://ieeexplore.ieee.org/document/10704666" },
         ],
         education: [
             { date: "2025 – Present", degree: "Ph.D. in NLP", school: "MBZUAI", details: ["Advisors: Prof. Fajri Koto & Prof. Iryna Gurevych"] },
             { date: "2021 – 2025", degree: "B. Comp. Sci.", school: "Universitas Indonesia", details: ["Cum Laude (GPA 3.80/4.00)"] }
         ],
         experience: [
-            { date: "Feb 25 – Jul 25", role: "AI Coach", org: "Kokocoder Group", details: ["Teaching AI & CV to high school students."] },
-            { date: "Sep 24 – Nov 24", role: "AI Engineer Intern", org: "Media Kernels Indonesia", details: ["Built RAG chatbots for social media analytics."] }
+            { date: "Feb 25 – Jul 25", role: "AI Coach", org: "Kokocoder Group", details: ["Taught high school students AI, guiding them through difficult topics like machine learning, computer vision, and NLP, and created a challenging curriculum and problem sets to help them build both foundational and advanced skills."] },
+            { date: "Feb 25 – Jul 25", role: "AI Engineer", org: "PT. Fungsitama Cipta Teknologi", details: ["Developed a Retrieval-Augmented Generation (RAG) chatbot and an intelligent API navigation system to handle dynamic user queries and match stakeholder needs with relevant endpoints.", "Designed a scalable Visual Language Model (VLM)-based OCR pipeline for structured data extraction from diverse document formats."] },
+            { date: "Sep 24 – Nov 24", role: "AI Engineer Intern", org: "Media Kernels Indonesia", details: ["Developed an end-to-end RAG chatbot for user inquiries from social media and news data.", "Experimented with embedding optimization, retrieval strategies, agentic AI, and chunking methods to improve performance."] },
+            { date: "May 24 – Jun 24", role: "Research Intern", org: "MBZUAI", details: ["Researched Auto Regressive LMs on Linguistic Puzzle Problems under Prof. Monojit Choudhury.", "Resulted in the paper \"UNVEILING: What Makes Linguistics Olympiad Puzzles Tricky for LLMs\""] },
+            { date: "Jan 24 – Mar 24", role: "Research Intern", org: "JAIST", details: ["Investigated bias mitigation in interviews using a multimodal 78-hour ETS dataset.", "Resulted in the paper \"MAG-BERT-ARL for Fair Automated Video Interview Assessment\"."] },
+            { date: "Jul 22 – Dec 23", role: "Teaching Assistant", org: "Faculty of Computer Science, UI", details: ["Assisted in Discrete Mathematics, Statistics and Probability, and AI & Data Science Fundamentals courses.", "Taught students and developed accompanying lab exercises and programming tasks."] }
         ],
         // UPDATED AWARDS STRUCTURE
         // You can now use Objects { year, title, story?, image? }
@@ -360,20 +367,48 @@
         awards: [
             { 
                 year: "2025", 
-                title: "OpenAI Microgrant (MBZUAI)", 
-                story: "Received a competitive microgrant to support research on LLM safety. This grant will fund the computational resources needed for our upcoming experiments on multilingual jailbreaking.",
-                image: "https://via.placeholder.com/600x300?text=Award+Ceremony+Photo" // Optional Photo
+                title: "Grant: OpenAI Microgrant (MBZUAI) | USD 1,000",
+                story:"test"
             },
             { 
                 year: "2025", 
-                title: "3rd Place BEA Shared Task @ ACL",
-                story: "Our team achieved 3rd place in the BEA Shared Task on Automated Essay Scoring. We utilized a novel ensemble technique combining regression and classification heads."
-                // No image here
+                title: "3rd Place BEA Shared Task @ ACL on Tutor Detection"
             },
             { 
                 year: "2024", 
                 title: "1st Winner Data Mining Gemastik XVI"
-                // No story or image, renders as static item
+            },
+            { 
+                year: "2024", 
+                title: "2nd Winner Satria Data Big Data Challenge"
+            },
+            { 
+                year: "2024", 
+                title: "Scholarship, Sakura Science Program, Japan Science and Technology Agency"
+            },
+            { 
+                year: "2024", 
+                title: "1st Winner Machine Learning Competition, Telkom Institute of Technology"
+            },
+            { 
+                year: "2023", 
+                title: "1st Winner Data Competition, Airlangga University"
+            },
+            { 
+                year: "2023", 
+                title: "2nd Winner NLP Competition, Intelligo"
+            },
+            { 
+                year: "2023", 
+                title: "Finalist Data Mining Gemastik XV"
+            },
+            { 
+                year: "2023", 
+                title: "Finalist Data Competition, Gadjah Mada University"
+            },
+            { 
+                year: "2018", 
+                title: "1st Winner Programming Competitions, Pelita Harapan University"
             }
         ]
     };
@@ -408,6 +443,7 @@
                     <div class="pub-meta">
                         ${pub.authors}<br>
                         <span class="pub-venue">${pub.venue}</span>
+                        <span class="pub-year">${pub.year}</span>
                     </div>
                 </div>
             `;
