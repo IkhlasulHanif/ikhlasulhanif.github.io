@@ -355,7 +355,7 @@
             <h2>Publications</h2>
             <div class="filter-container">
                 <button class="filter-btn active" onclick="toggleFilter(this)" data-val="all">All</button>
-                <button class="filter-btn" onclick="toggleFilter(this)" data-val="astar">A* Conference</button>
+                <button class="filter-btn" onclick="toggleFilter(this)" data-val="conference">Conference</button>
                 <button class="filter-btn" onclick="toggleFilter(this)" data-val="journal">Journal</button>
                 <button class="filter-btn" onclick="toggleFilter(this)" data-val="preprint">Preprint</button>
             </div>
@@ -409,16 +409,120 @@
             //     ]
             // }
         },
-        publications: [
-            { title: "Vision Language Models are Confused Tourists", authors: "P.A. Irawan*, <b>I.A. Hanif*</b>, M.D.A. Kautsar, et al.", venue: "Arxiv", year: "2025", category: "preprint", link: "https://arxiv.org/abs/2511.17004" },
-            { title: "Crowdsource, Crawl, or Generate? Creating SEA-VL, a Multicultural Vision-Language Dataset for Southeast Asia", authors: "S. Cahyawijaya, H. Lovenia, J.R.A. Moniz, ..., <b>I.A. Hanif</b>, et al.", venue: "ACL 2025", year: "2025", category: "astar", link: "https://arxiv.org/abs/2503.07920" },
-            { title: "University of Indonesia at SemEval-2025 Task 11: Evaluating State-of-the-Art Encoders for Multi-Label Emotion Detection", authors: "<b>I.A. Hanif*</b>, E.P. Yulianrifat*, J.G. Ongris, et al.", venue: "SemEval @ ACL 2025", year: "2025", category: "workshop", link: "https://aclanthology.org/2025.semeval-1.279/" },
-            { title: "Global PIQA: Evaluating Physical Commonsense Reasoning Across 100+ Languages and Cultures", authors: "T.A. Chang, C. Arnett, A. Eldesokey, ..., <b>I.A. Hanif</b>, et al.", venue: "Arxiv", year: "2024", category: "preprint", link: "https://arxiv.org/abs/2510.24081" },
-            { title: "Two Outliers at BEA 2025 Shared Task: Tutor Identity Classification using DiReC, a Two-Stage Disentangled Contrastive Representation", authors: "E. Tjitrahardja*, <b>I.A. Hanif*</b>", venue: "BEA @ ACL 2025", year: "2025", category: "workshop", link: "https://aclanthology.org/2025.bea-1.97/" },
-            { title: "UNVEILING: What Makes Linguistics Olympiad Puzzles Tricky for LLMs?", authors: "M. Choudhary, K.V. Srivatsa, G. Aeron, A.R. Bhattacharya, D.K.D. Dinh, <b>I.A. Hanif</b>, D. Kotova, E. Kochmar, M. Choudhury", venue: "Arxiv", year: "2024", category: "preprint", link: "#" },
-            { title: "BUINUS at IWSLT: Evaluating the Impact of Data Augmentation and QLoRA-based Fine-Tuning for Maltese to English Speech Translation", authors: "F.A. Tjiaranata, V.A. Putra, E.P. Yulianrifat, <b>I.A. Hanif</b>", venue: "IWSLT 2025", year: "2025", category: "workshop", link: "#" },
-            { title: "MAG-BERT-ARL for Fair Automated Video Interview Assessment", authors: "B. Putra, K. Azizah, C.O. Mawalim, <b>I.A. Hanif</b>, ..., S. Okada", venue: "IEEE Access", year: "2024", category: "journal", link: "https://ieeexplore.ieee.org/document/10704666" },
-        ],
+        // Your name variations for auto-highlighting in author lists
+        myNames: ["Ikhlasul Akmal Hanif", "I. A. Hanif", "I.A. Hanif", "Ikhlasul A. Hanif"],
+        
+        // BibTeX entries - just paste your .bib content here!
+        publicationsBib: `
+@article{irawan2025vlm,
+    title={Vision Language Models are Confused Tourists},
+    author={Irawan, Pramudya Aldi and Hanif*, Ikhlasul Akmal and Kautsar, Muhammad Dzakwan Alifi and others},
+    year={2025},
+    url={https://arxiv.org/abs/2511.17004}
+}
+
+@misc{cahyawijaya2025crowdsourcecrawlgeneratecreating,
+      title={Crowdsource, Crawl, or Generate? Creating SEA-VL, a Multicultural Vision-Language Dataset for Southeast Asia}, 
+      author={Samuel Cahyawijaya and Holy Lovenia and Joel Ruben Antony Moniz and Tack Hwa Wong and Mohammad Rifqi Farhansyah and Thant Thiri Maung and Frederikus Hudi and David Anugraha and Muhammad Ravi Shulthan Habibi and ..., Ikhlasul Akmal Hanif, others},
+      year={2025},
+      eprint={2503.07920},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2503.07920}, 
+}
+
+@inproceedings{hanif-etal-2025-university,
+    title = "{U}niversity of {I}ndonesia at {S}em{E}val-2025 Task 11: Evaluating State-of-the-Art Encoders for Multi-Label Emotion Detection",
+    author = "Hanif, Ikhlasul Akmal  and
+      Yulianrifat, Eryawan Presma  and
+      Ongris, Jaycent Gunawan  and
+      Tjitrahardja, Eduardus  and
+      Azmi, Muhammad Falensi  and
+      Naufal, Rahmat Bryan  and
+      Wicaksono, Alfan Farizki",
+    editor = "Rosenthal, Sara  and
+      Ros{\'a}, Aiala  and
+      Ghosh, Debanjan  and
+      Zampieri, Marcos",
+    booktitle = "Proceedings of the 19th International Workshop on Semantic Evaluation (SemEval-2025)",
+    month = jul,
+    year = "2025",
+    address = "Vienna, Austria",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.semeval-1.279/",
+    pages = "2149--2164",
+    ISBN = "979-8-89176-273-2",
+    abstract = "This paper presents our approach for SemEval 2025 Task 11 Track A, focusing on multilabel emotion classification across 28 languages. We explore two main strategies: fully fine-tuning transformer models and classifier-only training, evaluating different settings such as fine-tuning strategies, model architectures, loss functions, encoders, and classifiers. Our findings suggest that training a classifier on top of prompt-based encoders such as mE5 and BGE yields significantly better results than fully fine-tuning XLMR and mBERT. Our best-performing model on the final leaderboard is an ensemble combining multiple BGE models, where CatBoost serves as the classifier, with different configurations. This ensemble achieves an average F1-macro score of 56.58 across all languages."
+}
+
+@misc{chang2025globalpiqaevaluatingphysical,
+      title={Global PIQA: Evaluating Physical Commonsense Reasoning Across 100+ Languages, Cultures}, 
+      author={Tyler A. Chang, Catherine Arnett, Abdelrahman Eldesokey, Abdelrahman Sadallah, Abeer Kashar, Abolade Daud, Abosede Grace Olanihun, Adamu Labaran Mohammed, Adeyemi Praise, Adhikarinayum Meerajita Sharma, ..., Ikhlasul Akmal Hanif, others},
+      year={2025},
+      eprint={2510.24081},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2510.24081}, 
+}
+
+@inproceedings{tjitrahardja2025bea,
+    title={Two Outliers at BEA 2025 Shared Task: Tutor Identity Classification using DiReC, a Two-Stage Disentangled Contrastive Representation},
+    author={Tjitrahardja*, Eduardus and Hanif*, Ikhlasul Akmal},
+    year={2025},
+    url={https://aclanthology.org/2025.bea-1.97/}
+}
+
+@misc{choudhary2025unveilingmakeslinguisticsolympiad,
+      title={UNVEILING: What Makes Linguistics Olympiad Puzzles Tricky for LLMs?}, 
+      author={Mukund Choudhary and KV Aditya Srivatsa and Gaurja Aeron and Antara Raaghavi Bhattacharya and Dang Khoa Dang Dinh and Ikhlasul Akmal Hanif and Daria Kotova and Ekaterina Kochmar and Monojit Choudhury},
+      year={2025},
+      eprint={2508.11260},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2508.11260}, 
+}
+
+@inproceedings{aurelian-tjiaranata-etal-2025-buinus,
+    title = "{BUINUS} at {IWSLT}: Evaluating the Impact of Data Augmentation and {QL}o{RA}-based Fine-Tuning for {M}altese to {E}nglish Speech Translation",
+    author = "Aurelian Tjiaranata, Filbert  and
+      Alexandra Putra, Vallerie  and
+      Presma Yulianrifat, Eryawan  and
+      Akmal Hanif, Ikhlasul",
+    editor = "Salesky, Elizabeth  and
+      Federico, Marcello  and
+      Anastasopoulos, Antonis",
+    booktitle = "Proceedings of the 22nd International Conference on Spoken Language Translation (IWSLT 2025)",
+    month = jul,
+    year = "2025",
+    address = "Vienna, Austria (in-person and online)",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.iwslt-1.26/",
+    doi = "10.18653/v1/2025.iwslt-1.26",
+    pages = "269--273",
+    ISBN = "979-8-89176-272-5",
+    abstract = "This paper investigates approaches for the IWSLT low-resource track, Track 1 (speech-to-text translation) for the Maltese language, focusing on data augmentation and large pre-trained models. Our system combines Whisper for transcription and NLLB for translation, with experiments concentrated mainly on the translation stage. We observe that data augmentation leads to only marginal improvements, primarily for the smaller 600M model, with gains up to 0.0026 COMET points. These gains do not extend to larger models like the 3.3B NLLB, and the overall impact appears somewhat inconsistent. In contrast, fine-tuning larger models using QLoRA outperforms full fine-tuning of smaller models. Moreover, multi-stage fine-tuning consistently improves task-specific performance across all model sizes."
+}
+
+@article{putra2024magbert,
+    title={MAG-BERT-ARL for Fair Automated Video Interview Assessment},
+    author={Putra, Bagus and Azizah, Kurniawati and Mawalim, Candy Olivia and Hanif, Ikhlasul Akmal and others and Okada, Shogo},
+    journal={IEEE Access},
+    year={2024},
+    url={https://ieeexplore.ieee.org/document/10704666}
+}
+        `,
+        
+        // Control venue display and category per publication (by citation key)
+        publicationMeta: {
+            "irawan2025vlm":                              { venue: "Arxiv",         category: "preprint" },
+            "cahyawijaya2025crowdsourcecrawlgeneratecreating": { venue: "ACL",      category: "conference" },
+            "hanif-etal-2025-university":                 { venue: "SemEval @ ACL", category: "workshop" },
+            "chang2025globalpiqaevaluatingphysical":      { venue: "Arxiv",         category: "preprint" },
+            "tjitrahardja2025bea":                        { venue: "BEA @ ACL",     category: "workshop" },
+            "choudhary2025unveilingmakeslinguisticsolympiad": { venue: "COLM",      category: "conference" },
+            "aurelian-tjiaranata-etal-2025-buinus":       { venue: "IWSLT",         category: "workshop" },
+            "putra2024magbert":                           { venue: "IEEE Access",   category: "journal" },
+        },
         education: [
             { date: "2025 – Present", degree: "Ph.D. in NLP", school: "MBZUAI", details: ["Advisors: Prof. Fajri Koto & Prof. Iryna Gurevych"] },
             { date: "2021 – 2025", degree: "B. Comp. Sci.", school: "Universitas Indonesia", details: ["Cum Laude (GPA 3.80/4.00)"] }
@@ -483,6 +587,96 @@
         ]
     };
 
+    // ============================================
+    // PRE-COMPUTE PUBLICATIONS FROM BIBTEX
+    // (Runs once at script load, not on every render)
+    // ============================================
+    
+    const publications = (function() {
+        // --- BibTeX Parser ---
+        function parseBibtex(bibtex) {
+            const entries = [];
+            const entryRegex = /@(\w+)\s*\{\s*([^,]+),([^@]*)\}/g;
+            let match;
+            
+            while ((match = entryRegex.exec(bibtex)) !== null) {
+                const type = match[1];
+                const key = match[2].trim();
+                const content = match[3];
+                
+                const entry = { type, key };
+                const fieldRegex = /(\w+)\s*=\s*\{([^}]*)\}/g;
+                let fieldMatch;
+                
+                while ((fieldMatch = fieldRegex.exec(content)) !== null) {
+                    entry[fieldMatch[1].toLowerCase()] = fieldMatch[2].trim();
+                }
+                entries.push(entry);
+            }
+            return entries;
+        }
+        
+        function formatAuthors(authorStr, myNames) {
+            if (!authorStr) return '';
+            
+            let authors;
+            if (authorStr.includes(' and ')) {
+                authors = authorStr.split(/\s+and\s+/);
+            } else {
+                authors = authorStr.split(/,\s*(?=[A-Z])/);
+            }
+            
+            authors = authors.map(author => {
+                author = author.trim();
+                const isMe = myNames.some(name => 
+                    author.toLowerCase().includes(name.toLowerCase()) ||
+                    name.toLowerCase().includes(author.replace(/\*/g, '').toLowerCase())
+                );
+                
+                const hasAsterisk = author.includes('*');
+                author = author.replace(/\*/g, '');
+                
+                const commaMatch = author.match(/^([^,]+),\s*([^,]+)$/);
+                if (commaMatch) {
+                    const lastName = commaMatch[1].trim();
+                    const firstName = commaMatch[2].trim();
+                    const initials = firstName.split(/\s+/).filter(n => n).map(n => n[0] + '.').join('');
+                    author = initials + ' ' + lastName;
+                }
+                
+                if (hasAsterisk) author += '*';
+                if (isMe) author = `<b>${author}</b>`;
+                
+                return author;
+            });
+            
+            const othersIndex = authors.findIndex(a => a.toLowerCase() === 'others' || a === '<b>others</b>');
+            if (othersIndex !== -1) {
+                authors = authors.slice(0, othersIndex);
+                authors.push('et al.');
+            }
+            
+            return authors.join(', ');
+        }
+        
+        // Parse BibTeX and build final publications array
+        const bibEntries = parseBibtex(config.publicationsBib);
+        return bibEntries.map(entry => {
+            const meta = config.publicationMeta[entry.key] || { venue: "Unknown", category: "preprint" };
+            return {
+                title: entry.title,
+                authors: formatAuthors(entry.author, config.myNames),
+                venue: meta.venue,
+                category: meta.category,
+                year: entry.year,
+                link: entry.url || '#'
+            };
+        });
+    })();
+    
+    // Debug: uncomment to see parsed publications
+    // console.log('Parsed publications:', publications);
+
     function render() {
         document.getElementById('bio-text').innerHTML = `<p>${config.profile.bio}</p>`;
         
@@ -501,11 +695,11 @@
             `;
         }
 
-        // --- PUBLICATIONS LOGIC ---
+        // --- PUBLICATIONS (uses pre-computed array) ---
         const pubContainer = document.getElementById('publications-list');
         const showMoreLimit = 4;
         
-        config.publications.forEach((pub, index) => {
+        publications.forEach((pub, index) => {
             const isHidden = index >= showMoreLimit ? 'initially-hidden' : '';
             pubContainer.innerHTML += `
                 <div class="pub-item ${isHidden}" data-category="${pub.category}">
@@ -519,7 +713,7 @@
             `;
         });
 
-        if (config.publications.length > showMoreLimit) {
+        if (publications.length > showMoreLimit) {
             const btn = document.createElement('button');
             btn.id = 'show-more-btn';
             btn.innerText = 'Show More';
