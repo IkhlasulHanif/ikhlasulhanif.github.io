@@ -1,0 +1,7 @@
+# robots.txt for ikhlasulhanif.github.io
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://ikhlasulhanif.github.io/sitemap.xml
+
