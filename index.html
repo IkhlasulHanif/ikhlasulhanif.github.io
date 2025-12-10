@@ -414,11 +414,14 @@
         
         // BibTeX entries - just paste your .bib content here!
         publicationsBib: `
-@article{irawan2025vlm,
-    title={Vision Language Models are Confused Tourists},
-    author={Irawan, Pramudya Aldi and Hanif*, Ikhlasul Akmal and Kautsar, Muhammad Dzakwan Alifi and others},
-    year={2025},
-    url={https://arxiv.org/abs/2511.17004}
+@misc{irawan2025visionlanguagemodelsconfused,
+      title={Vision Language Models are Confused Tourists}, 
+      author={Patrick Amadeus Irawan and Ikhlasul Akmal Hanif and Muhammad Dehan Al Kautsar and Genta Indra Winata and Fajri Koto and Alham Fikri Aji},
+      year={2025},
+      eprint={2511.17004},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2511.17004}, 
 }
 
 @misc{cahyawijaya2025crowdsourcecrawlgeneratecreating,
@@ -432,7 +435,7 @@
 }
 
 @inproceedings{hanif-etal-2025-university,
-    title = "{U}niversity of {I}ndonesia at {S}em{E}val-2025 Task 11: Evaluating State-of-the-Art Encoders for Multi-Label Emotion Detection",
+    title = "University of Indonesia at SemEval-2025 Task 11: Evaluating State-of-the-Art Encoders for Multi-Label Emotion Detection",
     author = "Hanif, Ikhlasul Akmal  and
       Yulianrifat, Eryawan Presma  and
       Ongris, Jaycent Gunawan  and
@@ -483,7 +486,7 @@
 }
 
 @inproceedings{aurelian-tjiaranata-etal-2025-buinus,
-    title = "{BUINUS} at {IWSLT}: Evaluating the Impact of Data Augmentation and {QL}o{RA}-based Fine-Tuning for {M}altese to {E}nglish Speech Translation",
+    title = "BUINUS at IWSLT: Evaluating the Impact of Data Augmentation and QLoRA-based Fine-Tuning for Maltese to English Speech Translation",
     author = "Aurelian Tjiaranata, Filbert  and
       Alexandra Putra, Vallerie  and
       Presma Yulianrifat, Eryawan  and
@@ -514,7 +517,7 @@
         
         // Control venue display and category per publication (by citation key)
         publicationMeta: {
-            "irawan2025vlm":                              { venue: "Arxiv",         category: "preprint" },
+            "irawan2025visionlanguagemodelsconfused":                              { venue: "Arxiv",         category: "preprint" },
             "cahyawijaya2025crowdsourcecrawlgeneratecreating": { venue: "ACL",      category: "conference" },
             "hanif-etal-2025-university":                 { venue: "SemEval @ ACL", category: "workshop" },
             "chang2025globalpiqaevaluatingphysical":      { venue: "Arxiv",         category: "preprint" },
@@ -627,44 +630,81 @@
         function formatAuthors(authorStr, myNames) {
             if (!authorStr) return '';
             
-            let authors;
-            if (authorStr.includes(' and ')) {
-                authors = authorStr.split(/\s+and\s+/);
-            } else {
-                authors = authorStr.split(/,\s*(?=[A-Z])/);
-            }
+            // Split by " and " (BibTeX standard)
+            let authors = authorStr.split(/\s+and\s+/);
             
             authors = authors.map(author => {
                 author = author.trim();
-                const isMe = myNames.some(name => 
-                    author.toLowerCase().includes(name.toLowerCase()) ||
-                    name.toLowerCase().includes(author.replace(/\*/g, '').toLowerCase())
-                );
+                if (!author) return null;
                 
+                // Check for equal contribution marker
                 const hasAsterisk = author.includes('*');
-                author = author.replace(/\*/g, '');
+                author = author.replace(/\*/g, '').trim();
                 
-                const commaMatch = author.match(/^([^,]+),\s*([^,]+)$/);
-                if (commaMatch) {
-                    const lastName = commaMatch[1].trim();
-                    const firstName = commaMatch[2].trim();
-                    const initials = firstName.split(/\s+/).filter(n => n).map(n => n[0] + '.').join('');
-                    author = initials + ' ' + lastName;
+                // Skip special tokens
+                if (author.toLowerCase() === 'others' || author === '...') {
+                    return { formatted: author, isMe: false, hasAsterisk: false, isOthers: true };
                 }
                 
-                if (hasAsterisk) author += '*';
-                if (isMe) author = `<b>${author}</b>`;
+                let firstName, lastName;
                 
-                return author;
-            });
+                // Format: "Last, First Middle" (e.g., "Hanif, Ikhlasul Akmal")
+                if (author.includes(',')) {
+                    const parts = author.split(',').map(p => p.trim());
+                    lastName = parts[0];
+                    firstName = parts[1] || '';
+                } 
+                // Format: "First Middle Last" (e.g., "Ikhlasul Akmal Hanif")
+                else {
+                    const parts = author.split(/\s+/).filter(p => p);
+                    if (parts.length === 1) {
+                        lastName = parts[0];
+                        firstName = '';
+                    } else {
+                        lastName = parts[parts.length - 1];
+                        firstName = parts.slice(0, -1).join(' ');
+                    }
+                }
+                
+                // Create initials from first/middle names
+                const initials = firstName
+                    .split(/\s+/)
+                    .filter(n => n)
+                    .map(n => n[0].toUpperCase() + '.')
+                    .join('');
+                
+                const formatted = initials ? `${initials} ${lastName}` : lastName;
+                
+                // Check if this is one of my names (check both original and formatted)
+                const authorLower = author.toLowerCase();
+                const formattedLower = formatted.toLowerCase();
+                const isMe = myNames.some(name => {
+                    const nameLower = name.toLowerCase();
+                    return authorLower.includes(nameLower) ||
+                           nameLower.includes(authorLower) ||
+                           formattedLower.includes(nameLower) ||
+                           nameLower.includes(formattedLower) ||
+                           // Match last name "Hanif"
+                           nameLower.includes(lastName.toLowerCase());
+                });
+                
+                return { formatted, isMe, hasAsterisk, isOthers: false };
+            }).filter(a => a !== null);
             
-            const othersIndex = authors.findIndex(a => a.toLowerCase() === 'others' || a === '<b>others</b>');
+            // Handle "others" -> "et al."
+            const othersIndex = authors.findIndex(a => a.isOthers);
             if (othersIndex !== -1) {
                 authors = authors.slice(0, othersIndex);
-                authors.push('et al.');
+                authors.push({ formatted: 'et al.', isMe: false, hasAsterisk: false, isOthers: true });
             }
             
-            return authors.join(', ');
+            // Build final string
+            return authors.map(a => {
+                let str = a.formatted;
+                if (a.hasAsterisk) str += '*';
+                if (a.isMe) str = `<b>${str}</b>`;
+                return str;
+            }).join(', ');
         }
         
         // Parse BibTeX and build final publications array
