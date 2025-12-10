@@ -456,8 +456,8 @@
 }
 
 @misc{chang2025globalpiqaevaluatingphysical,
-      title={Global PIQA: Evaluating Physical Commonsense Reasoning Across 100+ Languages, Cultures}, 
-      author={Tyler A. Chang, Catherine Arnett, Abdelrahman Eldesokey, Abdelrahman Sadallah, Abeer Kashar, Abolade Daud, Abosede Grace Olanihun, Adamu Labaran Mohammed, Adeyemi Praise, Adhikarinayum Meerajita Sharma, ..., Ikhlasul Akmal Hanif, others},
+      title={Global PIQA: Evaluating Physical Commonsense Reasoning Across 100+ Languages and Cultures}, 
+      author={Tyler A. Chang and Catherine Arnett and Abdelrahman Eldesokey and Abdelrahman Sadallah and Abeer Kashar and Abolade Daud and Abosede Grace Olanihun and Adamu Labaran Mohammed and Adeyemi Praise and Adhikarinayum Meerajita Sharma, ..., Ikhlasul Akmal Hanif, others},
       year={2025},
       eprint={2510.24081},
       archivePrefix={arXiv},
@@ -605,10 +605,18 @@
                 const content = match[3];
                 
                 const entry = { type, key };
-                const fieldRegex = /(\w+)\s*=\s*\{([^}]*)\}/g;
+                
+                // Match both {value} and "value" formats
+                const fieldRegexBraces = /(\w+)\s*=\s*\{([^}]*)\}/g;
+                const fieldRegexQuotes = /(\w+)\s*=\s*"([^"]*)"/g;
                 let fieldMatch;
                 
-                while ((fieldMatch = fieldRegex.exec(content)) !== null) {
+                while ((fieldMatch = fieldRegexBraces.exec(content)) !== null) {
+                    // Clean up LaTeX formatting like {U}niversity -> University
+                    let value = fieldMatch[2].trim().replace(/\{([^}]*)\}/g, '$1');
+                    entry[fieldMatch[1].toLowerCase()] = value;
+                }
+                while ((fieldMatch = fieldRegexQuotes.exec(content)) !== null) {
                     entry[fieldMatch[1].toLowerCase()] = fieldMatch[2].trim();
                 }
                 entries.push(entry);
