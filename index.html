@@ -394,29 +394,18 @@
     <symbol id="icon-cv" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></symbol>
 </svg>
 
+<!-- Load external config -->
+<script src="data/config.js"></script>
+
 <script>
-    const config = {
-        profile: {
-            bio: "I am a first-year Ph.D. student in the Natural Language Processing department at MBZUAI, fortunate to be advised by Prof. Fajri Koto and Prof. Iryna Gurevych. My research interests broadly cover efficient Large Language Models, safety/security, and multilingual NLP for low-resource languages.",
-            // OPTIONAL SUBSECTION (e.g. Hobbies)
-            // Comment out 'hobbies' entirely to hide the section.
-            // hobbies: {
-            //     title: "Hobbies & Interests",
-            //     items: [
-            //         "📸 Photography (Street & Landscape)",
-            //         "☕ Brewing Espresso",
-            //         "🧗 Bouldering / Rock Climbing"
-            //     ]
-            // }
-        },
-        // Your name variations for auto-highlighting in author lists
-        myNames: ["Ikhlasul Akmal Hanif", "I. A. Hanif", "I.A. Hanif", "Ikhlasul A. Hanif"],
-        
-        // BibTeX entries - just paste your .bib content here!
-        publicationsBib: `
+    // Use external config
+    const config = siteConfig;
+    
+    // BibTeX will be loaded from external file
+    let publicationsBibText = `
 @misc{irawan2025visionlanguagemodelsconfused,
       title={Vision Language Models are Confused Tourists}, 
-      author={Patrick Amadeus Irawan and Ikhlasul Akmal Hanif and Muhammad Dehan Al Kautsar and Genta Indra Winata and Fajri Koto and Alham Fikri Aji},
+      author={Patrick Amadeus Irawan* and Ikhlasul Akmal Hanif* and Muhammad Dehan Al Kautsar and Genta Indra Winata and Fajri Koto and Alham Fikri Aji},
       year={2025},
       eprint={2511.17004},
       archivePrefix={arXiv},
@@ -514,91 +503,13 @@
   publisher={IEEE},
   url={https://ieeexplore.ieee.org/document/10704666}
 }
-        `,
-        
-        // Control venue display and category per publication (by citation key)
-        publicationMeta: {
-            "irawan2025visionlanguagemodelsconfused":                              { venue: "Arxiv",         category: "preprint" },
-            "cahyawijaya2025crowdsourcecrawlgeneratecreating": { venue: "ACL",      category: "conference" },
-            "hanif-etal-2025-university":                 { venue: "SemEval @ ACL", category: "workshop" },
-            "chang2025globalpiqaevaluatingphysical":      { venue: "Arxiv",         category: "preprint" },
-            "tjitrahardja2025bea":                        { venue: "BEA @ ACL",     category: "workshop" },
-            "choudhary2025unveilingmakeslinguisticsolympiad": { venue: "COLM",      category: "conference" },
-            "aurelian-tjiaranata-etal-2025-buinus":       { venue: "IWSLT",         category: "workshop" },
-            "putra2024magbert":                           { venue: "IEEE Access",   category: "journal" },
-        },
-        education: [
-            { date: "2025 – Present", degree: "Ph.D. in NLP", school: "MBZUAI", details: ["Advisors: Prof. Fajri Koto & Prof. Iryna Gurevych"] },
-            { date: "2021 – 2025", degree: "B. Comp. Sci.", school: "Universitas Indonesia", details: ["Cum Laude (GPA 3.80/4.00)"] }
-        ],
-        experience: [
-            { date: "Feb 25 – Jul 25", role: "AI Coach", org: "Kokocoder Group", details: ["Taught high school students AI, guiding them through difficult topics like machine learning, computer vision, and NLP, and created a challenging curriculum and problem sets to help them build both foundational and advanced skills."] },
-            { date: "Feb 25 – Jul 25", role: "AI Engineer", org: "PT. Fungsitama Cipta Teknologi", details: ["Developed a Retrieval-Augmented Generation (RAG) chatbot and an intelligent API navigation system to handle dynamic user queries and match stakeholder needs with relevant endpoints.", "Designed a scalable Visual Language Model (VLM)-based OCR pipeline for structured data extraction from diverse document formats."] },
-            { date: "Sep 24 – Nov 24", role: "AI Engineer Intern", org: "Media Kernels Indonesia", details: ["Developed an end-to-end RAG chatbot for user inquiries from social media and news data.", "Experimented with embedding optimization, retrieval strategies, agentic AI, and chunking methods to improve performance."] },
-            { date: "May 24 – Jun 24", role: "Research Intern", org: "MBZUAI", details: ["Researched Auto Regressive LMs on Linguistic Puzzle Problems under Prof. Monojit Choudhury.", "Resulted in the paper \"UNVEILING: What Makes Linguistics Olympiad Puzzles Tricky for LLMs\""] },
-            { date: "Jan 24 – Mar 24", role: "Research Intern", org: "JAIST", details: ["Investigated bias mitigation in interviews using a multimodal 78-hour ETS dataset.", "Resulted in the paper \"MAG-BERT-ARL for Fair Automated Video Interview Assessment\"."] },
-            { date: "Jul 22 – Dec 23", role: "Teaching Assistant", org: "Faculty of Computer Science, UI", details: ["Assisted in Discrete Mathematics, Statistics and Probability, and AI & Data Science Fundamentals courses.", "Taught students and developed accompanying lab exercises and programming tasks."] }
-        ],
-        // UPDATED AWARDS STRUCTURE
-        // You can now use Objects { year, title, story?, image? }
-        // If story or image is present, it renders a clickable dropdown.
-        awards: [
-            { 
-                year: "2025", 
-                title: "Grant: OpenAI Microgrant (MBZUAI) | USD 1,000",
-                story:"test"
-            },
-            { 
-                year: "2025", 
-                title: "3rd Place BEA Shared Task @ ACL on Tutor Detection"
-            },
-            { 
-                year: "2024", 
-                title: "1st Winner Data Mining Gemastik XVI"
-            },
-            { 
-                year: "2024", 
-                title: "2nd Winner Satria Data Big Data Challenge"
-            },
-            { 
-                year: "2024", 
-                title: "Scholarship, Sakura Science Program, Japan Science and Technology Agency"
-            },
-            { 
-                year: "2024", 
-                title: "1st Winner Machine Learning Competition, Telkom Institute of Technology"
-            },
-            { 
-                year: "2023", 
-                title: "1st Winner Data Competition, Airlangga University"
-            },
-            { 
-                year: "2023", 
-                title: "2nd Winner NLP Competition, Intelligo"
-            },
-            { 
-                year: "2023", 
-                title: "Finalist Data Mining Gemastik XV"
-            },
-            { 
-                year: "2023", 
-                title: "Finalist Data Competition, Gadjah Mada University"
-            },
-            { 
-                year: "2018", 
-                title: "1st Winner Programming Competitions, Pelita Harapan University"
-            }
-        ]
-    };
+        `;  // Fallback BibTeX (loaded from external file below)
 
     // ============================================
-    // PRE-COMPUTE PUBLICATIONS FROM BIBTEX
-    // (Runs once at script load, not on every render)
+    // BIBTEX PARSER & PUBLICATION PROCESSOR
     // ============================================
     
-    const publications = (function() {
-        // --- BibTeX Parser ---
-        function parseBibtex(bibtex) {
+    function parseBibtex(bibtex) {
             const entries = [];
             const entryRegex = /@(\w+)\s*\{\s*([^,]+),([^@]*)\}/g;
             let match;
@@ -750,8 +661,9 @@
             return result.join(', ');
         }
         
-        // Parse BibTeX and build final publications array
-        const bibEntries = parseBibtex(config.publicationsBib);
+    // Process BibTeX into publications array
+    function processPublications(bibText) {
+        const bibEntries = parseBibtex(bibText);
         return bibEntries.map(entry => {
             const meta = config.publicationMeta[entry.key] || { venue: "Unknown", category: "preprint" };
             return {
@@ -763,10 +675,10 @@
                 link: entry.url || '#'
             };
         });
-    })();
+    }
     
-    // Debug: uncomment to see parsed publications
-    // console.log('Parsed publications:', publications);
+    // Publications array (populated after loading)
+    let publications = [];
 
     function render() {
         document.getElementById('bio-text').innerHTML = `<p>${config.profile.bio}</p>`;
@@ -890,7 +802,32 @@
         });
     }
 
-    document.addEventListener('DOMContentLoaded', render);
+    // Load BibTeX from external file and initialize
+    async function init() {
+        try {
+            // Try to load external BibTeX file
+            const response = await fetch('data/publications.bib');
+            if (response.ok) {
+                const bibText = await response.text();
+                publications = processPublications(bibText);
+            } else {
+                // Fallback to inline BibTeX
+                console.warn('Could not load publications.bib, using fallback');
+                publications = processPublications(publicationsBibText);
+            }
+        } catch (e) {
+            // Fallback for local file:// protocol or errors
+            console.warn('Fetch failed, using fallback BibTeX:', e.message);
+            publications = processPublications(publicationsBibText);
+        }
+        
+        // Debug: uncomment to see parsed publications
+        // console.log('Parsed publications:', publications);
+        
+        render();
+    }
+    
+    document.addEventListener('DOMContentLoaded', init);
 </script>
 
 </body>
