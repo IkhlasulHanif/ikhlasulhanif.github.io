@@ -126,20 +126,12 @@
             top: 0;
             height: 100vh;
             flex-shrink: 0;
-            overflow-y: auto;
-            overscroll-behavior: contain;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(148, 163, 184, 0.45) transparent;
+            overflow-y: auto; 
+            scrollbar-width: none;
             border-right: 1px solid rgba(148, 163, 184, 0.14);
             box-shadow: 10px 0 32px rgba(15, 23, 42, 0.08);
         }
-        .sidebar::-webkit-scrollbar { width: 8px; }
-        .sidebar::-webkit-scrollbar-track { background: transparent; }
-        .sidebar::-webkit-scrollbar-thumb {
-            background: rgba(148, 163, 184, 0.35);
-            border-radius: 999px;
-        }
-        .sidebar::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.55); }
+        .sidebar::-webkit-scrollbar { display: none; }
 
         .profile-photo {
             width: 140px;
@@ -226,19 +218,6 @@
             transform: translateY(-2px);
         }
         .social-links a:hover .social-icon { fill: #ffffff; transform: scale(1.05); }
-
-        /* --- MAP CONTAINER --- */
-        .map-container {
-            width: 100%;
-            margin-top: auto;
-            border-radius: 8px;
-            overflow: hidden;
-            text-align: center;
-            opacity: 0.9;
-            transition: opacity 0.3s;
-        }
-        .map-container:hover { opacity: 1; }
-        .map-container img { max-width: 100% !important; height: auto !important; }
 
         /* --- MAIN CONTENT --- */
         .main-content { flex-grow: 1; padding: 72px 88px 0; max-width: 900px; }
@@ -531,11 +510,6 @@
         
         <div style="font-size: 0.85rem; color: #64748b; margin-bottom: 40px;">
             <a href="mailto:ikhlasul.akmal@mbzuai.ac.ae" style="color:inherit; text-decoration:none; border-bottom: 1px dashed #475569;">ikhlasul.akmal@mbzuai.ac.ae</a>
-        </div>
-
-        <!-- VISITOR MAP -->
-        <div class="map-container">
-            <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=JOdu8wtqP-094eGyvlSZDmrq8v-WSzQdEd0ZaktXjR0&cl=ffffff&w=a"></script>
         </div>
     </aside>
 
