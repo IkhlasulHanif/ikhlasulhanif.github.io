@@ -6,7 +6,7 @@
 const siteConfig = {
     // --- PROFILE ---
     profile: {
-        bio: "I am a first-year Ph.D. student in the Natural Language Processing department at MBZUAI, fortunate to be advised by Prof. Fajri Koto and Prof. Iryna Gurevych. My research interests broadly cover efficient Large Language Models, safety/security, and multilingual NLP for low-resource languages.",
+        bio: "I am a first-year Ph.D. student in the Natural Language Processing department at MBZUAI and part of <a href=\"https://www.kotolab-mbzuai.com\" target=\"_blank\" rel=\"noopener noreferrer\">KotoLab</a>, fortunate to be advised by Prof. Fajri Koto and Prof. Iryna Gurevych. My research interests broadly cover efficient Large Language Models, safety/security, and multilingual NLP for low-resource languages.",
         
         // OPTIONAL: Uncomment to show hobbies section
         // hobbies: {
@@ -31,7 +31,7 @@ const siteConfig = {
     // Maps BibTeX citation keys to venue display name and category
     // Categories: "conference", "workshop", "journal", "preprint"
     publicationMeta: {
-        "irawan2025visionlanguagemodelsconfused":         { venue: "Arxiv",         category: "preprint" },
+        "irawan2025visionlanguagemodelsconfused":         { venue: "CVPR Findings", category: "conference" },
         "cahyawijaya2025crowdsourcecrawlgeneratecreating": { venue: "ACL",          category: "conference" },
         "hanif-etal-2025-university":                     { venue: "SemEval @ ACL", category: "workshop" },
         "chang2025globalpiqaevaluatingphysical":          { venue: "Arxiv",         category: "preprint" },
@@ -53,12 +53,25 @@ const siteConfig = {
             date: "2021 – 2025", 
             degree: "B. Comp. Sci.", 
             school: "Universitas Indonesia", 
-            details: ["Cum Laude (GPA 3.80/4.00)"] 
+            details: [
+                "Cum Laude (GPA 3.80/4.00)",
+                "Achievements: 3x 1st Place, 2x 2nd Place, and 2x Finalist in national AI/Data Science competitions",
+                "Graduated in 3.5 years"
+            ] 
         }
     ],
 
     // --- EXPERIENCE ---
     experience: [
+        {
+            date: "May 26 – Present",
+            role: "Visiting Researcher",
+            org: "Singapore University of Technology and Design (SUTD)",
+            orgLink: "https://isakzhang.github.io/group.html",
+            details: [
+                "Working with Wenxuan Zhang's group on NLP and large language model research."
+            ]
+        },
         { 
             date: "Feb 25 – Jul 25", 
             role: "AI Coach", 
@@ -164,4 +177,3 @@ const siteConfig = {
         }
     ]
 };
-

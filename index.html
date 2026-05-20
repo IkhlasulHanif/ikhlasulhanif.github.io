@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Ikhlasul Akmal Hanif – NLP Researcher</title>
-    <meta name="description" content="Academic portfolio of Ikhlasul Akmal Hanif, Ph.D. Student at MBZUAI.">
+    <title>Ikhlasul Akmal Hanif | NLP Researcher and Ph.D. Student at MBZUAI</title>
+    <meta name="description" content="Official academic website of Ikhlasul Akmal Hanif, NLP researcher and Ph.D. student at MBZUAI working on efficient large language models, AI safety, and multilingual NLP.">
     <meta name="keywords" content="Ikhlasul Akmal Hanif, NLP Researcher, Natural Language Processing, MBZUAI, PhD Student, AI Safety, Multilingual NLP, Large Language Models, Machine Learning">
     <meta name="author" content="Ikhlasul Akmal Hanif">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="language" content="English">
     
     <!-- Canonical URL -->
@@ -18,20 +19,22 @@
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Ikhlasul Akmal Hanif – NLP Researcher & Ph.D. Student">
-    <meta property="og:description" content="Academic portfolio of Ikhlasul Akmal Hanif, Ph.D. Student at MBZUAI researching efficient LLMs, AI safety, and multilingual NLP.">
+    <meta property="og:title" content="Ikhlasul Akmal Hanif | NLP Researcher and Ph.D. Student at MBZUAI">
+    <meta property="og:description" content="Official academic website of Ikhlasul Akmal Hanif, NLP researcher and Ph.D. student at MBZUAI working on efficient large language models, AI safety, and multilingual NLP.">
     <meta property="og:url" content="https://ikhlasulhanif.github.io/">
     <meta property="og:site_name" content="Ikhlasul Akmal Hanif">
     <meta property="og:image" content="https://ikhlasulhanif.github.io/denis.jpg">
+    <meta property="og:image:alt" content="Portrait of Ikhlasul Akmal Hanif">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Ikhlasul Akmal Hanif – NLP Researcher & Ph.D. Student">
-    <meta name="twitter:description" content="Academic portfolio of Ikhlasul Akmal Hanif, Ph.D. Student at MBZUAI researching efficient LLMs, AI safety, and multilingual NLP.">
+    <meta name="twitter:title" content="Ikhlasul Akmal Hanif | NLP Researcher and Ph.D. Student at MBZUAI">
+    <meta name="twitter:description" content="Official academic website of Ikhlasul Akmal Hanif, NLP researcher and Ph.D. student at MBZUAI working on efficient large language models, AI safety, and multilingual NLP.">
     <meta name="twitter:image" content="https://ikhlasulhanif.github.io/denis.jpg">
+    <meta name="twitter:image:alt" content="Portrait of Ikhlasul Akmal Hanif">
     
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="/denis.jpg">
@@ -47,12 +50,16 @@
         :root {
             --sidebar-bg: #0f172a; /* Deeper Navy */
             --sidebar-text: #e2e8f0;
-            --bg-color: #ffffff;
+            --bg-color: #f6f8fb;
+            --bg-soft: rgba(255, 255, 255, 0.72);
+            --bg-strong: rgba(255, 255, 255, 0.9);
             --text-main: #334155;
             --text-muted: #64748b;
             --accent-color: #0f766e; /* Teal */
             --accent-hover: #115e59;
-            --border-color: #f1f5f9;
+            --accent-glow: rgba(15, 118, 110, 0.18);
+            --accent-glow-strong: rgba(56, 189, 248, 0.18);
+            --border-color: rgba(148, 163, 184, 0.18);
             --sidebar-width: 320px;
         }
 
@@ -60,21 +67,57 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
+            background:
+                radial-gradient(circle at top left, rgba(56, 189, 248, 0.14), transparent 30%),
+                radial-gradient(circle at 85% 12%, rgba(15, 118, 110, 0.14), transparent 24%),
+                linear-gradient(180deg, #f8fbfd 0%, #f3f6fb 48%, #edf3f8 100%);
             color: var(--text-main);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background:
+                linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
+                linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+            background-size: 120px 120px;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+            opacity: 0.45;
+            z-index: -3;
         }
 
         a { color: var(--accent-color); text-decoration: none; font-weight: 500; transition: all 0.2s ease; }
         a:hover { color: var(--accent-hover); text-decoration: underline; }
 
-        .wrapper { display: flex; min-height: 100vh; }
+        .attention-background {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -2;
+            opacity: 0.85;
+        }
+
+        .wrapper {
+            display: flex;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
 
         /* --- SIDEBAR --- */
         .sidebar {
             width: var(--sidebar-width);
-            background-color: var(--sidebar-bg);
+            background:
+                linear-gradient(180deg, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.9)),
+                radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 36%);
             color: var(--sidebar-text);
             padding: 50px 25px;
             display: flex;
@@ -87,6 +130,9 @@
             flex-shrink: 0;
             overflow-y: auto; 
             scrollbar-width: none;
+            border-right: 1px solid rgba(148, 163, 184, 0.14);
+            backdrop-filter: blur(18px);
+            box-shadow: 16px 0 48px rgba(15, 23, 42, 0.14);
         }
         .sidebar::-webkit-scrollbar { display: none; }
 
@@ -98,10 +144,19 @@
             margin-bottom: 20px;
             border: 3px solid rgba(255,255,255,0.1);
             background-color: #1e293b;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.24);
         }
 
         .sidebar h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+            color: #fff;
+        }
+
+        .sidebar .site-title {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
             font-weight: 700;
@@ -118,10 +173,58 @@
             line-height: 1.5;
         }
 
+        .section-nav {
+            width: 100%;
+            margin: 8px 0 28px;
+            padding: 14px;
+            border-radius: 18px;
+            background: rgba(148, 163, 184, 0.08);
+            border: 1px solid rgba(148, 163, 184, 0.12);
+        }
+
+        .section-nav-label {
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #94a3b8;
+            margin-bottom: 10px;
+        }
+
+        .section-nav a {
+            display: block;
+            padding: 8px 10px;
+            border-radius: 12px;
+            color: #e2e8f0;
+            font-size: 0.92rem;
+            font-weight: 500;
+        }
+
+        .section-nav a:hover {
+            text-decoration: none;
+            color: #67e8f9;
+            background: rgba(56, 189, 248, 0.1);
+        }
+
         /* --- SOCIAL ICONS --- */
         .social-links { display: flex; gap: 12px; margin-bottom: 30px; }
-        .social-icon { width: 20px; height: 20px; fill: #64748b; transition: all 0.3s; }
-        .social-links a:hover .social-icon { fill: #38bdf8; transform: translateY(-2px); }
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            background: rgba(148, 163, 184, 0.08);
+            border: 1px solid rgba(148, 163, 184, 0.12);
+        }
+        .social-icon { width: 18px; height: 18px; fill: #94a3b8; transition: all 0.3s; }
+        .social-links a:hover {
+            text-decoration: none;
+            border-color: rgba(56, 189, 248, 0.26);
+            background: rgba(56, 189, 248, 0.12);
+            transform: translateY(-2px);
+        }
+        .social-links a:hover .social-icon { fill: #67e8f9; transform: scale(1.05); }
 
         /* --- MAP CONTAINER --- */
         .map-container {
@@ -138,7 +241,26 @@
 
         /* --- MAIN CONTENT --- */
         .main-content { flex-grow: 1; padding: 70px 90px; max-width: 1100px; }
-        section { margin-bottom: 70px; }
+        section {
+            margin-bottom: 28px;
+            padding: 32px 34px;
+            background: var(--bg-soft);
+            border: 1px solid var(--border-color);
+            border-radius: 28px;
+            backdrop-filter: blur(22px);
+            box-shadow:
+                0 20px 60px rgba(15, 23, 42, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.55);
+            position: relative;
+            overflow: hidden;
+        }
+        section::before {
+            content: '';
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.35), transparent);
+        }
         
         h2 {
             font-family: 'Playfair Display', serif;
@@ -146,7 +268,28 @@
             color: #0f172a;
             margin-bottom: 30px;
             padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            color: #0f172a;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .page-subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 22px;
+            max-width: 720px;
+        }
+
+        #about {
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.76)),
+                radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 32%);
         }
 
         /* --- PUBLICATIONS --- */
@@ -162,7 +305,7 @@
         .pub-item {
             display: flex; flex-direction: column;
             padding: 20px 0;
-            border-bottom: 1px solid #f8fafc;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.12);
             transition: all 0.3s ease;
         }
         .pub-item:hover { transform: translateX(5px); }
@@ -170,7 +313,7 @@
 
         .pub-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 600; color: #1e293b; margin-bottom: 6px; }
         .pub-meta { font-size: 0.9rem; color: var(--text-muted); }
-        .pub-venue { display: inline-block; background: #f1f5f9; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; color: #475569; margin-top: 8px; text-transform: uppercase;}
+        .pub-venue { display: inline-block; background: rgba(226, 232, 240, 0.9); padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; font-weight: 600; color: #475569; margin-top: 8px; text-transform: uppercase;}
         .pub-year { display: inline-block; background: var(--accent-color); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-top: 8px; margin-left: 6px; }
 
         #show-more-btn {
@@ -178,13 +321,14 @@
             color: var(--accent-color); border: 1px solid var(--accent-color);
             padding: 8px 20px; border-radius: 20px; font-size: 0.85rem;
             cursor: pointer; transition: all 0.2s;
+            background: rgba(255,255,255,0.72);
         }
         #show-more-btn:hover { background: var(--accent-color); color: white; }
 
         /* --- TIMELINE --- */
         .timeline-item { display: flex; margin-bottom: 35px; }
         .timeline-date { min-width: 120px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500; padding-top: 4px; }
-        .timeline-content { border-left: 2px solid #e2e8f0; padding-left: 25px; padding-bottom: 10px; }
+        .timeline-content { border-left: 2px solid rgba(56, 189, 248, 0.25); padding-left: 25px; padding-bottom: 10px; }
         .timeline-content h3 { font-size: 1.1rem; font-weight: 600; color: #1e293b; }
         .timeline-content .org { font-style: italic; font-size: 0.95rem; color: #64748b; display: block; margin-bottom: 8px; }
         .timeline-content li { list-style: none; font-size: 0.95rem; color: #475569; margin-bottom: 4px; }
@@ -194,12 +338,12 @@
         details {
             margin-bottom: 15px;
             border: 1px solid var(--border-color);
-            border-radius: 6px;
+            border-radius: 16px;
             overflow: hidden;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.7);
             transition: all 0.2s;
         }
-        details:hover { border-color: #cbd5e1; }
+        details:hover { border-color: rgba(56, 189, 248, 0.22); }
         
         summary {
             padding: 12px 15px;
@@ -210,7 +354,7 @@
             justify-content: space-between;
             align-items: center;
             color: var(--text-main);
-            background: #fff;
+            background: transparent;
         }
         summary::-webkit-details-marker { display: none; }
         summary::after {
@@ -219,14 +363,14 @@
             color: var(--accent-color);
             font-weight: 300;
         }
-        details[open] summary { background: #f8fafc; border-bottom: 1px solid var(--border-color); }
+        details[open] summary { background: rgba(248, 250, 252, 0.72); border-bottom: 1px solid var(--border-color); }
         details[open] summary::after { content: '−'; }
 
         .details-content {
             padding: 20px;
             font-size: 0.95rem;
             color: var(--text-muted);
-            background: #fff;
+            background: transparent;
         }
 
         .award-img {
@@ -242,20 +386,50 @@
             padding: 12px 15px;
             margin-bottom: 10px;
             border-left: 3px solid var(--accent-color);
-            background: #f8fafc;
+            background: rgba(248, 250, 252, 0.76);
             color: var(--text-main);
             font-size: 0.95rem;
+            border-radius: 14px;
         }
 
-        footer { margin-top: 80px; padding-top: 30px; border-top: 1px solid var(--border-color); font-size: 0.85rem; color: var(--text-muted); }
+        footer {
+            margin-top: 80px;
+            padding: 26px 0 8px;
+            border-top: 1px solid rgba(148, 163, 184, 0.16);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .scroll-tail {
+            min-height: 90vh;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 0 0 48px;
+            color: rgba(71, 85, 105, 0.78);
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
 
         @media (max-width: 900px) {
             .wrapper { flex-direction: column; }
             .sidebar { width: 100%; height: auto; position: relative; padding: 40px 20px; }
             .main-content { padding: 40px 25px; }
+            section { padding: 24px 22px; border-radius: 24px; }
             .timeline-item { flex-direction: column; }
             .timeline-date { margin-bottom: 5px; }
             .timeline-content { border-left: none; padding-left: 0; }
+            .scroll-tail { min-height: 62vh; padding-bottom: 32px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .attention-background { display: none; }
+            * { scroll-behavior: auto !important; }
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
     </style>
     
@@ -268,6 +442,7 @@
         "alternateName": "Ikhlasul A. Hanif",
         "url": "https://ikhlasulhanif.github.io/",
         "image": "https://ikhlasulhanif.github.io/denis.jpg",
+        "mainEntityOfPage": "https://ikhlasulhanif.github.io/",
         "jobTitle": "Ph.D. Student in Natural Language Processing",
         "worksFor": {
             "@type": "Organization",
@@ -279,6 +454,11 @@
             "@type": "Organization",
             "name": "Universitas Indonesia"
         },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Abu Dhabi",
+            "addressCountry": "AE"
+        },
         "knowsAbout": [
             "Natural Language Processing",
             "Large Language Models",
@@ -288,26 +468,37 @@
             "Deep Learning"
         ],
         "email": "ikhlasul.akmal@mbzuai.ac.ae",
+        "sameAs": [
+            "https://www.linkedin.com/in/ikhlasul-akmal-h/",
+            "https://github.com/IkhlasulHanif",
+            "https://x.com/IkhlasulHanif0"
+        ],
         "description": "Ph.D. Student at MBZUAI researching efficient Large Language Models, AI safety, and multilingual NLP for low-resource languages."
     }
     </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Ikhlasul Akmal Hanif – NLP Researcher",
+        "@type": "ProfilePage",
+        "name": "Ikhlasul Akmal Hanif | NLP Researcher and Ph.D. Student at MBZUAI",
         "url": "https://ikhlasulhanif.github.io/",
-        "description": "Academic portfolio of Ikhlasul Akmal Hanif, Ph.D. Student at MBZUAI researching efficient LLMs, AI safety, and multilingual NLP.",
+        "description": "Official academic website of Ikhlasul Akmal Hanif, NLP researcher and Ph.D. student at MBZUAI working on efficient large language models, AI safety, and multilingual NLP.",
         "inLanguage": "en",
-        "publisher": {
+        "dateModified": "2026-05-20",
+        "mainEntity": {
             "@type": "Person",
             "name": "Ikhlasul Akmal Hanif"
-        },
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://www.google.com/search?q=Ikhlasul+Akmal+Hanif+{search_term_string}",
-            "query-input": "required name=search_term_string"
         }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Ikhlasul Akmal Hanif",
+        "url": "https://ikhlasulhanif.github.io/",
+        "inLanguage": "en",
+        "description": "Official academic website of Ikhlasul Akmal Hanif, NLP researcher and Ph.D. student at MBZUAI."
     }
     </script>
 </head>
@@ -322,22 +513,34 @@
     </div>
 </noscript>
 
+<canvas class="attention-background" id="attention-background" aria-hidden="true"></canvas>
+
 <div class="wrapper">
     <aside class="sidebar">
         <img src="pop-cat.gif" alt="Ikhlasul Akmal Hanif" class="profile-photo">
         
-        <h1>Ikhlasul A. Hanif</h1>
+        <p class="site-title">Ikhlasul A. Hanif</p>
         <div class="sidebar-tagline">
             Ph.D. Student at MBZUAI<br>
             NLP Researcher
         </div>
 
-        <div class="social-links">
-            <a href="#" title="Scholar"><svg class="social-icon"><use href="#icon-scholar"></use></svg></a>
-            <a href="#" title="Twitter"><svg class="social-icon"><use href="#icon-twitter"></use></svg></a>
-            <a href="#" title="LinkedIn"><svg class="social-icon"><use href="#icon-linkedin"></use></svg></a>
-            <a href="#" title="GitHub"><svg class="social-icon"><use href="#icon-github"></use></svg></a>
-            <a href="#" title="CV"><svg class="social-icon"><use href="#icon-cv"></use></svg></a>
+        <nav class="section-nav" aria-label="Section navigation">
+            <div class="section-nav-label">Explore</div>
+            <a href="#about">About</a>
+            <a href="#news">News</a>
+            <a href="#publications">Publications</a>
+            <a href="#education">Education</a>
+            <a href="#experience">Experience</a>
+            <a href="#awards">Awards</a>
+            <a href="#contact">Let's Talk</a>
+        </nav>
+
+        <div class="social-links" aria-label="Profile links">
+            <a href="mailto:ikhlasul.akmal@mbzuai.ac.ae" title="Email" aria-label="Email"><svg class="social-icon"><use href="#icon-email"></use></svg></a>
+            <a href="https://x.com/IkhlasulHanif0" title="X" aria-label="X profile" target="_blank" rel="me noopener noreferrer"><svg class="social-icon"><use href="#icon-twitter"></use></svg></a>
+            <a href="https://www.linkedin.com/in/ikhlasul-akmal-h/" title="LinkedIn" aria-label="LinkedIn profile" target="_blank" rel="me noopener noreferrer"><svg class="social-icon"><use href="#icon-linkedin"></use></svg></a>
+            <a href="https://github.com/IkhlasulHanif" title="GitHub" aria-label="GitHub profile" target="_blank" rel="me noopener noreferrer"><svg class="social-icon"><use href="#icon-github"></use></svg></a>
         </div>
         
         <div style="font-size: 0.85rem; color: #64748b; margin-bottom: 40px;">
@@ -352,6 +555,7 @@
 
     <main class="main-content">
         <section id="about">
+            <h1 class="page-title">Ikhlasul Akmal Hanif</h1>
             <h2>About Me</h2>
             <div id="bio-text"></div>
             <!-- Optional Hobbies Dropdown Container -->
@@ -360,10 +564,13 @@
 
         <section id="news">
             <h2>Latest News</h2>
-            <div style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--accent-color); margin-bottom: 25px; font-style: italic;">
-                "Yes"
-            </div>
             <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
+                <li style="margin-bottom: 12px; border-left: 2px solid var(--accent-color); padding-left: 15px;">
+                    <strong style="color: #0f172a;">May 2026:</strong> Started as a Visiting Researcher at SUTD with <a href="https://isakzhang.github.io/group.html" target="_blank" rel="noopener noreferrer">Wenxuan Zhang's group</a>.
+                </li>
+                <li style="margin-bottom: 12px; border-left: 2px solid var(--accent-color); padding-left: 15px;">
+                    <strong style="color: #0f172a;">Apr 2026:</strong> Vision Language Models are Confused Tourists was accepted to CVPR 2026 (Findings).
+                </li>
                 
                 <li style="margin-bottom: 12px; border-left: 2px solid var(--accent-color); padding-left: 15px;">
                     <strong style="color: #0f172a;">Dec 2025:</strong> VLMs are Confused tourist now available on <a href="https://arxiv.org/abs/2511.17004" target="_blank">Arxiv</a>!
@@ -407,15 +614,24 @@
             <div id="awards-list"></div>
         </section>
 
+        <section id="contact">
+            <h2>Let's Talk</h2>
+            <p style="margin-bottom: 16px;">I am always open to internship opportunities and happy to chat if you have something in mind.</p>
+            <p style="margin-bottom: 16px;">I am also happy to chat about my research interests, especially AI safety, multilingual NLP, and efficient large language models.</p>
+            <p style="margin-bottom: 16px;">I also enjoy mentoring and talking about research more broadly. If you are a junior student and curious about getting into research, especially from Indonesia where this path is still less common, I would be glad to talk :D.</p>
+            <p>Reach me at <a href="mailto:ikhlasul.akmal@mbzuai.ac.ae">ikhlasul.akmal@mbzuai.ac.ae</a>. I would be glad to connect, whether it is about internships, research, mentoring, or just a general conversation.</p>
+        </section>
+
         <footer>
-            &copy; 2025 Ikhlasul Akmal Hanif.<br>
-            <span style="opacity: 0.6;">Designed with a Modern Swiss Academic aesthetic.</span>
+            &copy; 2026 Ikhlasul Akmal Hanif.<br>
         </footer>
+        <div class="scroll-tail">Attention Field</div>
     </main>
 </div>
 
 <!-- SVG ICONS -->
 <svg style="display: none;">
+    <symbol id="icon-email" viewBox="0 0 24 24"><path d="M2 5h20v14H2V5zm2 2v.217l8 5.333 8-5.333V7l-8 5.333L4 7zm16 10V9.617l-8 5.333-8-5.333V17h16z"/></symbol>
     <symbol id="icon-scholar" viewBox="0 0 24 24"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></symbol>
     <symbol id="icon-twitter" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></symbol>
     <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></symbol>
@@ -796,12 +1012,15 @@
     function renderTimeline(id, data) {
         const container = document.getElementById(id);
         data.forEach(item => {
+            const orgLine = item.orgLink
+                ? `<a href="${item.orgLink}" class="org" target="_blank" rel="noopener noreferrer">${item.school || item.org}</a>`
+                : `<span class="org">${item.school || item.org}</span>`;
             container.innerHTML += `
                 <div class="timeline-item">
                     <div class="timeline-date">${item.date}</div>
                     <div class="timeline-content">
                         <h3>${item.degree || item.role}</h3>
-                        <span class="org">${item.school || item.org}</span>
+                        ${orgLine}
                         <ul>${item.details.map(d => `<li>${d}</li>`).join('')}</ul>
                     </div>
                 </div>
@@ -831,6 +1050,123 @@
         });
     }
 
+    function initAttentionBackground() {
+        const canvas = document.getElementById('attention-background');
+        if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        const ctx = canvas.getContext('2d');
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        let width = 0;
+        let height = 0;
+        let rafId = null;
+
+        const rows = 4;
+        const cols = 9;
+        const nodes = [];
+
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+            canvas.style.width = width + 'px';
+            canvas.style.height = height + 'px';
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            buildNodes();
+        }
+
+        function buildNodes() {
+            nodes.length = 0;
+            const leftPad = Math.max(360, width * 0.26);
+            const rightPad = 80;
+            const topPad = 80;
+            const bottomPad = 80;
+            const gridWidth = Math.max(220, width - leftPad - rightPad);
+            const gridHeight = Math.max(220, height - topPad - bottomPad);
+
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    const x = leftPad + (col / (cols - 1)) * gridWidth;
+                    const y = topPad + (row / (rows - 1)) * gridHeight;
+                    nodes.push({
+                        row,
+                        col,
+                        x,
+                        y,
+                        phase: Math.random() * Math.PI * 2,
+                        drift: 8 + Math.random() * 12,
+                        radius: 2.6 + Math.random() * 1.8
+                    });
+                }
+            }
+        }
+
+        function draw(time) {
+            const t = time * 0.00055;
+            ctx.clearRect(0, 0, width, height);
+
+            const positions = nodes.map((node) => {
+                const offsetX = Math.sin(t + node.phase + node.row * 0.45) * node.drift;
+                const offsetY = Math.cos(t * 1.2 + node.phase + node.col * 0.2) * node.drift * 0.45;
+                return {
+                    ...node,
+                    px: node.x + offsetX,
+                    py: node.y + offsetY
+                };
+            });
+
+            positions.forEach((source) => {
+                positions.forEach((target) => {
+                    if (target.col !== source.col + 1) return;
+
+                    const dy = Math.abs(target.row - source.row);
+                    const attention = Math.max(0, 1 - dy * 0.26) * (0.58 + 0.42 * Math.sin(t * 2.4 + source.phase + target.phase));
+                    if (attention < 0.16) return;
+
+                    const gradient = ctx.createLinearGradient(source.px, source.py, target.px, target.py);
+                    gradient.addColorStop(0, `rgba(15, 118, 110, ${0.03 + attention * 0.1})`);
+                    gradient.addColorStop(0.5, `rgba(56, 189, 248, ${0.04 + attention * 0.16})`);
+                    gradient.addColorStop(1, `rgba(14, 165, 233, ${0.02 + attention * 0.08})`);
+
+                    ctx.beginPath();
+                    ctx.moveTo(source.px, source.py);
+                    const controlX = (source.px + target.px) / 2;
+                    const curve = (target.row - source.row) * 14;
+                    ctx.quadraticCurveTo(controlX, (source.py + target.py) / 2 + curve, target.px, target.py);
+                    ctx.strokeStyle = gradient;
+                    ctx.lineWidth = 0.8 + attention * 1.6;
+                    ctx.stroke();
+                });
+            });
+
+            positions.forEach((node) => {
+                const pulse = 0.55 + 0.45 * Math.sin(t * 3 + node.phase);
+                const glow = 10 + pulse * 18;
+
+                ctx.beginPath();
+                ctx.fillStyle = `rgba(56, 189, 248, ${0.08 + pulse * 0.08})`;
+                ctx.arc(node.px, node.py, glow, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.fillStyle = `rgba(15, 23, 42, ${0.16 + pulse * 0.1})`;
+                ctx.arc(node.px, node.py, node.radius + 0.6, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.fillStyle = `rgba(255, 255, 255, ${0.62 + pulse * 0.2})`;
+                ctx.arc(node.px, node.py, node.radius * 0.45, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            rafId = window.requestAnimationFrame(draw);
+        }
+
+        resize();
+        window.addEventListener('resize', resize);
+        rafId = window.requestAnimationFrame(draw);
+    }
+
     // Load BibTeX from external file and initialize
     async function init() {
         try {
@@ -854,6 +1190,7 @@
         // console.log('Parsed publications:', publications);
         
         render();
+        initAttentionBackground();
     }
     
     document.addEventListener('DOMContentLoaded', init);
