@@ -126,12 +126,20 @@
             top: 0;
             height: 100vh;
             flex-shrink: 0;
-            overflow-y: auto; 
-            scrollbar-width: none;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(148, 163, 184, 0.45) transparent;
             border-right: 1px solid rgba(148, 163, 184, 0.14);
             box-shadow: 10px 0 32px rgba(15, 23, 42, 0.08);
         }
-        .sidebar::-webkit-scrollbar { display: none; }
+        .sidebar::-webkit-scrollbar { width: 8px; }
+        .sidebar::-webkit-scrollbar-track { background: transparent; }
+        .sidebar::-webkit-scrollbar-thumb {
+            background: rgba(148, 163, 184, 0.35);
+            border-radius: 999px;
+        }
+        .sidebar::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.55); }
 
         .profile-photo {
             width: 140px;
