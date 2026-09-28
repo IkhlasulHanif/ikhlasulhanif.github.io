@@ -325,6 +325,61 @@ section h2 {
 .entry p { font-size: 1.05rem; }
 .entry .date + p { margin-top: 0; }
 
+/* Expandable context under an entry */
+
+.more { margin-top: 0.35rem; }
+
+.more summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    list-style: none;
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    transition: color 0.2s ease;
+}
+
+.more summary::-webkit-details-marker { display: none; }
+
+.more summary::before {
+    content: '+';
+    display: inline-grid;
+    place-items: center;
+    width: 0.95rem;
+    height: 0.95rem;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    line-height: 1;
+    color: var(--accent);
+}
+
+.more[open] summary::before { content: '\2212'; }
+.more summary:hover { color: var(--ink); }
+
+.more-body {
+    margin-top: 0.6rem;
+    padding: 0.2rem 0 0.2rem 1rem;
+    border-left: 1px solid var(--line);
+    font-size: 0.98rem;
+    color: var(--ink-soft);
+}
+
+.more-body p + p { margin-top: 0.5rem; }
+
+.more-body .stat {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+}
+
+.more-body .src {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--faint);
+}
+
 /* ---------- Publications ---------- */
 
 .filters { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.5rem; }
