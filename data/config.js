@@ -44,13 +44,13 @@ const siteConfig = {
     // --- EDUCATION ---
     education: [
         { 
-            date: "2025 – Present", 
+            date: "2025 - Present", 
             degree: "Ph.D. in NLP", 
             school: "MBZUAI", 
             details: ["Advisors: Prof. Fajri Koto & Prof. Iryna Gurevych"] 
         },
         { 
-            date: "2021 – 2025", 
+            date: "2021 - 2025", 
             degree: "B. Comp. Sci.", 
             school: "Universitas Indonesia", 
             details: [
@@ -64,7 +64,7 @@ const siteConfig = {
     // --- EXPERIENCE ---
     experience: [
         {
-            date: "May 26 – Present",
+            date: "May 26 - Present",
             role: "Visiting Researcher",
             org: "Singapore University of Technology and Design (SUTD)",
             orgLink: "https://isakzhang.github.io/group.html",
@@ -73,7 +73,7 @@ const siteConfig = {
             ]
         },
         { 
-            date: "Feb 25 – Jul 25", 
+            date: "Feb 25 - Jul 25", 
             role: "AI Coach", 
             org: "Kokocoder Group", 
             details: [
@@ -81,7 +81,7 @@ const siteConfig = {
             ] 
         },
         { 
-            date: "Feb 25 – Jul 25", 
+            date: "Feb 25 - Jul 25", 
             role: "AI Engineer", 
             org: "PT. Fungsitama Cipta Teknologi", 
             details: [
@@ -90,7 +90,7 @@ const siteConfig = {
             ] 
         },
         { 
-            date: "Sep 24 – Nov 24", 
+            date: "Sep 24 - Nov 24", 
             role: "AI Engineer Intern", 
             org: "Media Kernels Indonesia", 
             details: [
@@ -99,7 +99,7 @@ const siteConfig = {
             ] 
         },
         { 
-            date: "May 24 – Jun 24", 
+            date: "May 24 - Jun 24", 
             role: "Research Intern", 
             org: "MBZUAI", 
             details: [
@@ -108,7 +108,7 @@ const siteConfig = {
             ] 
         },
         { 
-            date: "Jan 24 – Mar 24", 
+            date: "Jan 24 - Mar 24", 
             role: "Research Intern", 
             org: "JAIST", 
             details: [
@@ -117,7 +117,7 @@ const siteConfig = {
             ] 
         },
         { 
-            date: "Jul 22 – Dec 23", 
+            date: "Jul 22 - Dec 23", 
             role: "Teaching Assistant", 
             org: "Faculty of Computer Science, UI", 
             details: [
