@@ -119,13 +119,15 @@
 
 <header class="masthead">
     <div class="masthead-inner">
-        <a class="home" href="/">I.A. Hanif</a>
+        <a class="home" href="#about"><span class="home-dot" aria-hidden="true"></span>Ikhlasul Akmal Hanif</a>
         <nav aria-label="Sections">
+            <a href="#about">About</a>
             <a href="#news">News</a>
             <a href="#publications">Papers</a>
             <a href="#experience">Experience</a>
             <a href="#education">Education</a>
-            <a href="#awards">Awards</a>
+            <a href="#awards">Honors</a>
+            <a href="#blog">Blog</a>
             <a href="#contact">Contact</a>
         </nav>
     </div>
@@ -593,9 +595,40 @@
         </ul>
     </section>
 
+    <!-- ============ BLOG ============ -->
+    <section class="row" id="blog">
+        <h2 class="label"><span class="num">06</span>Blog</h2>
+        <div class="wip reveal">
+            <svg class="wip-sign" viewBox="0 0 200 150" role="img" aria-labelledby="wip-title">
+                <title id="wip-title">Under construction: a striped road barricade with a warning light</title>
+                <defs>
+                    <pattern id="wip-stripes" width="24" height="24" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                        <rect width="24" height="24" fill="#f4b400"/>
+                        <rect width="12" height="24" fill="#1c1b19"/>
+                    </pattern>
+                </defs>
+                <!-- warning light -->
+                <rect x="94" y="14" width="12" height="16" rx="2" fill="#3a3936"/>
+                <circle class="wip-light" cx="100" cy="12" r="9" fill="#f08c00"/>
+                <!-- legs -->
+                <path d="M40 58 L22 140 M60 58 L78 140 M140 58 L122 140 M160 58 L178 140" stroke="#3a3936" stroke-width="7" stroke-linecap="round"/>
+                <!-- boards -->
+                <rect x="14" y="30" width="172" height="30" rx="3" fill="url(#wip-stripes)" stroke="#1c1b19" stroke-width="3"/>
+                <rect x="24" y="86" width="152" height="22" rx="3" fill="url(#wip-stripes)" stroke="#1c1b19" stroke-width="3"/>
+                <!-- ground -->
+                <path d="M6 142 H194" stroke="#a8a6a1" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <div>
+                <p class="wip-tag">Work in progress</p>
+                <p class="wip-title">The blog is under construction.</p>
+                <p>I&rsquo;ll be writing about underspecification, model laziness, and what AI agents do when the path isn&rsquo;t spelled out for them. Come back soon.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- ============ CONTACT ============ -->
     <section class="row" id="contact">
-        <h2 class="label"><span class="num">06</span>Contact</h2>
+        <h2 class="label"><span class="num">07</span>Contact</h2>
         <div class="reveal">
             <p class="contact-big">Have a research internship, a collaboration, or a problem worth working on together? Write to <a href="mailto:ikhlasul.hanif@mbzuai.ac.ae">ikhlasul.hanif@mbzuai.ac.ae</a>.</p>
             <div class="contact-body">
@@ -626,20 +659,39 @@
         });
     })();
 
-    // Active section in masthead
+    // Sections as tabs: show one section at a time, driven by the URL hash
     (function () {
+        var sections = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
         var links = document.querySelectorAll('.masthead nav a');
-        if (!('IntersectionObserver' in window) || !links.length) return;
-        var map = {};
-        links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
-        var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (e) {
-                if (!e.isIntersecting) return;
-                links.forEach(function (a) { a.classList.remove('active'); });
-                if (map[e.target.id]) map[e.target.id].classList.add('active');
+        var names = {};
+        links.forEach(function (a) { names[a.getAttribute('href').slice(1)] = a.textContent; });
+
+        // "Next" link at the bottom of each section
+        sections.forEach(function (sec, i) {
+            var next = sections[i + 1];
+            if (!next) return;
+            var wrap = document.createElement('div');
+            wrap.className = 'next-section';
+            wrap.innerHTML = '<a href="#' + next.id + '">Next: ' + (names[next.id] || next.id) + ' <span aria-hidden="true">&rarr;</span></a>';
+            sec.appendChild(wrap);
+        });
+
+        function show(fromNav) {
+            var id = location.hash.slice(1);
+            if (!sections.some(function (s) { return s.id === id; })) id = 'about';
+            sections.forEach(function (s) { s.classList.toggle('is-active', s.id === id); });
+            links.forEach(function (a) {
+                var on = a.getAttribute('href') === '#' + id;
+                a.classList.toggle('active', on);
+                if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+                if (on && a.scrollIntoView && window.innerWidth < 760) a.scrollIntoView({ block: 'nearest', inline: 'center' });
             });
-        }, { rootMargin: '-40% 0px -55% 0px' });
-        document.querySelectorAll('main section[id]').forEach(function (s) { io.observe(s); });
+            if (fromNav) window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+
+        document.documentElement.classList.add('tabs');
+        window.addEventListener('hashchange', function () { show(true); });
+        show(false);
     })();
 
     // Gentle reveal on scroll (content is in the HTML regardless)
