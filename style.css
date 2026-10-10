@@ -1,19 +1,20 @@
 /* ============================================
    Ledger layout: a narrow label rail + one reading column.
-   Warm monochrome, one ink accent, serif for reading, mono for metadata.
+   MBZUAI navy palette, serif for reading, mono for metadata.
    ============================================ */
 
 :root {
-    --bg: #f7f6f3;
-    --surface: #fbfbfa;
-    --ink: #1c1b19;
-    --ink-soft: #3a3936;
-    --muted: #787774;
-    --faint: #a8a6a1;
-    --line: #e6e4df;
-    --accent: #9f2f2d;
-    --accent-bg: #fdebec;
-    --tag-bg: #efede8;
+    /* MBZUAI navy (#164678) with cool neutrals */
+    --bg: #f5f7fa;
+    --surface: #ffffff;
+    --ink: #0c1b33;
+    --ink-soft: #25344d;
+    --muted: #4a5a72;
+    --faint: #6a7890;
+    --line: #dde4ee;
+    --accent: #164678;
+    --accent-bg: #e3ecf6;
+    --tag-bg: #edf1f6;
 
     --serif: 'Newsreader', 'Iowan Old Style', Georgia, serif;
     --mono: 'Geist Mono', 'SF Mono', ui-monospace, Menlo, monospace;
@@ -25,16 +26,16 @@
 
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-        --bg: #161615;
-        --surface: #1c1c1a;
-        --ink: #ecebe8;
-        --ink-soft: #cfcdc8;
-        --muted: #8f8d88;
-        --faint: #62615d;
-        --line: #2b2a28;
-        --accent: #e8918f;
-        --accent-bg: #3a2322;
-        --tag-bg: #262523;
+        --bg: #0a1424;
+        --surface: #0f1c31;
+        --ink: #eaf0f8;
+        --ink-soft: #cdd8e6;
+        --muted: #a3b2c7;
+        --faint: #7d8ca3;
+        --line: #1d2c45;
+        --accent: #86b6e8;
+        --accent-bg: #14294a;
+        --tag-bg: #15233a;
     }
 }
 
@@ -106,7 +107,7 @@ footer {
     z-index: 10;
     background: var(--surface);
     border-bottom: 1px solid var(--line);
-    box-shadow: 0 1px 0 var(--line), 0 6px 18px rgba(0, 0, 0, 0.035);
+    box-shadow: 0 1px 0 var(--line), 0 6px 18px rgba(12, 27, 51, 0.05);
     font-size: 0.85rem;
 }
 
@@ -385,7 +386,7 @@ section h2 {
     margin-top: 0.6rem;
     padding: 0.2rem 0 0.2rem 1rem;
     border-left: 1px solid var(--line);
-    font-size: 0.98rem;
+    font-size: 1.02rem;
     color: var(--ink-soft);
 }
 
@@ -445,7 +446,7 @@ section h2 {
 .pub h3 a { text-decoration: none; }
 .pub h3 a:hover { text-decoration: underline; }
 
-.authors { margin-top: 0.35rem; font-size: 0.98rem; color: var(--muted); }
+.authors { margin-top: 0.35rem; font-size: 1rem; color: var(--muted); }
 .authors b { color: var(--ink); font-weight: 600; }
 
 .pub-meta { margin-top: 0.5rem; display: flex; gap: 0.5rem; align-items: center; }
@@ -486,7 +487,7 @@ footer {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
-    color: var(--faint);
+    color: var(--muted);
 }
 
 /* ---------- Cat in the rail (sticky) + falling cats ---------- */
