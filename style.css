@@ -4,17 +4,17 @@
    ============================================ */
 
 :root {
-    /* MBZUAI navy (#164678) with cool neutrals */
-    --bg: #f5f7fa;
-    --surface: #ffffff;
-    --ink: #0c1b33;
-    --ink-soft: #25344d;
-    --muted: #4a5a72;
-    --faint: #6a7890;
-    --line: #dde4ee;
+    /* MBZUAI navy (#164678) on white, neutral slate grays */
+    --bg: #ffffff;
+    --surface: #f7f8fa;
+    --ink: #101828;
+    --ink-soft: #2b3445;
+    --muted: #525c6b;
+    --faint: #7a8494;
+    --line: #e4e7ec;
     --accent: #164678;
-    --accent-bg: #e3ecf6;
-    --tag-bg: #edf1f6;
+    --accent-bg: #e9eff7;
+    --tag-bg: #f1f3f6;
 
     --serif: 'Newsreader', 'Iowan Old Style', Georgia, serif;
     --mono: 'Geist Mono', 'SF Mono', ui-monospace, Menlo, monospace;
@@ -26,17 +26,32 @@
 
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-        --bg: #0a1424;
-        --surface: #0f1c31;
-        --ink: #eaf0f8;
-        --ink-soft: #cdd8e6;
-        --muted: #a3b2c7;
-        --faint: #7d8ca3;
-        --line: #1d2c45;
-        --accent: #86b6e8;
-        --accent-bg: #14294a;
-        --tag-bg: #15233a;
+        --bg: #0b1220;
+        --surface: #111a2b;
+        --ink: #e8edf4;
+        --ink-soft: #c8d1de;
+        --muted: #9ba6b7;
+        --faint: #747f91;
+        --line: #1e293b;
+        --accent: #8ab4e6;
+        --accent-bg: #15284a;
+        --tag-bg: #162034;
+        color-scheme: dark;
     }
+}
+
+:root[data-theme="dark"] {
+    --bg: #0b1220;
+    --surface: #111a2b;
+    --ink: #e8edf4;
+    --ink-soft: #c8d1de;
+    --muted: #9ba6b7;
+    --faint: #747f91;
+    --line: #1e293b;
+    --accent: #8ab4e6;
+    --accent-bg: #15284a;
+    --tag-bg: #162034;
+    color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -105,9 +120,9 @@ footer {
     position: sticky;
     top: 0;
     z-index: 10;
-    background: var(--surface);
+    background: var(--bg);
     border-bottom: 1px solid var(--line);
-    box-shadow: 0 1px 0 var(--line), 0 6px 18px rgba(12, 27, 51, 0.05);
+    box-shadow: 0 6px 18px rgba(16, 24, 40, 0.04);
     font-size: 0.85rem;
 }
 
@@ -160,6 +175,42 @@ footer {
     color: var(--ink);
     font-weight: 500;
     border-bottom-color: var(--accent);
+}
+
+.theme-toggle {
+    flex: none;
+    display: inline-grid;
+    place-items: center;
+    width: 2.1rem;
+    height: 2.1rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.theme-toggle:hover { color: var(--accent); border-color: var(--faint); background: var(--surface); }
+
+.theme-toggle svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.theme-toggle .icon-moon { fill: currentColor; stroke: none; }
+.theme-toggle .icon-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+    :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
 }
 
 /* ---------- Page grid ---------- */
@@ -307,6 +358,13 @@ section h2 {
     background: var(--accent);
     transform: translateY(-0.05rem);
     box-shadow: 0 0 0 0.25rem var(--accent-bg);
+}
+
+/* \paragraph{...}-style run-in headings (About only) */
+.para-head {
+    font-weight: 600;
+    color: var(--ink);
+    margin-right: 0.15rem;
 }
 
 /* ---------- Lists (news, timeline, awards) ---------- */
@@ -719,4 +777,13 @@ html:not(.tabs) .next-section { display: none; }
     .tabs main:has(#about.is-active) .cat-btn { margin-top: 0; }
 
     .tabs main:not(:has(#about.is-active)) .cat-rail { display: none; }
+}
+
+/* Masthead: name left, tabs + theme toggle right */
+.masthead nav { margin-left: auto; }
+
+@media (max-width: 760px) {
+    .masthead-inner { position: relative; }
+    .masthead nav { margin-left: 0; }
+    .theme-toggle { position: absolute; top: 0.55rem; right: 1rem; width: 1.9rem; height: 1.9rem; }
 }

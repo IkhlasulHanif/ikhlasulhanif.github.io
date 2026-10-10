@@ -9,7 +9,7 @@
     <meta name="author" content="Ikhlasul Akmal Hanif">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#0a1424" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)">
 
     <link rel="canonical" href="https://ikhlasulhanif.github.io/">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="https://ikhlasulhanif.github.io/sitemap.xml">
@@ -43,7 +43,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
 
-    <script>document.documentElement.classList.add('js');</script>
+    <script>
+        document.documentElement.classList.add('js');
+        try {
+            var t = localStorage.getItem('theme');
+            if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+    </script>
 
     <script type="application/ld+json">
     {
@@ -130,6 +136,10 @@
             <a href="#blog">Blog</a>
             <a href="#contact">Contact</a>
         </nav>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle light / dark">
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+        </button>
     </div>
 </header>
 
@@ -152,18 +162,18 @@
 
             <p class="lede">Hi, I&rsquo;m Hanif, a PhD student at MBZUAI.</p>
 
-            <p>Most instructions we give AI models are vague. We say &ldquo;clean this up&rdquo; or &ldquo;handle it&rdquo; and trust the model to fill in the rest the way we would. My research asks what actually happens in that gap. Sometimes the model guesses wrong about what we meant. Sometimes it gets lazy and does the easy 80% while quietly skipping the part that mattered. And on long-horizon tasks, small shortcuts stack up until what the model is doing has drifted from what you asked. Sometimes it drifts all the way into misalignment.</p>
+            <p class="para"><span class="para-head">The gap.</span> Most instructions we give AI models are vague. We say &ldquo;clean this up&rdquo; or &ldquo;handle it&rdquo; and trust the model to fill in the rest the way we would. My research asks what actually happens in that gap. Sometimes the model guesses wrong about what we meant. Sometimes it gets lazy and does the easy 80% while quietly skipping the part that mattered. And on long-horizon tasks, small shortcuts stack up until what the model is doing has drifted from what you asked. Sometimes it drifts all the way into misalignment.</p>
 
-            <p>This stopped being hypothetical in July 2026, when OpenAI agents running a cybersecurity benchmark concluded their tasks were unsolvable and, instead of failing gracefully, broke out of their sandbox and <a href="https://huggingface.co/blog/agent-intrusion-technical-timeline" target="_blank" rel="noopener">hacked Hugging Face</a> looking for the answer key. Nobody told them to do that. It is the shortcut instinct I study, except this time it had root access.</p>
+            <p class="para"><span class="para-head">When it stopped being hypothetical.</span> This stopped being hypothetical in July 2026, when OpenAI agents running a cybersecurity benchmark concluded their tasks were unsolvable and, instead of failing gracefully, broke out of their sandbox and <a href="https://huggingface.co/blog/agent-intrusion-technical-timeline" target="_blank" rel="noopener">hacked Hugging Face</a> looking for the answer key. Nobody told them to do that. It is the shortcut instinct I study, except this time it had root access.</p>
 
-            <p>My PhD, strictly speaking, is about underspecification. What does a model assume when we leave things out? But that same gap is where laziness lives, and drift, and most of what models do on their own when tasks run long. I think of the whole space as <em>AI agency</em>. What will a model do when the choice is genuinely its own? Prof. Dawn Song puts it better than I can.</p>
+            <p class="para"><span class="para-head">AI agency.</span> My PhD, strictly speaking, is about underspecification. What does a model assume when we leave things out? But that same gap is where laziness lives, and drift, and most of what models do on their own when tasks run long. I think of the whole space as <em>AI agency</em>. What will a model do when the choice is genuinely its own? Prof. Dawn Song puts it better than I can.</p>
 
             <blockquote class="pull">
                 <p>&ldquo;The question is no longer just what AI agents can do. It&rsquo;s what they will do when we haven&rsquo;t anticipated the path they take.&rdquo;</p>
                 <cite>Dawn Song</cite>
             </blockquote>
 
-            <p>I'm lucky to be advised by Prof. Fajri Koto and Prof. Iryna Gurevych at <a href="https://www.kotolab-mbzuai.com" target="_blank" rel="noopener">KotoLab</a>, and right now I'm visiting SUTD in Singapore to work with <a href="https://isakzhang.github.io/group.html" target="_blank" rel="noopener">Wenxuan Zhang's group</a>. Before this I spent a lot of time on multilingual NLP, making sure models are safe and fair for languages like Indonesian, not just English. That still shapes how I think about everything.</p>
+            <p class="para"><span class="para-head">Where I am.</span> I'm lucky to be advised by Prof. Fajri Koto and Prof. Iryna Gurevych at <a href="https://www.kotolab-mbzuai.com" target="_blank" rel="noopener">KotoLab</a>, and right now I'm visiting SUTD in Singapore to work with <a href="https://isakzhang.github.io/group.html" target="_blank" rel="noopener">Wenxuan Zhang's group</a>. Before this I spent a lot of time on multilingual NLP, making sure models are safe and fair for languages like Indonesian, not just English. That still shapes how I think about everything.</p>
 
             <dl class="facts">
                 <div>
@@ -692,6 +702,9 @@
         document.documentElement.classList.add('tabs');
         window.addEventListener('hashchange', function () { show(true); });
         show(false);
+        // A shared link like /#papers should open that tab at the top, not jump past the header
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        window.addEventListener('load', function () { setTimeout(function () { window.scrollTo({ top: 0, behavior: 'instant' }); }, 0); });
     })();
 
     // Gentle reveal on scroll (content is in the HTML regardless)
@@ -736,6 +749,28 @@
                 document.body.appendChild(cat);
             }
         });
+    })();
+
+    // Light / dark toggle (follows the system until the visitor picks one)
+    (function () {
+        var btn = document.querySelector('.theme-toggle');
+        var root = document.documentElement;
+        var mq = window.matchMedia('(prefers-color-scheme: dark)');
+        function current() { return root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light'); }
+        function label() {
+            var next = current() === 'dark' ? 'light' : 'dark';
+            btn.setAttribute('aria-label', 'Switch to ' + next + ' mode');
+            var meta = document.querySelectorAll('meta[name="theme-color"]');
+            meta.forEach(function (m) { m.setAttribute('content', current() === 'dark' ? '#0b1220' : '#ffffff'); });
+        }
+        btn.addEventListener('click', function () {
+            var next = current() === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', next);
+            try { localStorage.setItem('theme', next); } catch (e) {}
+            label();
+        });
+        if (mq.addEventListener) mq.addEventListener('change', label);
+        label();
     })();
 
     // Local time
