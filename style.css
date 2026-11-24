@@ -448,6 +448,22 @@ p, li { text-wrap: pretty; }
 .honors-list { row-gap: 1.25rem; }
 .honors-list .date, .honors-list .org { display: block; }
 
+/* In the compact view an honor's details sit behind a + like the rows above */
+html.js:not(.detailed) .honors-list .entry { position: relative; padding-right: 2.25rem; }
+html.js:not(.detailed) .honors-list .more { margin-top: 0; }
+html.js:not(.detailed) .honors-list .more summary {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    justify-content: center;
+    gap: 0;
+    overflow: hidden;
+    font-size: 0;
+}
+html.js:not(.detailed) .honors-list .more-body { margin-top: 0.35rem; }
+
 /* ---------- Contact, footer ---------- */
 
 #contact { padding-block: 4rem 3rem; background: var(--band); color: var(--band-ink); }
@@ -476,7 +492,6 @@ footer {
 
 html.js:not(.detailed) .only-detailed,
 html.js:not(.detailed) section:not(.expanded) .extra,
-html.js:not(.detailed) .honors-list .more,
 html.js:not(.detailed) .entry .full,
 html:not(.js) .view-more,
 html:not(.js) .view-toggle,
