@@ -170,29 +170,29 @@
     <section class="row" id="research">
         <h2 class="label">Research</h2>
         <div>
-            <p class="statement">I work on <em>underspecification</em>. We tell a model &ldquo;clean this up&rdquo; or &ldquo;handle it&rdquo; and leave the rest out. I study what it assumes.</p>
+            <p class="statement">I work on <em>underspecification</em>. We tell a model &ldquo;clean this up&rdquo; or &ldquo;handle it&rdquo; and leave the rest out. I mostly just study what it assumes in the gaps.</p>
             <div class="cols prose">
                 <div>
                     <h3>At training time</h3>
-                    <p>A lot of misaligned behavior comes from underspecification. <a href="https://arxiv.org/abs/2611.07071" target="_blank" rel="noopener">Fel et al. (2026)</a> make the same point, and <a href="https://arxiv.org/abs/2011.03395" target="_blank" rel="noopener">D&rsquo;Amour et al. (2020)</a> already saw the problem across machine learning. We tell the model what to get right and never say how. Train a coding agent with <a href="https://arxiv.org/abs/2402.03300" target="_blank" rel="noopener">GRPO</a> and it can edit the unit tests instead of fixing the bug and still get the same reward. The difference is latent, so the reward never sees it. You could even argue that the paperclip maximizer (<a href="https://nickbostrom.com/papers/ethical-issues-in-advanced-ai/" target="_blank" rel="noopener">Bostrom, 2003</a>) is the same problem.</p>
+                    <p>A lot of misaligned behavior seems to start here. <a href="https://arxiv.org/abs/2611.07071" target="_blank" rel="noopener">Fel et al. (2026)</a> make this point, and <a href="https://arxiv.org/abs/2011.03395" target="_blank" rel="noopener">D&rsquo;Amour et al. (2020)</a> already saw it across machine learning years ago. We tell a model what to get right and never say how. Train a coding agent with <a href="https://arxiv.org/abs/2402.03300" target="_blank" rel="noopener">GRPO</a> and it can just edit the unit tests instead of fixing the bug, and still get the same reward. The difference is latent, so the reward never sees it. You could even argue Bostrom&rsquo;s <a href="https://nickbostrom.com/papers/ethical-issues-in-advanced-ai/" target="_blank" rel="noopener">paperclip maximizer (2003)</a> is the same problem.</p>
                 </div>
                 <div>
                     <h3>At inference time</h3>
-                    <p>Now there&rsquo;s a person on the other end. If the model guesses wrong, it might delete a month of your results. If it asks about everything, it gets annoying. And what people want isn&rsquo;t always what they actually need, so I want models that can balance the two and know when to ask.</p>
+                    <p>Now there is a person on the other end. If the model guesses wrong, it might delete a month of your results. If it asks about everything, it gets annoying fast. What people ask for is not always what they actually need, either. I want models that can balance the two and know when to ask, though I am still figuring out what that should look like in practice.</p>
                 </div>
             </div>
             <div class="thirds prose">
                 <div>
                     <h3>Languages and cultures</h3>
-                    <p>A good answer in one culture can be a bad one in another, so you could argue that alignment across cultures is underspecified too. I care about this one a lot. I&rsquo;ve worked on <a href="https://arxiv.org/abs/2510.24081" target="_blank" rel="noopener">Global PIQA</a>, <a href="https://aclanthology.org/2026.acl-long.1527/" target="_blank" rel="noopener">CommonLID</a>, and <a href="https://arxiv.org/abs/2503.07920" target="_blank" rel="noopener">SEA-VL</a> with SEACrowd.</p>
+                    <p>A good answer in one culture can be a bad one in another, so cross-cultural alignment feels underspecified too. I care about this one a lot. I have been lucky to work on <a href="https://arxiv.org/abs/2510.24081" target="_blank" rel="noopener">Global PIQA</a>, <a href="https://aclanthology.org/2026.acl-long.1527/" target="_blank" rel="noopener">CommonLID</a>, and <a href="https://arxiv.org/abs/2503.07920" target="_blank" rel="noopener">SEA-VL</a> with the folks at SEACrowd.</p>
                 </div>
                 <div>
                     <h3>Fairness and safety</h3>
-                    <p>Anything about safety interests me. I&rsquo;ve worked on bias in Indonesian languages (<a href="https://arxiv.org/abs/2606.01260" target="_blank" rel="noopener">IndoBias</a>), fairness in automated video interviews (<a href="https://ieeexplore.ieee.org/document/10704666" target="_blank" rel="noopener">MAG-BERT-ARL</a>), and why models refuse harmful requests less often in <a href="https://arxiv.org/abs/2606.01196" target="_blank" rel="noopener">low-resource languages</a>.</p>
+                    <p>Anything about safety pulls me in. I have worked on bias in Indonesian languages (<a href="https://arxiv.org/abs/2606.01260" target="_blank" rel="noopener">IndoBias</a>), fairness in automated video interviews (<a href="https://ieeexplore.ieee.org/document/10704666" target="_blank" rel="noopener">MAG-BERT-ARL</a>), and why models refuse harmful requests less often in <a href="https://arxiv.org/abs/2606.01196" target="_blank" rel="noopener">low-resource languages</a>.</p>
                 </div>
                 <div>
                     <h3>Robustness</h3>
-                    <p>A lot of my papers end up being about robustness. <a href="https://arxiv.org/abs/2511.17004" target="_blank" rel="noopener">Confused Tourists</a> checks if vision-language models hold up when you mix cultural cues. <a href="https://arxiv.org/abs/2606.08034" target="_blank" rel="noopener">Sci-Rho</a> checks if they can still solve the same science problem when the numbers or shapes change.</p>
+                    <p>A lot of my papers end up being about robustness, even when I do not plan for them to be. <a href="https://arxiv.org/abs/2511.17004" target="_blank" rel="noopener">Confused Tourists</a> checks if vision-language models fall apart when you mix cultural cues. They do. <a href="https://arxiv.org/abs/2606.08034" target="_blank" rel="noopener">Sci-Rho</a> checks if they can still solve the same science problem when the numbers or shapes change. Turns out, not as reliably as we hoped.</p>
                 </div>
             </div>
             <div class="why extra">
@@ -722,11 +722,11 @@
         <ul class="entries honors-list">
             <li class="entry">
                 <span class="date">Jul 2025</span>
-                <h3>Talk on Competitions <span class="org">BINUS</span></h3>
+                <h3>Talk on Competitions <span class="org">BINUS, Indonesia <span class="flag" aria-hidden="true">🇮🇩</span></span></h3>
             </li>
             <li class="entry">
                 <span class="date">2025</span>
-                <h3>DS/AI Competitions: Practical Tactics, Motivation, and Career Transitions <span class="org">Datathon RISTEK, Universitas Indonesia</span></h3>
+                <h3>DS/AI Competitions: Practical Tactics, Motivation, and Career Transitions <span class="org">Datathon RISTEK, Universitas Indonesia <span class="flag" aria-hidden="true">🇮🇩</span></span></h3>
             </li>
         </ul>
     </section>
