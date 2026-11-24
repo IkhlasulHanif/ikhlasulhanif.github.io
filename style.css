@@ -19,8 +19,8 @@
     --serif: 'Newsreader', 'Iowan Old Style', Georgia, serif;
     --mono: 'Geist Mono', 'SF Mono', ui-monospace, Menlo, monospace;
 
-    --rail: 9.5rem;
-    --col: 40rem;
+    --rail: 8.5rem;
+    --col: 54rem;
     --gap: 2.5rem;
 }
 
@@ -232,24 +232,22 @@ main {
     padding-top: 0.35rem;
 }
 
-.label .num { color: var(--accent); margin-right: 0.5rem; }
-
 section {
-    padding: 4.5rem 0;
+    padding: 2.25rem 0;
     border-top: 1px solid var(--line);
 }
 
 section h2 {
     /* Visible heading lives in the rail label; keep a real h2 for outline + crawlers */
     font-family: var(--mono);
-    font-size: 0.78rem;
-    font-weight: 400;
-    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink);
 }
 
 /* ---------- Intro ---------- */
 
-.intro { padding: 6rem 0 5rem; border-top: 0; }
+.intro { padding: 3.5rem 0 2.5rem; border-top: 0; }
 
 .portrait {
     width: 4.5rem;
@@ -283,7 +281,7 @@ section h2 {
 .aka em { color: var(--ink); }
 
 .lede {
-    margin-top: 2rem;
+    margin-top: 1.25rem;
     font-size: 1.3rem;
     line-height: 1.5;
     color: var(--ink);
@@ -291,45 +289,8 @@ section h2 {
 
 .intro p + p { margin-top: 1rem; }
 
-.pull {
-    margin: 1.5rem 0;
-    padding-left: 1.25rem;
-    border-left: 2px solid var(--accent);
-}
-
-.pull p {
-    font-size: 1.3rem;
-    font-style: italic;
-    line-height: 1.45;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-}
-
-.pull cite {
-    display: block;
-    margin-top: 0.5rem;
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    font-style: normal;
-    color: var(--muted);
-}
-
-.pull cite::before { content: '\2014\00a0'; }
-
-.facts {
-    margin-top: 2.5rem;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.25rem;
-    border-top: 1px solid var(--line);
-    padding-top: 1.25rem;
-}
-
-.facts dt { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
-.facts dd { margin-top: 0.2rem; font-size: 1rem; color: var(--ink); line-height: 1.4; }
-
 .links {
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem 1.4rem;
@@ -342,8 +303,8 @@ section h2 {
 .links a:hover::after { color: var(--accent); }
 
 .open-to {
-    margin-top: 2.5rem;
-    display: inline-flex;
+    margin-top: 1.25rem;
+    display: flex;
     align-items: baseline;
     gap: 0.6rem;
     font-size: 1rem;
@@ -492,7 +453,7 @@ section h2 {
 .pub { padding: 1.25rem 0; }
 .pub + .pub { border-top: 1px solid var(--line); }
 .pub:first-child { padding-top: 0; }
-.pub[hidden] { display: none; }
+.pub[hidden] { display: none !important; }
 
 .pub h3 {
     font-size: 1.15rem;
@@ -563,9 +524,7 @@ main { position: relative; }
 }
 
 .cat-btn {
-    position: sticky;
-    top: 5.5rem;
-    margin-top: 6rem;
+    margin-top: 3.5rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -631,80 +590,6 @@ main { position: relative; }
     font-size: 1.15rem;
 }
 
-/* ---------- Tabs: one section at a time ---------- */
-
-.tabs main section { display: none; }
-.tabs main section.is-active {
-    display: grid;
-    border-top: 0;
-    min-height: calc(100vh - 3.75rem - 7rem);
-    align-content: start;
-    animation: tab-in 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes tab-in {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: none; }
-}
-
-.next-section {
-    grid-column: 2;
-    margin-top: 3rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--line);
-    font-family: var(--mono);
-    font-size: 0.8rem;
-}
-
-.next-section a { text-decoration: none; color: var(--ink); }
-.next-section a span { color: var(--accent); transition: margin-left 0.2s ease; }
-.next-section a:hover span { margin-left: 0.3rem; }
-
-html:not(.tabs) .next-section { display: none; }
-
-/* ---------- Blog: under construction ---------- */
-
-.wip {
-    display: grid;
-    grid-template-columns: 11rem minmax(0, 1fr);
-    gap: 2rem;
-    align-items: center;
-    padding: 2rem;
-    border: 1px dashed var(--line-strong, var(--faint));
-    border-radius: 8px;
-    background: var(--surface);
-}
-
-.wip-sign { width: 100%; height: auto; }
-
-.wip-light { animation: wip-blink 1.4s steps(2, jump-none) infinite; }
-
-@keyframes wip-blink {
-    0% { opacity: 1; }
-    100% { opacity: 0.25; }
-}
-
-.wip-tag {
-    display: inline-block;
-    margin-bottom: 0.6rem;
-    padding: 0.15rem 0.5rem;
-    border-radius: 3px;
-    background: #f4b400;
-    color: #1c1b19;
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-}
-
-.wip-title {
-    font-size: 1.4rem;
-    line-height: 1.3;
-    color: var(--ink);
-    margin-bottom: 0.5rem;
-}
-
 /* ---------- Motion ---------- */
 
 .js .reveal {
@@ -718,8 +603,7 @@ html:not(.tabs) .next-section { display: none; }
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .falling-cat { display: none; }
-    .wip-light { animation: none; }
-    .tabs main section.is-active { animation: none; }
+    .cat-btn.floating { animation: none; }
     .js .reveal { opacity: 1; transform: none; transition: none; }
 }
 
@@ -741,12 +625,6 @@ html:not(.tabs) .next-section { display: none; }
 
     .masthead nav::-webkit-scrollbar { display: none; }
 
-    .next-section { grid-column: 1; }
-
-    .wip { grid-template-columns: minmax(0, 1fr); padding: 1.5rem; }
-
-    .wip-sign { max-width: 11rem; }
-
     .row { grid-template-columns: minmax(0, 1fr); }
 
     .label { padding: 0 0 1.25rem; }
@@ -763,20 +641,7 @@ html:not(.tabs) .next-section { display: none; }
 
     .intro { padding-top: 1.5rem; }
 
-    .facts { grid-template-columns: minmax(0, 1fr); gap: 0.9rem; }
-
     footer { flex-direction: column; }
-}
-
-/* Keep the cat clear of the section label on every tab except About */
-.tabs main .cat-btn { margin-top: 8.5rem; }
-.tabs main:has(#about.is-active) .cat-btn { margin-top: 6rem; }
-
-@media (max-width: 760px) {
-    .tabs main .cat-btn,
-    .tabs main:has(#about.is-active) .cat-btn { margin-top: 0; }
-
-    .tabs main:not(:has(#about.is-active)) .cat-rail { display: none; }
 }
 
 /* Masthead: name left, tabs + theme toggle right */
@@ -786,4 +651,180 @@ html:not(.tabs) .next-section { display: none; }
     .masthead-inner { position: relative; }
     .masthead nav { margin-left: 0; }
     .theme-toggle { position: absolute; top: 0.55rem; right: 1rem; width: 1.9rem; height: 1.9rem; }
+}
+
+/* ============================================
+   Compact view (default) and detailed view (html.detailed)
+   ============================================ */
+
+/* Long-form prose stays readable even in the wider column */
+.intro p, .contact-body { max-width: 42rem; }
+
+html.js:not(.detailed) .only-detailed { display: none; }
+
+/* Items behind "View more" */
+html.js:not(.detailed) section:not(.expanded) .extra { display: none; }
+html:not(.js) .view-more,
+html:not(.js) .view-toggle,
+.detailed .view-more { display: none; }
+
+/* View toggle in the masthead */
+.view-toggle {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    height: 2.1rem;
+    padding: 0 0.65rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--ink-soft);
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.view-toggle:hover { color: var(--accent); border-color: var(--faint); background: var(--surface); }
+.view-toggle:active { transform: translateY(1px); }
+.view-toggle[aria-pressed="true"] { background: var(--accent-bg); border-color: var(--accent); color: var(--accent); }
+.view-toggle svg { width: 0.95rem; height: 0.95rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.masthead-inner { gap: 0.75rem; }
+.masthead nav { margin-right: 0.5rem; }
+
+/* One-line summary row for experience / education */
+.sum {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+html.js:not(.detailed) .sum { display: flex; }
+.sum-what { font-size: 1.05rem; color: var(--ink); }
+.sum-what b { font-weight: 600; }
+.sum-role { color: var(--muted); margin-left: 0.3rem; }
+.sum-kind {
+    margin-left: 0.4rem;
+    padding: 0.08rem 0.4rem;
+    border-radius: 3px;
+    background: var(--accent-bg);
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    vertical-align: 0.1em;
+}
+.sum-when { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
+.sum-where { color: var(--faint); }
+.sum:hover b { color: var(--accent); }
+
+/* In compact view, an entry's details stay hidden until its row is clicked */
+html.js:not(.detailed) .entry .full { display: none; }
+html.js:not(.detailed) .entry.open .full { display: block; margin-top: 0.35rem; }
+html.js:not(.detailed) .entry.open .full > .date,
+html.js:not(.detailed) .entry.open .full > h3 { display: none; }
+
+/* Experience / education: two columns of rows on wide screens */
+html.js:not(.detailed) .grid-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2.5rem;
+}
+html.js:not(.detailed) .exp-cols .entry,
+html.js:not(.detailed) .grid-list .entry { padding: 0.85rem 0; border-top: 1px solid var(--line); }
+html.js:not(.detailed) .exp-cols .entry.has-logo,
+html.js:not(.detailed) .grid-list .entry.has-logo { grid-template-columns: 2.25rem minmax(0, 1fr); column-gap: 0.8rem; align-items: center; }
+html.js:not(.detailed) .entry.has-logo.open { align-items: start; }
+html.js:not(.detailed) .exp-cols .logo,
+html.js:not(.detailed) .grid-list .logo { width: 2.25rem; height: 2.25rem; margin-top: 0; }
+
+/* News: date and text on one line, latest six only */
+html.js:not(.detailed) .news-list .entry {
+    display: grid;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    column-gap: 1rem;
+    padding: 0.55rem 0;
+}
+html.js:not(.detailed) .news-list .date { margin: 0; padding-top: 0.2rem; }
+html.js:not(.detailed) .news-list p { font-size: 1rem; }
+.view-more {
+    margin-top: 0.9rem;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--ink-soft);
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+.view-more:hover { color: var(--accent); border-color: var(--faint); }
+
+/* Publications: title, then authors and venue on one line */
+html.js:not(.detailed) .pub { padding: 0.8rem 0; }
+html.js:not(.detailed) .pub h3 { font-size: 1.05rem; }
+html.js:not(.detailed) .pub { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 1.5rem; }
+html.js:not(.detailed) .pub h3 { grid-column: 1; }
+html.js:not(.detailed) .pub .authors { grid-column: 1; margin-top: 0.15rem; font-size: 0.92rem; }
+html.js:not(.detailed) .pub .pub-meta { grid-column: 2; grid-row: 1 / span 2; margin-top: 0.2rem; align-self: start; }
+html.js:not(.detailed) .filters { margin-bottom: 0.75rem; }
+
+/* Experience: research on the left, work on the right (both views) */
+.exp-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2.5rem; }
+.col-head { padding-bottom: 0.5rem; font-size: 1.05rem; font-weight: 600; font-style: italic; color: var(--ink); }
+.exp-cols .entry:first-child { border-top: 1px solid var(--line); padding-top: 0.85rem; }
+
+/* Honors: two columns, no expanders */
+html.js:not(.detailed) .honors-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2.5rem;
+}
+html.js:not(.detailed) .honors-list .entry { padding: 0.7rem 0; border-top: 1px solid var(--line); }
+html.js:not(.detailed) .honors-list .entry h3 { font-size: 1rem; }
+html.js:not(.detailed) .honors-list .more { display: none; }
+
+@media (max-width: 760px) {
+    html.js:not(.detailed) .grid-list,
+    html.js:not(.detailed) .honors-list { grid-template-columns: minmax(0, 1fr); }
+    html.js:not(.detailed) .pub { grid-template-columns: minmax(0, 1fr); }
+    html.js:not(.detailed) .pub .pub-meta { grid-column: 1; grid-row: auto; margin-top: 0.4rem; }
+    .exp-cols { grid-template-columns: minmax(0, 1fr); row-gap: 1.75rem; }
+    .view-toggle { position: absolute; top: 0.55rem; right: 3.4rem; height: 1.9rem; }
+    .masthead nav { margin-right: 0; }
+}
+
+/* The cat: avatar in About, then follows along in the left gutter where there is room */
+@media (min-width: 1180px) {
+    .cat-btn.floating {
+        position: fixed;
+        left: calc((100vw - var(--rail) - var(--gap) - var(--col)) / 4);
+        bottom: 1.5rem;
+        margin: 0;
+        padding: 0;
+        transform: translateX(-50%);
+        background: none;
+        animation: cat-in 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cat-btn.floating .portrait { width: 3.25rem; height: 3.25rem; }
+    .cat-btn.floating .cat-hint { display: none; }
+}
+
+@keyframes cat-in { from { opacity: 0; } }
+
+/* The section rule already sits above these, so the first visible row needs none */
+html.js:not(.detailed) section:not(.expanded) .pub.extra + .pub:not(.extra) { border-top: 0; padding-top: 0; }
+html.js:not(.detailed) .grid-list .entry:first-child,
+html.js:not(.detailed) .honors-list .entry:first-child { border-top: 0; padding-top: 0; }
+
+@media (min-width: 761px) {
+    html.js:not(.detailed) .grid-list .entry:nth-child(2),
+    html.js:not(.detailed) .honors-list .entry:nth-child(2) { border-top: 0; padding-top: 0; }
 }
