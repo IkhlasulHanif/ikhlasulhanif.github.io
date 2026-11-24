@@ -198,7 +198,7 @@ p, li { text-wrap: pretty; }
     display: grid;
     grid-template-columns: minmax(0, 1fr) 15rem;
     column-gap: 4rem;
-    align-items: end;
+    align-items: center;
     padding: 3rem var(--gutter) 3.25rem;
     background: var(--band);
     color: var(--band-ink);
@@ -518,7 +518,7 @@ html.js:not(.detailed) .entry.open .full > h3 { display: none; }
     .theme-toggle { right: var(--gutter); width: 2.1rem; }
     .view-toggle { right: calc(var(--gutter) + 2.6rem); }
 
-    .intro { grid-template-columns: minmax(0, 1fr) 12rem; column-gap: 2.5rem; padding-block: 3rem; }
+    .intro { grid-template-columns: minmax(0, 1fr) 13.5rem; column-gap: 2.5rem; padding-block: 2.5rem; }
     :root { --rail: 8rem; --gap: 2rem; }
     .cols, .exp-cols, .grid-list, .honors-list { column-gap: 2rem; }
 }
