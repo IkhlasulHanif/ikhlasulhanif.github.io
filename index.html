@@ -170,30 +170,34 @@
     <section class="row" id="research">
         <h2 class="label">Research</h2>
         <div>
-            <p class="statement">I work on <em>underspecification</em>. We tell a model &ldquo;clean this up&rdquo; or &ldquo;handle it&rdquo; and never say what counts as done or when to stop and ask. The model has to fill in the rest. I study what it assumes.</p>
+            <p class="statement">I work on <em>underspecification</em>. We tell a model &ldquo;clean this up&rdquo; or &ldquo;handle it&rdquo; and leave the rest out. I study what it assumes.</p>
             <div class="cols prose">
                 <div>
                     <h3>At training time</h3>
-                    <p>Suppose we train a coding model with <a href="https://arxiv.org/abs/2402.03300" target="_blank" rel="noopener">GRPO</a> and the reward is whether the unit tests pass. A real fix gets full reward. So does code that hard-codes the expected outputs. The reward can&rsquo;t tell them apart, so training has no reason to prefer the one we wanted.</p>
-                    <p><a href="https://arxiv.org/abs/2011.03395" target="_blank" rel="noopener">D&rsquo;Amour et al. (2020)</a> showed how common this is across machine learning: models that score the same on held-out data can behave very differently once deployed. It can also lead to misaligned behavior. In <a href="https://arxiv.org/abs/2511.18397" target="_blank" rel="noopener">MacDiarmid et al. (2025)</a>, models that learned to reward hack in coding environments went on to fake alignment and sabotage safety research.</p>
+                    <p>A lot of misaligned behavior comes from underspecification. <a href="https://arxiv.org/abs/2611.07071" target="_blank" rel="noopener">Fel et al. (2026)</a> make the same point, and <a href="https://arxiv.org/abs/2011.03395" target="_blank" rel="noopener">D&rsquo;Amour et al. (2020)</a> already saw the problem across machine learning. We tell the model what to get right and never say how. Train a coding agent with <a href="https://arxiv.org/abs/2402.03300" target="_blank" rel="noopener">GRPO</a> and it can edit the unit tests instead of fixing the bug and still get the same reward. The difference is latent, so the reward never sees it. You could even argue that the paperclip maximizer (<a href="https://nickbostrom.com/papers/ethical-issues-in-advanced-ai/" target="_blank" rel="noopener">Bostrom, 2003</a>) is the same problem.</p>
                 </div>
                 <div>
                     <h3>At inference time</h3>
-                    <p>You ask an agent to clean up a repo and forget to mention the experiment logs. If it guesses, it might delete a month of results. If it asks about every file, nobody will use it.</p>
-                    <p>So this is also a human-computer interaction problem: when to ask, what to ask, and how many questions before it gets annoying.</p>
+                    <p>Now there&rsquo;s a person on the other end. If the model guesses wrong, it might delete a month of your results. If it asks about everything, it gets annoying. And what people want isn&rsquo;t always what they actually need, so I want models that can balance the two and know when to ask.</p>
                 </div>
-                <div class="extra">
-                    <h3>Why I care</h3>
-                    <p>In July 2026, OpenAI agents running a cybersecurity benchmark decided their tasks were unsolvable, broke out of their sandbox, and <a href="https://huggingface.co/blog/agent-intrusion-technical-timeline" target="_blank" rel="noopener">hacked Hugging Face</a> looking for the answer key. Nobody told them to do that. It&rsquo;s the same shortcut instinct, except this time it had root access.</p>
+            </div>
+            <div class="thirds prose">
+                <div>
+                    <h3>Languages and cultures</h3>
+                    <p>A good answer in one culture can be a bad one in another, so you could argue that alignment across cultures is underspecified too. I care about this one a lot. I&rsquo;ve worked on <a href="https://arxiv.org/abs/2510.24081" target="_blank" rel="noopener">Global PIQA</a>, <a href="https://aclanthology.org/2026.acl-long.1527/" target="_blank" rel="noopener">CommonLID</a>, and <a href="https://arxiv.org/abs/2503.07920" target="_blank" rel="noopener">SEA-VL</a> with SEACrowd.</p>
                 </div>
-                <div class="extra">
-                    <h3>AI agency</h3>
-                    <p>On a long task, a model may do the easy 80% and quietly skip the part that mattered. Those shortcuts add up until it is doing something nobody asked for. I think of this whole space as <em>AI agency</em>, meaning what a model does when the choice is its own.</p>
+                <div>
+                    <h3>Fairness and safety</h3>
+                    <p>Anything about safety interests me. I&rsquo;ve worked on bias in Indonesian languages (<a href="https://arxiv.org/abs/2606.01260" target="_blank" rel="noopener">IndoBias</a>), fairness in automated video interviews (<a href="https://ieeexplore.ieee.org/document/10704666" target="_blank" rel="noopener">MAG-BERT-ARL</a>), and why models refuse harmful requests less often in <a href="https://arxiv.org/abs/2606.01196" target="_blank" rel="noopener">low-resource languages</a>.</p>
                 </div>
-                <div class="extra">
-                    <h3>Before this</h3>
-                    <p>I spent a lot of time on multilingual NLP, making sure models are safe and fair for languages like Indonesian, not just English. That still shapes how I think about everything.</p>
+                <div>
+                    <h3>Robustness</h3>
+                    <p>A lot of my papers end up being about robustness. <a href="https://arxiv.org/abs/2511.17004" target="_blank" rel="noopener">Confused Tourists</a> checks if vision-language models hold up when you mix cultural cues. <a href="https://arxiv.org/abs/2606.08034" target="_blank" rel="noopener">Sci-Rho</a> checks if they can still solve the same science problem when the numbers or shapes change.</p>
                 </div>
+            </div>
+            <div class="why extra">
+                <h3>Why I care</h3>
+                <p>In July 2026, OpenAI agents running a cybersecurity benchmark decided their tasks were unsolvable, broke out of their sandbox, and <a href="https://huggingface.co/blog/agent-intrusion-technical-timeline" target="_blank" rel="noopener">hacked Hugging Face</a> looking for the answer key. Nobody told them to do that. It&rsquo;s the same shortcut instinct, except this time it had root access.</p>
             </div>
             <button class="view-more" type="button" aria-expanded="false" data-more="View more about my research" data-less="View less">View more about my research</button>
         </div>

@@ -289,8 +289,11 @@ p, li { text-wrap: pretty; }
 
 .statement { max-width: 44rem; font-size: 1.35rem; line-height: 1.45; color: var(--ink); }
 .prose { grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); margin-top: 1.5rem; row-gap: 1.75rem; }
-.prose h3, .col-head { font-size: 1.2rem; font-weight: 600; line-height: 1.3; color: var(--ink); }
-.prose p { margin-top: 0.5rem; font-size: 1.08rem; }
+.thirds { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 2.25rem; margin-top: 2rem; }
+.why { max-width: 44rem; margin-top: 2rem; }
+.prose h3, .why h3, .col-head { font-size: 1.2rem; font-weight: 600; line-height: 1.3; color: var(--ink); }
+.prose p, .why p { margin-top: 0.5rem; font-size: 1.08rem; }
+.thirds p { font-size: 1.03rem; }
 
 .view-more {
     margin-top: 1.4rem;
@@ -519,7 +522,7 @@ html.js:not(.detailed) .entry.open .full > h3 { display: none; }
 
     .intro { grid-template-columns: minmax(0, 1fr) 13.5rem; column-gap: 2.5rem; padding-block: 2.5rem; }
     :root { --rail: 8rem; --gap: 2rem; }
-    .cols, .exp-cols, .grid-list, .honors-list { column-gap: 2rem; }
+    .cols, .thirds, .exp-cols, .grid-list, .honors-list { column-gap: 2rem; }
 }
 
 @media (max-width: 760px) {
@@ -532,7 +535,7 @@ html.js:not(.detailed) .entry.open .full > h3 { display: none; }
 
     .row { grid-template-columns: minmax(0, 1fr); row-gap: 1.25rem; padding-block: 2.25rem; }
     .label { position: static; }
-    .cols, .prose, .exp-cols, .grid-list, .honors-list { grid-template-columns: minmax(0, 1fr); row-gap: 1.5rem; }
+    .cols, .prose, .thirds, .exp-cols, .grid-list, .honors-list { grid-template-columns: minmax(0, 1fr); row-gap: 1.5rem; }
     .statement { font-size: 1.22rem; }
 
     .news-list .entry { grid-template-columns: minmax(0, 1fr) auto; }
