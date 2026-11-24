@@ -8,8 +8,8 @@
     <meta name="description" content="Ikhlasul Akmal Hanif is an NLP researcher and Ph.D. student at MBZUAI working on AI agency: model behavior under underspecification, model laziness, robustness, and long-horizon alignment.">
     <meta name="author" content="Ikhlasul Akmal Hanif">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#164678" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f2a4d" media="(prefers-color-scheme: dark)">
 
     <link rel="canonical" href="https://ikhlasulhanif.github.io/">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="https://ikhlasulhanif.github.io/sitemap.xml">
@@ -40,7 +40,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
 
     <script>
@@ -119,9 +119,10 @@
 
 <header class="masthead">
     <div class="masthead-inner">
-        <a class="home" href="#about"><span class="home-dot" aria-hidden="true"></span>Ikhlasul Akmal Hanif</a>
+        <a class="home" href="#about">Ikhlasul Akmal Hanif</a>
         <nav aria-label="Sections">
             <a href="#about">About</a>
+            <a href="#research">Research</a>
             <a href="#news">News</a>
             <a href="#publications">Papers</a>
             <a href="#experience">Experience</a>
@@ -141,39 +142,21 @@
 
 <main id="main">
 
-    <div class="cat-rail">
-        <button class="cat-btn" type="button" aria-label="Release the cats">
-            <img class="portrait" src="/pop-cat.gif" alt="Avatar of Ikhlasul Akmal Hanif, a pop cat" width="72" height="72">
-            <span class="cat-hint">click me</span>
-        </button>
-    </div>
-
     <!-- ============ INTRO ============ -->
-    <section class="intro row" id="about" aria-labelledby="name">
-        <div class="label">
-        </div>
-        <div>
+    <section class="intro" id="about" aria-labelledby="name">
+        <div class="intro-text">
             <h1 id="name">Ikhlasul Akmal <em>Hanif</em></h1>
             <p class="aka">Indonesians usually don't have family names, so just call me <em>Hanif</em>.</p>
-
-            <p class="lede">Hi, I&rsquo;m Hanif, a PhD student at MBZUAI. I&rsquo;m lucky to be advised by Prof. Fajri Koto and Prof. Iryna Gurevych at <a href="https://www.kotolab-mbzuai.com" target="_blank" rel="noopener">KotoLab</a>. I&rsquo;m also still working online with <a href="https://isakzhang.github.io/group.html" target="_blank" rel="noopener">Wenxuan Zhang&rsquo;s group</a> at SUTD.</p>
-
-            <p class="para">Everybody gives AI models vague instructions. &ldquo;Clean this up.&rdquo; &ldquo;Handle it.&rdquo; Then we get annoyed when it cleans up the wrong thing. That&rsquo;s <em>underspecification</em> and it&rsquo;s what I work on.</p>
-
-            <p class="para"><span class="para-head">At training time.</span> The loss says what to get right. It doesn&rsquo;t say how. So the model finds some dumb way to get there and learns stuff nobody wanted, the loss looks great and now you have misaligned behavior.</p>
-
-            <p class="para"><span class="para-head">At inference time.</span> Now it&rsquo;s a human-computer interaction problem, there&rsquo;s a person on the other end. When should the model ask? Ask what? Too many questions and it&rsquo;s annoying. No questions and it deletes the wrong folder.</p>
-
-            <p class="para extra"><span class="para-head">Why I care.</span> July 2026. OpenAI agents running a cybersecurity benchmark decided their tasks were unsolvable, broke out of the sandbox and <a href="https://huggingface.co/blog/agent-intrusion-technical-timeline" target="_blank" rel="noopener">hacked Hugging Face</a> looking for the answer key. Nobody told them to. That&rsquo;s the shortcut instinct I study except this time it had root access.</p>
-
-            <p class="para extra"><span class="para-head">AI agency.</span> Models are lazy. They do the easy 80%, skip the part that mattered and don&rsquo;t tell you. On long tasks the small shortcuts pile up, sometimes all the way into misalignment. I call the whole thing <em>AI agency</em>, what a model does when the choice is its own.</p>
-
-            <p class="para extra"><span class="para-head">Before this.</span> A lot of multilingual NLP. Making models safe and fair for languages like Indonesian, not just English. I still think about everything that way.</p>
-
-            <button class="view-more" type="button" aria-expanded="false" data-more="View more about me" data-less="View less">View more about me</button>
-
-            <p class="open-to"><span class="dot" aria-hidden="true"></span>Open to research internships and collaborations.</p>
-
+            <p class="lede">Hi, I&rsquo;m Hanif, a PhD student at MBZUAI. I&rsquo;m lucky to be advised by Prof. Fajri Koto and Prof. Iryna Gurevych at <a href="https://www.kotolab-mbzuai.com" target="_blank" rel="noopener">KotoLab</a>. I&rsquo;m also still working with <a href="https://isakzhang.github.io/group.html" target="_blank" rel="noopener">Wenxuan Zhang&rsquo;s group</a> at SUTD.</p>
+        </div>
+        <div class="intro-side">
+            <div class="cat-slot">
+                <button class="cat-btn" type="button" aria-label="Release the cats">
+                    <img class="portrait" src="/pop-cat.gif" alt="Avatar of Ikhlasul Akmal Hanif, a pop cat" width="112" height="112">
+                    <span class="cat-hint">click me</span>
+                </button>
+            </div>
+            <p class="open-to">Open to research internships and collaborations.</p>
             <div class="links">
                 <a href="mailto:ikhlasul.hanif@mbzuai.ac.ae">Email</a>
                 <a href="https://github.com/IkhlasulHanif" target="_blank" rel="me noopener">GitHub</a>
@@ -183,58 +166,102 @@
         </div>
     </section>
 
+    <!-- ============ RESEARCH ============ -->
+    <section class="row" id="research">
+        <h2 class="label">Research</h2>
+        <div>
+            <p class="statement">I work on <em>underspecification</em>. We tell a model &ldquo;clean this up&rdquo; or &ldquo;handle it&rdquo; and never say what counts as done or when to stop and ask. The model has to fill in the rest. I study what it assumes.</p>
+            <div class="cols prose">
+                <div>
+                    <h3>At training time</h3>
+                    <p>Suppose we train a coding model with <a href="https://arxiv.org/abs/2402.03300" target="_blank" rel="noopener">GRPO</a> and the reward is whether the unit tests pass. A real fix gets full reward. So does code that hard-codes the expected outputs. The reward can&rsquo;t tell them apart, so training has no reason to prefer the one we wanted.</p>
+                    <p><a href="https://arxiv.org/abs/2011.03395" target="_blank" rel="noopener">D&rsquo;Amour et al. (2020)</a> showed how common this is across machine learning: models that score the same on held-out data can behave very differently once deployed. It can also lead to misaligned behavior. In <a href="https://arxiv.org/abs/2511.18397" target="_blank" rel="noopener">MacDiarmid et al. (2025)</a>, models that learned to reward hack in coding environments went on to fake alignment and sabotage safety research.</p>
+                </div>
+                <div>
+                    <h3>At inference time</h3>
+                    <p>You ask an agent to clean up a repo and forget to mention the experiment logs. If it guesses, it might delete a month of results. If it asks about every file, nobody will use it.</p>
+                    <p>So this is also a human-computer interaction problem: when to ask, what to ask, and how many questions before it gets annoying.</p>
+                </div>
+                <div class="extra">
+                    <h3>Why I care</h3>
+                    <p>In July 2026, OpenAI agents running a cybersecurity benchmark decided their tasks were unsolvable, broke out of their sandbox, and <a href="https://huggingface.co/blog/agent-intrusion-technical-timeline" target="_blank" rel="noopener">hacked Hugging Face</a> looking for the answer key. Nobody told them to do that. It&rsquo;s the same shortcut instinct, except this time it had root access.</p>
+                </div>
+                <div class="extra">
+                    <h3>AI agency</h3>
+                    <p>On a long task, a model may do the easy 80% and quietly skip the part that mattered. Those shortcuts add up until it is doing something nobody asked for. I think of this whole space as <em>AI agency</em>, meaning what a model does when the choice is its own.</p>
+                </div>
+                <div class="extra">
+                    <h3>Before this</h3>
+                    <p>I spent a lot of time on multilingual NLP, making sure models are safe and fair for languages like Indonesian, not just English. That still shapes how I think about everything.</p>
+                </div>
+            </div>
+            <button class="view-more" type="button" aria-expanded="false" data-more="View more about my research" data-less="View less">View more about my research</button>
+        </div>
+    </section>
+
     <!-- ============ NEWS ============ -->
     <section class="row" id="news">
         <h2 class="label">News</h2>
         <div>
         <ul class="entries news-list">
-            <li class="entry reveal">
+            <li class="entry">
+                <time class="date" datetime="2026-11">Nov 2026</time>
+                <p><em>IndoBias</em> was accepted to EACL 2027.</p>
+                <span class="place">See you in Athens <span class="flag" aria-hidden="true">🇬🇷</span></span>
+            </li>
+            <li class="entry">
                 <time class="date" datetime="2026-09">Sep 2026</time>
                 <p><em>Global PIQA</em> was accepted to NeurIPS 2026.</p>
+                <span class="place">See you in Sydney <span class="flag" aria-hidden="true">🇦🇺</span></span>
             </li>
-            <li class="entry reveal">
+            <li class="entry">
                 <time class="date" datetime="2026-08">Aug 2026</time>
                 <p><em>Low-Resource Safety Failures Are Action Failures, Not Representation Failures</em> was accepted to EMNLP 2026 (Findings).</p>
+                <span class="place">Budapest <span class="flag" aria-hidden="true">🇭🇺</span></span>
             </li>
-            <li class="entry reveal extra">
+            <li class="entry extra">
                 <time class="date" datetime="2026-06">Jun 2026</time>
                 <p>Two new preprints: <a href="https://arxiv.org/abs/2606.08034" target="_blank" rel="noopener"><em>Sci-Rho</em></a>, a multilingual visually-grounded symbolic STEM benchmark, and <a href="https://arxiv.org/abs/2606.08408" target="_blank" rel="noopener"><em>TimpaTeks</em></a>, in-place text modification by steering diffusion language models.</p>
             </li>
-            <li class="entry reveal extra">
+            <li class="entry extra">
                 <time class="date" datetime="2026-05">May 2026</time>
                 <p><a href="https://arxiv.org/abs/2606.01260" target="_blank" rel="noopener"><em>IndoBias</em></a>, a culturally grounded bias benchmark for Indonesian and local languages, is out on arXiv.</p>
             </li>
-            <li class="entry reveal extra">
+            <li class="entry extra">
                 <time class="date" datetime="2026-05">May 2026</time>
-                <p>Started as a visiting researcher at SUTD with <a href="https://isakzhang.github.io/group.html" target="_blank" rel="noopener">Wenxuan Zhang's group</a>.</p>
+                <p>Started as a visiting student at SUTD with <a href="https://isakzhang.github.io/group.html" target="_blank" rel="noopener">Wenxuan Zhang's group</a>.</p>
+                <span class="place">Singapore <span class="flag" aria-hidden="true">🇸🇬</span></span>
             </li>
-            <li class="entry reveal">
+            <li class="entry">
                 <time class="date" datetime="2026-04">Apr 2026</time>
                 <p><em>CommonLID</em> was accepted to ACL 2026.</p>
+                <span class="place">San Diego <span class="flag" aria-hidden="true">🇺🇸</span></span>
             </li>
-            <li class="entry reveal">
+            <li class="entry extra">
                 <time class="date" datetime="2026-04">Apr 2026</time>
                 <p><em>Vision Language Models are Confused Tourists</em> was accepted to CVPR 2026 (Findings).</p>
+                <span class="place">Denver <span class="flag" aria-hidden="true">🇺🇸</span></span>
             </li>
-            <li class="entry reveal extra">
+            <li class="entry extra">
                 <time class="date" datetime="2026-03">Mar 2026</time>
                 <p><a href="https://jiki.cs.ui.ac.id/index.php/jiki/article/view/1426" target="_blank" rel="noopener"><em>Automated Assignment of Community Reports With Early Fusion Multimodal Transformer</em></a> was published in JIKI.</p>
             </li>
-            <li class="entry reveal extra">
+            <li class="entry extra">
                 <time class="date" datetime="2025-12">Dec 2025</time>
                 <p><em>Vision Language Models are Confused Tourists</em> is out on <a href="https://arxiv.org/abs/2511.17004" target="_blank" rel="noopener">arXiv</a>.</p>
             </li>
-            <li class="entry reveal extra">
+            <li class="entry extra">
                 <time class="date" datetime="2025-11">Nov 2025</time>
                 <p>Officially working with Prof. Fajri Koto and Prof. Iryna Gurevych for my Ph.D.</p>
             </li>
-            <li class="entry reveal extra">
+            <li class="entry extra">
                 <time class="date" datetime="2025-10">Oct 2025</time>
                 <p><em>Global PIQA</em> is out on <a href="https://arxiv.org/abs/2510.24081" target="_blank" rel="noopener">arXiv</a>.</p>
             </li>
-            <li class="entry reveal extra">
+            <li class="entry extra">
                 <time class="date" datetime="2025-08">Aug 2025</time>
-                <p>Started my Ph.D. at MBZUAI in Abu Dhabi.</p>
+                <p>Started my Ph.D. at MBZUAI.</p>
+                <span class="place">Abu Dhabi <span class="flag" aria-hidden="true">🇦🇪</span></span>
             </li>
         </ul>
         <button class="view-more" type="button" aria-expanded="false" data-more="View more news" data-less="View less">View more news</button>
@@ -247,79 +274,79 @@
         <div>
             <div class="filters extra" role="group" aria-label="Filter publications">
                 <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All<span class="count">14</span></button>
-                <button class="filter-btn" type="button" data-filter="conference" aria-pressed="false">Conference<span class="count">6</span></button>
+                <button class="filter-btn" type="button" data-filter="conference" aria-pressed="false">Conference<span class="count">7</span></button>
                 <button class="filter-btn" type="button" data-filter="workshop" aria-pressed="false">Workshop<span class="count">3</span></button>
                 <button class="filter-btn" type="button" data-filter="journal" aria-pressed="false">Journal<span class="count">2</span></button>
-                <button class="filter-btn" type="button" data-filter="preprint" aria-pressed="false">Preprint<span class="count">3</span></button>
+                <button class="filter-btn" type="button" data-filter="preprint" aria-pressed="false">Preprint<span class="count">2</span></button>
             </div>
 
             <ol class="pubs">
-                <li class="pub reveal extra" data-category="conference">
+                <li class="pub" data-category="conference">
+                    <h3><a href="https://arxiv.org/abs/2606.01260" target="_blank" rel="noopener">IndoBias: A Dual Track Culturally Grounded Benchmark for LLMs Bias Evaluation in Indonesian Languages</a></h3>
+                    <p class="authors"><b>I.A. Hanif*</b>, M.F. Azmi*, F.A. Tjiaranata, E.P. Yulianrifat, F. Koto</p>
+                    <div class="pub-meta"><span class="tag venue">EACL</span><span class="tag">2027</span></div>
+                </li>
+                <li class="pub extra" data-category="conference">
                     <h3><a href="https://arxiv.org/abs/2606.01196" target="_blank" rel="noopener">Low-Resource Safety Failures Are Action Failures, Not Representation Failures</a></h3>
                     <p class="authors">R. Aziz, <b>I.A. Hanif</b>, F. Koto</p>
                     <div class="pub-meta"><span class="tag venue">EMNLP Findings</span><span class="tag">2026</span></div>
                 </li>
-                <li class="pub reveal extra" data-category="conference">
+                <li class="pub extra" data-category="conference">
                     <h3><a href="https://arxiv.org/abs/2510.24081" target="_blank" rel="noopener">Global PIQA: Evaluating Physical Commonsense Reasoning Across 100+ Languages and Cultures</a></h3>
                     <p class="authors">T.A. Chang, C. Arnett, A. Eldesokey, et al., <b>I.A. Hanif</b>, et al., D.I. Adelani</p>
                     <div class="pub-meta"><span class="tag venue">NeurIPS</span><span class="tag">2026</span></div>
                 </li>
-                <li class="pub reveal extra" data-category="conference">
+                <li class="pub extra" data-category="conference">
                     <h3><a href="https://aclanthology.org/2026.acl-long.1527/" target="_blank" rel="noopener">CommonLID: Re-evaluating State-of-the-Art Language Identification Performance on Web Data</a></h3>
                     <p class="authors">P.O. Suarez, L. Burchell, C. Arnett, et al., <b>I.A. Hanif</b>, et al., S.K.K. Luger</p>
                     <div class="pub-meta"><span class="tag venue">ACL</span><span class="tag">2026</span></div>
                 </li>
-                <li class="pub reveal extra" data-category="preprint">
+                <li class="pub extra" data-category="preprint">
                     <h3><a href="https://arxiv.org/abs/2606.08408" target="_blank" rel="noopener">TimpaTeks: Automatic In-place Text Sequence Modification via Diffusion Language Model Steering</a></h3>
                     <p class="authors">R. Diandaru, <b>I.A. Hanif</b>, F.A.A. Ghiffari, A. Elshabrawy, A.F. Aji</p>
                     <div class="pub-meta"><span class="tag venue">arXiv</span><span class="tag">2026</span></div>
                 </li>
-                <li class="pub reveal" data-category="preprint">
+                <li class="pub" data-category="preprint">
                     <h3><a href="https://arxiv.org/abs/2606.08034" target="_blank" rel="noopener">Sci-Rho: A Multilingual Visually-Grounded Symbolic Benchmark for STEM Problems</a></h3>
                     <p class="authors">M.F. Azmi*, <b>I.A. Hanif*</b>, V.A. Putra, A. Yeltay, A. Mubarak, F. Koto</p>
                     <div class="pub-meta"><span class="tag venue">arXiv</span><span class="tag">2026</span></div>
                 </li>
-                <li class="pub reveal" data-category="preprint">
-                    <h3><a href="https://arxiv.org/abs/2606.01260" target="_blank" rel="noopener">IndoBias: A Dual Track Culturally Grounded Benchmark for LLMs Bias Evaluation in Indonesian Languages</a></h3>
-                    <p class="authors"><b>I.A. Hanif*</b>, M.F. Azmi*, F.A. Tjiaranata, E.P. Yulianrifat, F. Koto</p>
-                    <div class="pub-meta"><span class="tag venue">arXiv</span><span class="tag">2026</span></div>
-                </li>
-                <li class="pub reveal extra" data-category="journal">
+                <li class="pub extra" data-category="journal">
                     <h3><a href="https://jiki.cs.ui.ac.id/index.php/jiki/article/view/1426" target="_blank" rel="noopener">Automated Assignment of Community Reports With Early Fusion Multimodal Transformer</a></h3>
                     <p class="authors"><b>I.A. Hanif</b>, E. Tjitrahardja, R.B. Naufal, L. Rahadianti</p>
                     <div class="pub-meta"><span class="tag venue">JIKI</span><span class="tag">2026</span></div>
                 </li>
-                <li class="pub reveal" data-category="conference">
+                <li class="pub" data-category="conference">
                     <h3><a href="https://arxiv.org/abs/2511.17004" target="_blank" rel="noopener">Vision Language Models are Confused Tourists</a></h3>
                     <p class="authors">P.A. Irawan*, <b>I.A. Hanif*</b>, M.D.A. Kautsar, G.I. Winata, F. Koto, A.F. Aji</p>
                     <div class="pub-meta"><span class="tag venue">CVPR Findings</span><span class="tag">2026</span></div>
                 </li>
-                <li class="pub reveal extra" data-category="conference">
+                <li class="pub extra" data-category="conference">
                     <h3><a href="https://arxiv.org/abs/2503.07920" target="_blank" rel="noopener">Crowdsource, Crawl, or Generate? Creating SEA-VL, a Multicultural Vision-Language Dataset for Southeast Asia</a></h3>
                     <p class="authors">S. Cahyawijaya, H. Lovenia, J.R.A. Moniz, et al., <b>I.A. Hanif</b>, et al., P. Limkonchotiwat</p>
                     <div class="pub-meta"><span class="tag venue">ACL</span><span class="tag">2025</span></div>
                 </li>
-                <li class="pub reveal extra" data-category="conference">
+                <li class="pub extra" data-category="conference">
                     <h3><a href="https://arxiv.org/abs/2508.11260" target="_blank" rel="noopener">UNVEILING: What Makes Linguistics Olympiad Puzzles Tricky for LLMs?</a></h3>
                     <p class="authors">M. Choudhary, K.A. Srivatsa, G. Aeron, A.R. Bhattacharya, D.K.D. Dinh, <b>I.A. Hanif</b>, D. Kotova, E. Kochmar, M. Choudhury</p>
                     <div class="pub-meta"><span class="tag venue">COLM</span><span class="tag">2025</span></div>
                 </li>
-                <li class="pub reveal" data-category="workshop">
+                <li class="pub" data-category="workshop">
                     <h3><a href="https://aclanthology.org/2025.semeval-1.279/" target="_blank" rel="noopener">University of Indonesia at SemEval-2025 Task 11: Evaluating State-of-the-Art Encoders for Multi-Label Emotion Detection</a></h3>
                     <p class="authors"><b>I.A. Hanif*</b>, E.P. Yulianrifat*, J.G. Ongris, E. Tjitrahardja, M.F. Azmi, R.B. Naufal, A.F. Wicaksono</p>
                     <div class="pub-meta"><span class="tag venue">SemEval @ ACL</span><span class="tag">2025</span></div>
                 </li>
-                <li class="pub reveal extra" data-category="workshop">
+                <li class="pub extra" data-category="workshop">
                     <h3><a href="https://aclanthology.org/2025.bea-1.97/" target="_blank" rel="noopener">Two Outliers at BEA 2025 Shared Task: Tutor Identity Classification using DiReC, a Two-Stage Disentangled Contrastive Representation</a></h3>
                     <p class="authors">E. Tjitrahardja*, <b>I.A. Hanif*</b></p>
                     <div class="pub-meta"><span class="tag venue">BEA @ ACL</span><span class="tag">2025</span></div>
                 </li>
-                <li class="pub reveal extra" data-category="workshop">
+                <li class="pub extra" data-category="workshop">
                     <h3><a href="https://aclanthology.org/2025.iwslt-1.26/" target="_blank" rel="noopener">BUINUS at IWSLT: Evaluating the Impact of Data Augmentation and QLoRA-based Fine-Tuning for Maltese to English Speech Translation</a></h3>
                     <p class="authors">F.A. Tjiaranata, V.A. Putra, E.P. Yulianrifat, <b>I.A. Hanif</b></p>
                     <div class="pub-meta"><span class="tag venue">IWSLT</span><span class="tag">2025</span></div>
                 </li>
-                <li class="pub reveal extra" data-category="journal">
+                <li class="pub extra" data-category="journal">
                     <h3><a href="https://ieeexplore.ieee.org/document/10704666" target="_blank" rel="noopener">MAG-BERT-ARL for Fair Automated Video Interview Assessment</a></h3>
                     <p class="authors">B. Putra, K. Azizah, C.O. Mawalim, <b>I.A. Hanif</b>, S. Sakti, C.W. Leong, S. Okada</p>
                     <div class="pub-meta"><span class="tag venue">IEEE Access</span><span class="tag">2024</span></div>
@@ -337,14 +364,14 @@
         <div>
         <h3 class="col-head">Research</h3>
         <ul class="entries">
-            <li class="entry has-logo reveal">
+            <li class="entry has-logo">
                 <img class="logo" src="/logos/sutd.png" alt="SUTD logo" width="40" height="40" loading="lazy">
                 <div class="entry-body">
-                <button class="sum" type="button" aria-expanded="false"><span class="sum-what"><b>SUTD</b> <span class="sum-role">Research collaborator</span> <span class="sum-kind">Remote</span></span><span class="sum-when">2026 - now <span class="sum-where">(Singapore)</span></span></button>
+                <button class="sum" type="button" aria-expanded="false"><span class="sum-what"><b>SUTD</b> <span class="sum-role">Visiting student</span></span><span class="sum-when">2026 - now <span class="sum-where">Singapore <span class="flag" aria-hidden="true">🇸🇬</span></span></span></button>
                 <div class="full">
                 <span class="date">May 2026 &ndash; Present</span>
-                <h3>Research Collaborator, remote <span class="org">&middot; <a href="https://isakzhang.github.io/group.html" target="_blank" rel="noopener">Singapore University of Technology and Design</a></span></h3>
-                <ul><li>Started as a visiting researcher in Wenxuan Zhang's group. The visit is over but our project is still going online.</li></ul>
+                <h3>Visiting Student <span class="org">&middot; <a href="https://isakzhang.github.io/group.html" target="_blank" rel="noopener">Singapore University of Technology and Design</a></span></h3>
+                <ul><li>Working with Wenxuan Zhang's group on NLP and large language models. The project is still ongoing.</li></ul>
                 <details class="more">
                     <summary>About SUTD</summary>
                     <div class="more-body">
@@ -355,10 +382,10 @@
                 </div>
                 </div>
             </li>
-            <li class="entry has-logo reveal">
+            <li class="entry has-logo">
                 <img class="logo" src="/logos/mbzuai.png" alt="MBZUAI logo" width="40" height="40" loading="lazy">
                 <div class="entry-body">
-                <button class="sum" type="button" aria-expanded="false"><span class="sum-what"><b>MBZUAI</b> <span class="sum-role">Research intern</span></span><span class="sum-when">Summer 2024 <span class="sum-where">(UAE)</span></span></button>
+                <button class="sum" type="button" aria-expanded="false"><span class="sum-what"><b>MBZUAI</b> <span class="sum-role">Research intern</span></span><span class="sum-when">Summer 2024 <span class="sum-where">UAE <span class="flag" aria-hidden="true">🇦🇪</span></span></span></button>
                 <div class="full">
                 <span class="date">May 2024 &ndash; Jun 2024</span>
                 <h3>Research Intern <span class="org">&middot; <a href="https://mbzuai.ac.ae/" target="_blank" rel="noopener">MBZUAI</a></span></h3>
@@ -372,10 +399,10 @@
                 </div>
                 </div>
             </li>
-            <li class="entry has-logo reveal">
+            <li class="entry has-logo">
                 <img class="logo" src="/logos/jaist.png" alt="JAIST logo" width="40" height="40" loading="lazy">
                 <div class="entry-body">
-                <button class="sum" type="button" aria-expanded="false"><span class="sum-what"><b>JAIST</b> <span class="sum-role">Research intern</span></span><span class="sum-when">Winter 2023 <span class="sum-where">(Japan)</span></span></button>
+                <button class="sum" type="button" aria-expanded="false"><span class="sum-what"><b>JAIST</b> <span class="sum-role">Research intern</span></span><span class="sum-when">Winter 2023 <span class="sum-where">Japan <span class="flag" aria-hidden="true">🇯🇵</span></span></span></button>
                 <div class="full">
                 <span class="date">Oct 2023 &ndash; Mar 2024</span>
                 <h3>Research Intern <span class="org">&middot; <a href="https://www.jaist.ac.jp/laboratory/aiw/okada.html" target="_blank" rel="noopener">JAIST</a></span></h3>
@@ -394,10 +421,10 @@
         <div>
         <h3 class="col-head">Work</h3>
         <ul class="entries">
-            <li class="entry has-logo reveal">
+            <li class="entry has-logo">
                 <span class="logo logo-mono" aria-hidden="true">F</span>
                 <div class="entry-body">
-                <button class="sum" type="button" aria-expanded="false"><span class="sum-what"><b>Fungsitama</b> <span class="sum-role">AI engineer</span> <span class="sum-kind">Full-time</span></span><span class="sum-when">Spring 2025 <span class="sum-where">(Indonesia)</span></span></button>
+                <button class="sum" type="button" aria-expanded="false"><span class="sum-what"><b>Fungsitama</b> <span class="sum-role">AI engineer</span> <span class="sum-kind">Full-time</span></span><span class="sum-when">Spring 2025 <span class="sum-where">Indonesia <span class="flag" aria-hidden="true">🇮🇩</span></span></span></button>
                 <div class="full">
                 <span class="date">Feb 2025 &ndash; Jul 2025</span>
                 <h3>AI Engineer <span class="org">&middot; <a href="https://fungsitama.com/" target="_blank" rel="noopener">PT. Fungsitama Cipta Teknologi</a></span></h3>
@@ -414,10 +441,10 @@
                 </div>
                 </div>
             </li>
-            <li class="entry has-logo reveal">
+            <li class="entry has-logo">
                 <img class="logo" src="/logos/kokocoder.png" alt="Kokocoder logo" width="40" height="40" loading="lazy">
                 <div class="entry-body">
-                <button class="sum" type="button" aria-expanded="false"><span class="sum-what"><b>Kokocoder</b> <span class="sum-role">AI coach</span> <span class="sum-kind">Part-time</span></span><span class="sum-when">Spring 2025 <span class="sum-where">(Indonesia)</span></span></button>
+                <button class="sum" type="button" aria-expanded="false"><span class="sum-what"><b>Kokocoder</b> <span class="sum-role">AI coach</span> <span class="sum-kind">Part-time</span></span><span class="sum-when">Spring 2025 <span class="sum-where">Indonesia <span class="flag" aria-hidden="true">🇮🇩</span></span></span></button>
                 <div class="full">
                 <span class="date">Feb 2025 &ndash; Jul 2025</span>
                 <h3>AI Coach <span class="org">&middot; <a href="https://kokocoder.com/" target="_blank" rel="noopener">Kokocoder Group</a></span></h3>
@@ -431,10 +458,10 @@
                 </div>
                 </div>
             </li>
-            <li class="entry has-logo reveal">
+            <li class="entry has-logo">
                 <img class="logo" src="/logos/mediakernels.png" alt="Media Kernels Indonesia logo" width="40" height="40" loading="lazy">
                 <div class="entry-body">
-                <button class="sum" type="button" aria-expanded="false"><span class="sum-what"><b>Media Kernels</b> <span class="sum-role">AI engineer intern</span></span><span class="sum-when">Fall 2024 <span class="sum-where">(Indonesia)</span></span></button>
+                <button class="sum" type="button" aria-expanded="false"><span class="sum-what"><b>Media Kernels</b> <span class="sum-role">AI engineer intern</span></span><span class="sum-when">Fall 2024 <span class="sum-where">Indonesia <span class="flag" aria-hidden="true">🇮🇩</span></span></span></button>
                 <div class="full">
                 <span class="date">Sep 2024 &ndash; Nov 2024</span>
                 <h3>AI Engineer Intern <span class="org">&middot; <a href="https://mediakernels.com/" target="_blank" rel="noopener">Media Kernels Indonesia</a></span></h3>
@@ -451,10 +478,10 @@
                 </div>
                 </div>
             </li>
-            <li class="entry has-logo reveal">
+            <li class="entry has-logo">
                 <img class="logo" src="/logos/ui.png" alt="Universitas Indonesia logo" width="40" height="40" loading="lazy">
                 <div class="entry-body">
-                <button class="sum" type="button" aria-expanded="false"><span class="sum-what"><b>Universitas Indonesia</b> <span class="sum-role">Teaching assistant</span></span><span class="sum-when">2022 - 2023 <span class="sum-where">(Indonesia)</span></span></button>
+                <button class="sum" type="button" aria-expanded="false"><span class="sum-what"><b>Universitas Indonesia</b> <span class="sum-role">Teaching assistant</span></span><span class="sum-when">2022 - 2023 <span class="sum-where">Indonesia <span class="flag" aria-hidden="true">🇮🇩</span></span></span></button>
                 <div class="full">
                 <span class="date">Jul 2022 &ndash; Dec 2023</span>
                 <h3>Teaching Assistant <span class="org">&middot; <a href="https://cs.ui.ac.id/" target="_blank" rel="noopener">Faculty of Computer Science, Universitas Indonesia</a></span></h3>
@@ -477,10 +504,10 @@
     <section class="row" id="education">
         <h2 class="label">Education</h2>
         <ul class="entries grid-list">
-            <li class="entry has-logo reveal">
+            <li class="entry has-logo">
                 <img class="logo" src="/logos/mbzuai.png" alt="MBZUAI logo" width="40" height="40" loading="lazy">
                 <div class="entry-body">
-                <button class="sum" type="button" aria-expanded="false"><span class="sum-what"><b>MBZUAI</b> <span class="sum-role">Ph.D., NLP</span></span><span class="sum-when">2025 - now <span class="sum-where">(UAE)</span></span></button>
+                <button class="sum" type="button" aria-expanded="false"><span class="sum-what"><b>MBZUAI</b> <span class="sum-role">Ph.D., NLP</span></span><span class="sum-when">2025 - now <span class="sum-where">UAE <span class="flag" aria-hidden="true">🇦🇪</span></span></span></button>
                 <div class="full">
                 <span class="date">2025 &ndash; Present</span>
                 <h3>Ph.D. in Natural Language Processing <span class="org">&middot; <a href="https://mbzuai.ac.ae/" target="_blank" rel="noopener">MBZUAI</a></span></h3>
@@ -494,10 +521,10 @@
                 </div>
                 </div>
             </li>
-            <li class="entry has-logo reveal">
+            <li class="entry has-logo">
                 <img class="logo" src="/logos/ui.png" alt="Universitas Indonesia logo" width="40" height="40" loading="lazy">
                 <div class="entry-body">
-                <button class="sum" type="button" aria-expanded="false"><span class="sum-what"><b>Universitas Indonesia</b> <span class="sum-role">B.Sc., Computer Science</span></span><span class="sum-when">2021 - 2025 <span class="sum-where">(Indonesia)</span></span></button>
+                <button class="sum" type="button" aria-expanded="false"><span class="sum-what"><b>Universitas Indonesia</b> <span class="sum-role">B.Sc., Computer Science</span></span><span class="sum-when">2021 - 2025 <span class="sum-where">Indonesia <span class="flag" aria-hidden="true">🇮🇩</span></span></span></button>
                 <div class="full">
                 <span class="date">2021 &ndash; 2025</span>
                 <h3>B.Sc. in Computer Science <span class="org">&middot; <a href="https://www.ui.ac.id/" target="_blank" rel="noopener">Universitas Indonesia</a></span></h3>
@@ -522,13 +549,13 @@
         <h2 class="label">Honors</h2>
         <div>
         <ul class="entries honors-list">
-            <li class="entry reveal">
+            <li class="entry">
                 <span class="date">2025 &middot; Grant</span>
-                <h3>OpenAI Microgrant, via MBZUAI <span class="org">&middot; USD 1,000</span></h3>
+                <h3>OpenAI Microgrant, via MBZUAI <span class="org">USD 1,000</span></h3>
             </li>
-            <li class="entry reveal">
+            <li class="entry">
                 <span class="date">Aug 2025 &middot; International</span>
-                <h3>3rd Place, BEA 2025 Shared Task on Tutor Identification <span class="org">&middot; ACL</span></h3>
+                <h3>3rd Place, BEA 2025 Shared Task on Tutor Identification <span class="org">ACL</span></h3>
                 <details class="more">
                     <summary>About the competition</summary>
                     <div class="more-body">
@@ -536,9 +563,9 @@
                     </div>
                 </details>
             </li>
-            <li class="entry reveal">
+            <li class="entry">
                 <span class="date">Sep 2024 &middot; National</span>
-                <h3>1st Place, Data Mining, Gemastik XVI <span class="org">&middot; Ministry of Education, Indonesia</span></h3>
+                <h3>1st Place, Data Mining, Gemastik XVI <span class="org">Ministry of Education, Indonesia</span></h3>
                 <details class="more">
                     <summary>About the competition</summary>
                     <div class="more-body">
@@ -546,9 +573,9 @@
                     </div>
                 </details>
             </li>
-            <li class="entry reveal">
+            <li class="entry">
                 <span class="date">Jul 2024 &middot; National</span>
-                <h3>2nd Place, Satria Data Big Data Challenge <span class="org">&middot; Ministry of Education, Indonesia</span></h3>
+                <h3>2nd Place, Satria Data Big Data Challenge <span class="org">Ministry of Education, Indonesia</span></h3>
                 <details class="more">
                     <summary>About the competition</summary>
                     <div class="more-body">
@@ -556,9 +583,9 @@
                     </div>
                 </details>
             </li>
-            <li class="entry reveal extra">
+            <li class="entry extra">
                 <span class="date">Jan 2024 &middot; Scholarship</span>
-                <h3>Sakura Science Program <span class="org">&middot; Japan Science and Technology Agency</span></h3>
+                <h3>Sakura Science Program <span class="org">Japan Science and Technology Agency</span></h3>
                 <details class="more">
                     <summary>About the program</summary>
                     <div class="more-body">
@@ -566,9 +593,9 @@
                     </div>
                 </details>
             </li>
-            <li class="entry reveal extra">
+            <li class="entry extra">
                 <span class="date">Jan 2024 &middot; National</span>
-                <h3>1st Place, Machine Learning Competition <span class="org">&middot; Telkom Institute of Technology Purwokerto</span></h3>
+                <h3>1st Place, Machine Learning Competition <span class="org">Telkom Institute of Technology Purwokerto</span></h3>
                 <details class="more">
                     <summary>About the competition</summary>
                     <div class="more-body">
@@ -576,9 +603,9 @@
                     </div>
                 </details>
             </li>
-            <li class="entry reveal extra">
+            <li class="entry extra">
                 <span class="date">Oct 2023 &middot; National</span>
-                <h3>1st Place, Data Competition <span class="org">&middot; Airlangga University</span></h3>
+                <h3>1st Place, Data Competition <span class="org">Airlangga University</span></h3>
                 <details class="more">
                     <summary>About the competition</summary>
                     <div class="more-body">
@@ -586,9 +613,9 @@
                     </div>
                 </details>
             </li>
-            <li class="entry reveal extra">
+            <li class="entry extra">
                 <span class="date">Oct 2023 &middot; National</span>
-                <h3>2nd Place, NLP Competition <span class="org">&middot; Intelligo</span></h3>
+                <h3>2nd Place, NLP Competition <span class="org">Intelligo</span></h3>
                 <details class="more">
                     <summary>About the competition</summary>
                     <div class="more-body">
@@ -596,9 +623,9 @@
                     </div>
                 </details>
             </li>
-            <li class="entry reveal extra">
+            <li class="entry extra">
                 <span class="date">Sep 2023 &middot; National</span>
-                <h3>Finalist, Data Mining, Gemastik XV <span class="org">&middot; Ministry of Education, Indonesia</span></h3>
+                <h3>Finalist, Data Mining, Gemastik XV <span class="org">Ministry of Education, Indonesia</span></h3>
                 <details class="more">
                     <summary>About the competition</summary>
                     <div class="more-body">
@@ -606,9 +633,9 @@
                     </div>
                 </details>
             </li>
-            <li class="entry reveal extra">
+            <li class="entry extra">
                 <span class="date">May 2023 &middot; National</span>
-                <h3>Finalist, Data Competition <span class="org">&middot; Gadjah Mada University</span></h3>
+                <h3>Finalist, Data Competition <span class="org">Gadjah Mada University</span></h3>
                 <details class="more">
                     <summary>About the competition</summary>
                     <div class="more-body">
@@ -616,9 +643,9 @@
                     </div>
                 </details>
             </li>
-            <li class="entry reveal extra">
+            <li class="entry extra">
                 <span class="date">Aug 2018 &middot; National</span>
-                <h3>1st Place, Programming Competition <span class="org">&middot; Pelita Harapan University</span></h3>
+                <h3>1st Place, Programming Competition <span class="org">Pelita Harapan University</span></h3>
                 <details class="more">
                     <summary>About the competition</summary>
                     <div class="more-body">
@@ -634,7 +661,7 @@
     <!-- ============ CONTACT ============ -->
     <section class="row" id="contact">
         <h2 class="label">Contact</h2>
-        <div class="reveal">
+        <div>
             <p class="contact-big">Have a research internship, a collaboration, or a problem worth working on together? Write to <a href="mailto:ikhlasul.hanif@mbzuai.ac.ae">ikhlasul.hanif@mbzuai.ac.ae</a>.</p>
             <div class="contact-body only-detailed">
                 <p>I especially enjoy conversations about AI agency, underspecification, model laziness, robustness, and long-horizon alignment.</p>
@@ -705,23 +732,6 @@
         mark('about');
     })();
 
-    // Gentle reveal on scroll (content is in the HTML regardless)
-    (function () {
-        var items = document.querySelectorAll('.reveal');
-        if (!('IntersectionObserver' in window)) {
-            items.forEach(function (el) { el.classList.add('in'); });
-            return;
-        }
-        var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (e) {
-                if (!e.isIntersecting) return;
-                e.target.classList.add('in');
-                io.unobserve(e.target);
-            });
-        }, { rootMargin: '0px 0px -8% 0px' });
-        items.forEach(function (el) { io.observe(el); });
-    })();
-
     // Pop cat: click to make it rain cats
     (function () {
         var btn = document.querySelector('.cat-btn');
@@ -764,7 +774,7 @@
             var next = current() === 'dark' ? 'light' : 'dark';
             btn.setAttribute('aria-label', 'Switch to ' + next + ' mode');
             var meta = document.querySelectorAll('meta[name="theme-color"]');
-            meta.forEach(function (m) { m.setAttribute('content', current() === 'dark' ? '#0b1220' : '#ffffff'); });
+            meta.forEach(function (m) { m.setAttribute('content', current() === 'dark' ? '#0f2a4d' : '#164678'); });
         }
         btn.addEventListener('click', function () {
             var next = current() === 'dark' ? 'light' : 'dark';
@@ -816,8 +826,8 @@
     // Local time
     (function () {
         var el = document.getElementById('local-time');
-        var fmt = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Singapore' });
-        function tick() { el.textContent = fmt.format(new Date()) + ' in Singapore'; }
+        var fmt = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Dubai' });
+        function tick() { el.textContent = fmt.format(new Date()) + ' in the UAE \uD83C\uDDE6\uD83C\uDDEA'; }
         tick();
         setInterval(tick, 60000);
     })();
