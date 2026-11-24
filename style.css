@@ -98,6 +98,8 @@ a:hover { color: var(--accent); text-decoration-color: currentColor; }
     font-size: 0.8rem;
 }
 
+.skip-link:hover { color: var(--bg); }
+
 .skip-link:focus { left: 0.5rem; z-index: 20; }
 
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
@@ -262,7 +264,7 @@ section h2 {
     font-family: var(--serif);
     font-weight: 400;
     font-size: clamp(2.6rem, 7vw, 4.25rem);
-    line-height: 1.02;
+    line-height: 1.08;
     letter-spacing: -0.03em;
     color: var(--ink);
 }
@@ -299,7 +301,7 @@ section h2 {
 }
 
 .links a { text-decoration: none; color: var(--ink); }
-.links a::after { content: ' \2197'; color: var(--faint); }
+.links a::after { content: ' \2197'; color: var(--muted); }
 .links a:hover::after { color: var(--accent); }
 
 .open-to {
@@ -419,8 +421,8 @@ section h2 {
 
 .more-body .src {
     font-family: var(--mono);
-    font-size: 0.7rem;
-    color: var(--faint);
+    font-size: 0.72rem;
+    color: var(--muted);
 }
 
 /* ---------- Publications ---------- */
@@ -542,8 +544,8 @@ main { position: relative; }
 
 .cat-hint {
     font-family: var(--mono);
-    font-size: 0.68rem;
-    color: var(--faint);
+    font-size: 0.72rem;
+    color: var(--muted);
     transition: opacity 0.3s ease;
 }
 
@@ -593,37 +595,23 @@ main { position: relative; }
 /* ---------- Motion ---------- */
 
 .js .reveal {
-    opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(8px);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.js .reveal.in { opacity: 1; transform: none; }
+.js .reveal.in { transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .falling-cat { display: none; }
     .cat-btn.floating { animation: none; }
-    .js .reveal { opacity: 1; transform: none; transition: none; }
+    .js .reveal { transform: none; transition: none; }
 }
 
 /* ---------- Small screens ---------- */
 
 @media (max-width: 760px) {
     :root { --gap: 0; }
-
-    .masthead-inner { flex-direction: column; align-items: stretch; gap: 0; padding: 0; min-height: 0; }
-
-    .masthead .home { padding: 0.8rem 1.25rem 0.4rem; }
-
-    .masthead nav {
-        overflow-x: auto;
-        scrollbar-width: none;
-        padding: 0 0.75rem;
-        min-height: 2.6rem;
-    }
-
-    .masthead nav::-webkit-scrollbar { display: none; }
 
     .row { grid-template-columns: minmax(0, 1fr); }
 
@@ -647,11 +635,6 @@ main { position: relative; }
 /* Masthead: name left, tabs + theme toggle right */
 .masthead nav { margin-left: auto; }
 
-@media (max-width: 760px) {
-    .masthead-inner { position: relative; }
-    .masthead nav { margin-left: 0; }
-    .theme-toggle { position: absolute; top: 0.55rem; right: 1rem; width: 1.9rem; height: 1.9rem; }
-}
 
 /* ============================================
    Compact view (default) and detailed view (html.detailed)
@@ -718,11 +701,11 @@ html.js:not(.detailed) .sum { display: flex; }
     background: var(--accent-bg);
     color: var(--accent);
     font-family: var(--mono);
-    font-size: 0.68rem;
+    font-size: 0.72rem;
     vertical-align: 0.1em;
 }
 .sum-when { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
-.sum-where { color: var(--faint); }
+.sum-where { color: var(--muted); }
 .sum:hover b { color: var(--accent); }
 
 /* In compact view, an entry's details stay hidden until its row is clicked */
@@ -797,8 +780,6 @@ html.js:not(.detailed) .honors-list .more { display: none; }
     html.js:not(.detailed) .pub { grid-template-columns: minmax(0, 1fr); }
     html.js:not(.detailed) .pub .pub-meta { grid-column: 1; grid-row: auto; margin-top: 0.4rem; }
     .exp-cols { grid-template-columns: minmax(0, 1fr); row-gap: 1.75rem; }
-    .view-toggle { position: absolute; top: 0.55rem; right: 3.4rem; height: 1.9rem; }
-    .masthead nav { margin-right: 0; }
 }
 
 /* The cat: avatar in About, then follows along in the left gutter where there is room */
@@ -827,4 +808,58 @@ html.js:not(.detailed) .honors-list .entry:first-child { border-top: 0; padding-
 @media (min-width: 761px) {
     html.js:not(.detailed) .grid-list .entry:nth-child(2),
     html.js:not(.detailed) .honors-list .entry:nth-child(2) { border-top: 0; padding-top: 0; }
+}
+
+/* Expandable rows show a + like the notes inside them */
+.sum { position: relative; padding-right: 1.6rem; }
+.sum::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 0.35rem;
+    display: grid;
+    place-items: center;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    line-height: 1;
+    color: var(--accent);
+}
+.sum[aria-expanded="true"]::after { content: '\2212'; }
+.sum:hover::after { border-color: var(--faint); }
+
+/* Comfortable targets */
+.view-more { min-height: 2.1rem; }
+.links a { padding: 0.35rem 0; }
+.masthead .home { min-height: 2.1rem; }
+
+.intro h1, .contact-big, .pub h3, .entry h3 { text-wrap: balance; }
+.intro p, .entry p, .entry li { text-wrap: pretty; }
+
+/* Name on one line, tabs on the next, when a single row cannot hold both */
+@media (max-width: 960px) {
+    .masthead-inner { flex-direction: column; align-items: stretch; gap: 0; padding: 0; min-height: 0; }
+    .masthead .home { padding: 0.8rem 1.25rem 0.4rem; }
+    .masthead nav {
+        overflow-x: auto;
+        scrollbar-width: none;
+        padding: 0 0.75rem;
+        min-height: 2.6rem;
+    }
+    .masthead nav::-webkit-scrollbar { display: none; }
+    .masthead-inner { position: relative; }
+    .masthead nav { margin: 0; }
+    .theme-toggle, .view-toggle { position: absolute; top: 0.55rem; height: 1.9rem; }
+    .theme-toggle { right: 1rem; width: 1.9rem; }
+    .view-toggle { right: 3.4rem; }
+}
+
+/* Rows in a pair line up at the top when one of them wraps */
+html.js:not(.detailed) .grid-list .entry.has-logo { align-items: start; }
+
+@media (max-width: 960px) {
+    .masthead .home { align-self: flex-start; }
 }
