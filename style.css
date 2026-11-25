@@ -99,7 +99,7 @@ a:hover { color: var(--accent); text-decoration-color: currentColor; }
 ::selection { background: var(--accent-bg); color: var(--ink); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
-h1, h2, h3 { text-wrap: balance; }
+h1, h2, h3, h4 { text-wrap: balance; }
 p, li { text-wrap: pretty; }
 
 .skip-link {
@@ -432,7 +432,7 @@ p, li { text-wrap: pretty; }
 .sum[aria-expanded="true"]::after, .more[open] summary::before { content: '\2212'; }
 .sum:hover::after, .more summary:hover::before { border-color: var(--accent); }
 
-.full h3, .honors-list h3 { font-size: 1.1rem; font-weight: 500; line-height: 1.35; color: var(--ink); }
+.full h3, .honors-list h3, .honors-list h4 { font-size: 1.1rem; font-weight: 500; line-height: 1.35; color: var(--ink); }
 .org { color: var(--muted); }
 .full ul { list-style: none; margin-top: 0.4rem; }
 .full li { font-size: 1.03rem; }
@@ -448,10 +448,13 @@ p, li { text-wrap: pretty; }
 /* ---------- Honors ---------- */
 
 .honors-list { row-gap: 1.25rem; }
+.exp-cols .honors-list { grid-template-columns: minmax(0, 1fr); }
+.exp-cols .honors-list .entry + .entry { margin-top: 0; }
+.sub-head { margin-top: 2rem; }
 .honors-list .date, .honors-list .org { display: block; }
 
 /* In the compact view an honor's details sit behind a + like the rows above */
-html.js:not(.detailed) .honors-list .entry { position: relative; padding-right: 2.25rem; }
+html.js:not(.detailed) .honors-list .entry:has(.more) { position: relative; padding-right: 2.25rem; }
 html.js:not(.detailed) .honors-list .more { margin-top: 0; }
 html.js:not(.detailed) .honors-list .more summary {
     position: absolute;
@@ -510,6 +513,12 @@ html.js:not(.detailed) .entry.open .full > h3 { display: none; }
 /* ---------- Narrower windows ---------- */
 
 @media (max-width: 1080px) {
+    .intro { grid-template-columns: minmax(0, 1fr) 13.5rem; column-gap: 2.5rem; padding-block: 2.5rem; }
+    :root { --rail: 8rem; --gap: 2rem; }
+    .cols, .thirds, .exp-cols, .grid-list, .honors-list { column-gap: 2rem; }
+}
+
+@media (max-width: 860px) {
     :root { --mast: 5.75rem; }
 
     .masthead-inner { position: relative; display: block; min-height: 0; padding: 0; }
@@ -519,10 +528,6 @@ html.js:not(.detailed) .entry.open .full > h3 { display: none; }
     .view-toggle, .theme-toggle { position: absolute; top: 0.45rem; height: 2.1rem; }
     .theme-toggle { right: var(--gutter); width: 2.1rem; }
     .view-toggle { right: calc(var(--gutter) + 2.6rem); }
-
-    .intro { grid-template-columns: minmax(0, 1fr) 13.5rem; column-gap: 2.5rem; padding-block: 2.5rem; }
-    :root { --rail: 8rem; --gap: 2rem; }
-    .cols, .thirds, .exp-cols, .grid-list, .honors-list { column-gap: 2rem; }
 }
 
 @media (max-width: 760px) {
@@ -537,6 +542,10 @@ html.js:not(.detailed) .entry.open .full > h3 { display: none; }
     .label { position: static; }
     .cols, .prose, .thirds, .exp-cols, .grid-list, .honors-list { grid-template-columns: minmax(0, 1fr); row-gap: 1.5rem; }
     .statement { font-size: 1.22rem; }
+    .sub-head { margin-top: 1.75rem; }
+
+    .masthead nav { padding-inline: calc(var(--gutter) - 0.4rem); }
+    .masthead nav a { padding: 0 0.4rem; font-size: 0.93rem; }
 
     .news-list .entry { grid-template-columns: minmax(0, 1fr) auto; }
     .news-list p { grid-column: 1 / -1; grid-row: 2; }
